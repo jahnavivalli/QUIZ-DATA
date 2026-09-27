@@ -1,4 +1,4 @@
-/* ---------- GENERAL PAGE ---------- */
+/* ---------- PAGE ---------- */
 
 body {
     margin: 0;
@@ -10,47 +10,76 @@ body {
     justify-content: center;
     align-items: center;
 
-    background-color: #f5efe6;
+    background: #f4eee4;
     color: #222;
 }
 
 
-/* ---------- MAIN CONTENT ---------- */
+/* ---------- MAIN CARD ---------- */
 
 main {
-    width: 90%;
-    max-width: 700px;
+    position: relative;
+
+    width: 85%;
+    max-width: 850px;
+
+    padding: 65px 60px;
 
     text-align: center;
 
-    background-color: white;
+    background: #fffdf9;
 
-    padding: 60px 40px;
+    border: 3px solid #222;
+    border-radius: 28px;
+
+    box-shadow: 12px 12px 0 #222;
+
+    overflow: hidden;
+}
+
+
+/* ---------- LITTLE TOP LABEL ---------- */
+
+main::before {
+    content: "MU STUDENT SPENDING STUDY";
+
+    display: inline-block;
+
+    margin-bottom: 25px;
+    padding: 8px 14px;
+
+    background: #ff7657;
+    color: white;
 
     border-radius: 20px;
 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
 
 /* ---------- TITLE ---------- */
 
 h1 {
-    margin: 0 0 20px;
+    margin: 0 auto 22px;
 
-    font-size: 42px;
-    line-height: 1.1;
+    max-width: 750px;
 
-    letter-spacing: 1px;
+    font-size: 48px;
+    line-height: 1.02;
+
+    letter-spacing: -2px;
+    font-weight: 900;
 }
 
 
 /* ---------- SUBTITLE ---------- */
 
 h2 {
-    margin-bottom: 35px;
+    margin: 0 0 35px;
 
-    font-size: 20px;
+    font-size: 21px;
     font-weight: normal;
 
     color: #666;
@@ -60,36 +89,38 @@ h2 {
 /* ---------- INTRO TEXT ---------- */
 
 p {
-    font-size: 18px;
-    line-height: 1.6;
+    margin: 10px 0;
 
-    margin: 8px 0;
+    font-size: 18px;
+    line-height: 1.5;
 }
 
 
-/* ---------- QUIZ BUTTON ---------- */
+/* ---------- BUTTON ---------- */
 
 button {
     margin-top: 35px;
 
-    padding: 16px 32px;
+    padding: 17px 34px;
 
-    border: none;
-    border-radius: 10px;
+    border: 3px solid #222;
+    border-radius: 12px;
 
-    background-color: #222;
+    background: #ff7657;
     color: white;
 
     font-size: 17px;
-    font-weight: bold;
+    font-weight: 800;
 
     cursor: pointer;
 
-    transition: transform 0.2s, opacity 0.2s;
+    box-shadow: 5px 5px 0 #222;
+
+    transition: all 0.15s ease;
 }
 
 
 button:hover {
-    transform: translateY(-3px);
-    opacity: 0.85;
+    transform: translate(3px, 3px);
+    box-shadow: 2px 2px 0 #222;
 }
