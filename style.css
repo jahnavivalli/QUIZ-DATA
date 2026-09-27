@@ -1,6 +1,16 @@
 /* =====================================================
-   PAGE
+   RESET
    ===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
 
 body {
 
@@ -8,117 +18,246 @@ body {
 
     min-height: 100vh;
 
-    font-family: Arial, sans-serif;
+    background: #08152f;
+
+    color: #f6f1e8;
+
+    font-family: "Manrope", sans-serif;
 
     display: flex;
 
     justify-content: center;
 
-    align-items: center;
+    align-items: flex-start;
 
-    background: #f4eee4;
-
-    color: #222;
+    padding: 40px 20px;
 }
 
 
 /* =====================================================
-   MAIN CARD
+   MAIN
    ===================================================== */
 
 main {
 
+    width: 100%;
+
+    max-width: 1000px;
+
+    background: #0d1d3d;
+
+    border: 1px solid rgba(246, 241, 232, 0.25);
+
+    padding: 75px 75px 90px;
+
     position: relative;
 
-    width: 85%;
-
-    max-width: 950px;
-
-    padding: 65px 60px;
-
-    margin: 40px 0;
-
-    text-align: center;
-
-    background: #fffdf9;
-
-    border: 3px solid #222;
-
-    border-radius: 28px;
-
-    box-shadow: 12px 12px 0 #222;
-
     overflow: hidden;
+
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.35);
+}
+
+
+/* subtle decorative circle */
+
+main::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 280px;
+
+    height: 280px;
+
+    border-radius: 50%;
+
+    background: rgba(165, 145, 255, 0.06);
+
+    top: -130px;
+
+    right: -100px;
+
+    pointer-events: none;
 }
 
 
 /* =====================================================
-   TOP LABEL
+   TYPOGRAPHY
    ===================================================== */
 
-main::before {
+h1,
+h2 {
 
-    content: "MU STUDENT SPENDING STUDY";
+    font-family: "DM Serif Display", serif;
 
-    display: inline-block;
+    font-weight: 400;
 
-    margin-bottom: 25px;
-
-    padding: 8px 14px;
-
-    background: #ff7657;
-
-    color: white;
-
-    border-radius: 20px;
-
-    font-size: 13px;
-
-    font-weight: bold;
-
-    letter-spacing: 1px;
 }
 
-
-/* =====================================================
-   HEADINGS
-   ===================================================== */
 
 h1 {
 
-    margin: 0 auto 22px;
+    font-size: clamp(48px, 7vw, 82px);
 
-    max-width: 800px;
-
-    font-size: 48px;
-
-    line-height: 1.02;
+    line-height: 0.96;
 
     letter-spacing: -2px;
 
-    font-weight: 900;
+    margin: 0 0 30px;
+
+}
+
+
+h1 em {
+
+    color: #b9a7ff;
+
+    font-style: italic;
 }
 
 
 h2 {
 
-    margin: 0 0 35px;
+    font-size: 34px;
 
-    font-size: 21px;
+    line-height: 1.05;
 
-    font-weight: normal;
-
-    color: #666;
+    margin: 0 0 18px;
 }
 
 
 p {
 
-    margin: 10px 0;
+    line-height: 1.65;
 
-    font-size: 18px;
+}
 
-    line-height: 1.5;
+
+strong {
+
+    font-weight: 800;
+}
+
+
+/* =====================================================
+   LABELS
+   ===================================================== */
+
+.eyebrow {
+
+    font-family: "Manrope", sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    color: #b9a7ff;
+
+    margin-bottom: 20px;
+}
+
+
+.small-caps {
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    font-weight: 800;
+
+    color: #91a0bd;
+
+    margin: 0 0 30px;
+}
+
+
+/* =====================================================
+   INTRO
+   ===================================================== */
+
+#intro-screen {
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 1;
+}
+
+
+.intro-number {
+
+    font-family: "DM Serif Display", serif;
+
+    font-size: 130px;
+
+    line-height: 0.7;
+
+    color: #b9a7ff;
+
+    opacity: 0.95;
+
+    margin-bottom: 25px;
+}
+
+
+#intro-screen h1 {
+
+    max-width: 850px;
+
+    margin-left: auto;
+
+    margin-right: auto;
+}
+
+
+.subtitle {
+
+    font-family: "DM Serif Text", serif;
+
+    font-size: 22px;
+
+    color: #c8cbd4;
+
+    margin: 0 auto 35px;
+}
+
+
+.intro-rule {
+
+    width: 80px;
+
+    height: 1px;
+
+    background: #b9a7ff;
+
+    margin: 0 auto 30px;
+}
+
+
+.intro-copy {
+
+    max-width: 650px;
+
+    margin: 0 auto;
+
+    color: #c7ccda;
+
+    font-size: 16px;
+}
+
+
+.footnote {
+
+    color: #72809d;
+
+    font-size: 11px;
+
+    margin-top: 25px;
 }
 
 
@@ -128,35 +267,78 @@ p {
 
 button {
 
-    margin-top: 35px;
-
-    padding: 17px 34px;
-
-    border: 3px solid #222;
-
-    border-radius: 12px;
-
-    background: #ff7657;
-
-    color: white;
-
-    font-size: 17px;
-
-    font-weight: 800;
+    font-family: "Manrope", sans-serif;
 
     cursor: pointer;
 
-    box-shadow: 5px 5px 0 #222;
-
-    transition: all 0.15s ease;
+    transition: 0.2s ease;
 }
 
 
-button:hover {
+.primary-button {
 
-    transform: translate(3px, 3px);
+    margin-top: 35px;
 
-    box-shadow: 2px 2px 0 #222;
+    padding: 17px 27px;
+
+    border: 1px solid #b9a7ff;
+
+    background: #b9a7ff;
+
+    color: #08152f;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    font-size: 13px;
+}
+
+
+.primary-button span,
+.secondary-button span {
+
+    margin-left: 20px;
+
+    font-size: 18px;
+}
+
+
+.primary-button:hover {
+
+    background: #d2c8ff;
+
+    transform: translateY(-3px);
+}
+
+
+.secondary-button {
+
+    margin-top: 35px;
+
+    padding: 17px 27px;
+
+    border: 1px solid #b9a7ff;
+
+    background: transparent;
+
+    color: #f6f1e8;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    font-size: 12px;
+}
+
+
+.secondary-button:hover {
+
+    background: #b9a7ff;
+
+    color: #08152f;
+
+    transform: translateY(-3px);
 }
 
 
@@ -166,103 +348,137 @@ button:hover {
 
 #quiz-screen {
 
-    width: 100%;
+    position: relative;
+
+    z-index: 1;
+}
+
+
+.quiz-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    border-bottom: 1px solid rgba(246, 241, 232, 0.18);
+
+    padding-bottom: 15px;
+
+    margin-bottom: 70px;
 }
 
 
 #progress {
 
-    font-size: 14px;
+    color: #b9a7ff;
 
-    font-weight: bold;
+    font-size: 11px;
 
-    color: #ff7657;
+    font-weight: 800;
 
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+}
 
-    margin-bottom: 25px;
+
+.quiz-label {
+
+    color: #71809d;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+.question-mark {
+
+    font-family: "DM Serif Display", serif;
+
+    font-size: 100px;
+
+    line-height: 0.6;
+
+    color: #b9a7ff;
+
+    opacity: 0.18;
+
+    margin-bottom: 20px;
 }
 
 
 #question {
 
-    font-size: 30px;
+    font-size: clamp(35px, 5vw, 58px);
 
-    line-height: 1.2;
+    max-width: 800px;
 
-    color: #222;
-
-    margin-bottom: 30px;
+    margin-bottom: 45px;
 }
 
 
 #answers {
 
-    display: flex;
+    display: grid;
 
-    flex-direction: column;
+    grid-template-columns: 1fr 1fr;
 
     gap: 12px;
-
-    width: 100%;
 }
 
 
 #answers button {
 
-    width: 100%;
-
-    margin: 0;
-
-    padding: 16px 20px;
-
-    background: white;
-
-    color: #222;
-
-    border: 2px solid #222;
-
-    border-radius: 12px;
-
-    box-shadow: none;
-
-    font-size: 16px;
-
-    font-weight: normal;
-
     text-align: left;
 
-    cursor: pointer;
+    min-height: 75px;
 
-    transition: all 0.15s ease;
+    padding: 18px 22px;
+
+    border: 1px solid rgba(246, 241, 232, 0.25);
+
+    background: #102449;
+
+    color: #f6f1e8;
+
+    font-size: 14px;
+
+    line-height: 1.4;
 }
 
 
 #answers button:hover {
 
-    background: #ff7657;
+    border-color: #b9a7ff;
 
-    color: white;
+    background: #172d59;
 
     transform: translateX(5px);
 }
 
 
+.quiz-footer {
+
+    color: #667693;
+
+    font-size: 11px;
+
+    margin-top: 35px;
+}
+
+
 /* =====================================================
-   RESULT
+   RESULTS
    ===================================================== */
 
-.result-label {
+#result-screen {
 
-    color: #ff7657;
+    position: relative;
 
-    font-size: 14px;
-
-    font-weight: bold;
-
-    letter-spacing: 1px;
-
-    margin-bottom: 12px;
+    z-index: 1;
 }
 
 
@@ -270,52 +486,98 @@ button:hover {
 
     max-width: 650px;
 
-    margin: 0 auto 25px;
+    color: #aeb7c9;
 
-    color: #666;
+    margin-bottom: 35px;
 }
 
 
 .match-box {
 
-    margin: 30px auto 50px;
+    padding: 40px;
 
-    padding: 30px;
+    border-top: 1px solid #b9a7ff;
 
-    max-width: 450px;
+    border-bottom: 1px solid rgba(246, 241, 232, 0.2);
 
-    border: 3px solid #222;
+    margin-bottom: 70px;
+}
 
-    border-radius: 20px;
 
-    background: #f4eee4;
+.match-small {
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    color: #75829d;
 }
 
 
 #match-percent {
 
-    font-size: 72px;
+    font-family: "DM Serif Display", serif;
 
-    line-height: 1;
+    font-size: 110px;
 
-    font-weight: 900;
+    line-height: 0.9;
 
-    color: #ff7657;
+    color: #b9a7ff;
+
+    margin: 15px 0;
 }
 
 
 #match-count {
 
-    margin-top: 15px;
+    color: #aeb7c9;
 
-    font-size: 16px;
-
-    color: #555;
+    font-size: 13px;
 }
 
 
 /* =====================================================
-   COMPARISON TABLE
+   SECTION HEADING
+   ===================================================== */
+
+.section-heading {
+
+    display: flex;
+
+    gap: 20px;
+
+    align-items: baseline;
+
+    border-bottom: 1px solid rgba(246, 241, 232, 0.15);
+
+    margin-bottom: 25px;
+}
+
+
+.section-heading span {
+
+    font-size: 11px;
+
+    color: #b9a7ff;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+.section-heading h2 {
+
+    font-size: 31px;
+
+    margin: 0 0 12px;
+}
+
+
+/* =====================================================
+   TABLE
    ===================================================== */
 
 .table-wrapper {
@@ -324,7 +586,7 @@ button:hover {
 
     overflow-x: auto;
 
-    margin-bottom: 50px;
+    margin-bottom: 65px;
 }
 
 
@@ -332,51 +594,57 @@ table {
 
     width: 100%;
 
+    min-width: 700px;
+
     border-collapse: collapse;
 
-    min-width: 650px;
-
-    font-size: 14px;
-
-    text-align: left;
+    font-size: 12px;
 }
 
 
 th {
 
-    padding: 15px;
+    text-align: left;
 
-    background: #222;
+    padding: 14px 12px;
 
-    color: white;
+    color: #7786a4;
 
-    font-weight: bold;
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+    border-bottom: 1px solid rgba(246, 241, 232, 0.25);
 }
 
 
 td {
 
-    padding: 15px;
+    padding: 18px 12px;
 
-    border-bottom: 2px solid #ddd;
+    border-bottom: 1px solid rgba(246, 241, 232, 0.1);
+
+    color: #d0d4df;
 
     vertical-align: top;
 }
 
 
-tr:nth-child(even) {
+tr:hover td {
 
-    background: #f7f4ef;
+    background: rgba(185, 167, 255, 0.035);
 }
 
 
 .match-yes {
 
-    color: #159447;
+    color: #b9a7ff;
 
-    font-size: 24px;
+    font-family: "DM Serif Display", serif;
 
-    font-weight: bold;
+    font-size: 23px;
 
     text-align: center;
 }
@@ -384,11 +652,11 @@ tr:nth-child(even) {
 
 .match-no {
 
-    color: #d94b4b;
+    color: #7e89a2;
 
-    font-size: 24px;
+    font-family: "DM Serif Display", serif;
 
-    font-weight: bold;
+    font-size: 23px;
 
     text-align: center;
 }
@@ -400,21 +668,19 @@ tr:nth-child(even) {
 
 .archetype-box {
 
-    margin: 30px 0;
+    border: 1px solid rgba(185, 167, 255, 0.45);
 
-    padding: 40px 25px;
+    background: rgba(185, 167, 255, 0.06);
 
-    border: 3px solid #222;
+    padding: 45px;
 
-    border-radius: 20px;
-
-    background: #fff5ed;
+    margin-bottom: 20px;
 }
 
 
 .archetype-box h1 {
 
-    font-size: 38px;
+    font-size: 50px;
 
     margin-bottom: 15px;
 }
@@ -422,315 +688,444 @@ tr:nth-child(even) {
 
 .archetype-box p:last-child {
 
-    max-width: 600px;
+    color: #b5bdcd;
 
-    margin: auto;
-
-    color: #555;
+    max-width: 650px;
 }
 
 
 /* =====================================================
-   DATA REVEAL
+   DATA INTRO
    ===================================================== */
 
 #data-screen {
 
-    width: 100%;
+    position: relative;
+
+    z-index: 1;
 }
 
 
-#data-screen > p:not(.result-label) {
+.data-intro-main {
+
+    color: #aeb7c9;
 
     max-width: 650px;
 
-    margin: 0 auto 30px;
-
-    color: #666;
+    margin-bottom: 70px;
 }
 
 
+/* =====================================================
+   DATA SECTION
+   ===================================================== */
+
 .data-section {
 
-    margin: 50px 0;
+    border-top: 1px solid rgba(246, 241, 232, 0.2);
 
-    padding: 32px;
+    padding: 45px 0 70px;
 
-    border: 2px solid #222;
+    margin-bottom: 20px;
+}
 
-    border-radius: 18px;
 
-    text-align: left;
+.data-header {
 
-    background: #fff;
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
 }
 
 
 .data-number {
 
-    font-size: 13px;
+    color: #b9a7ff;
 
-    font-weight: bold;
+    font-size: 10px;
 
-    color: #ff7657;
+    font-weight: 800;
 
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+}
 
-    margin-bottom: 12px;
+
+.data-tag {
+
+    color: #687793;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    font-weight: 800;
 }
 
 
 .data-section h2 {
 
-    color: #222;
+    font-size: 42px;
 
-    font-size: 22px;
-
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 
-.data-intro {
+.data-description {
 
-    color: #666;
-
-    margin-bottom: 25px;
-}
-
-
-.data-big-number {
-
-    font-size: 64px;
-
-    font-weight: 900;
-
-    line-height: 1;
-
-    margin: 25px 0 5px;
-}
-
-
-.data-highlight {
-
-    margin-bottom: 30px;
-}
-
-
-/* =====================================================
-   DATA BARS
-   ===================================================== */
-
-.data-bars {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 14px;
-}
-
-
-.bar-row {
-
-    display: grid;
-
-    grid-template-columns: 155px 1fr 35px;
-
-    align-items: center;
-
-    gap: 10px;
+    color: #9ea8bb;
 
     font-size: 14px;
-}
 
+    max-width: 650px;
 
-.bar {
-
-    height: 14px;
-
-    background: #eee;
-
-    border: 1px solid #222;
-
-    border-radius: 20px;
-
-    overflow: hidden;
-}
-
-
-.fill {
-
-    height: 100%;
-
-    background: #ff7657;
+    margin-bottom: 40px;
 }
 
 
 /* =====================================================
-   PERCENTAGE CARDS
+   BIG STAT
    ===================================================== */
 
-.percentage-cards {
-
-    display: grid;
-
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 12px;
-}
-
-
-.percentage-card {
-
-    padding: 22px;
-
-    border: 2px solid #222;
-
-    border-radius: 14px;
+.big-stat {
 
     display: flex;
 
-    flex-direction: column;
+    align-items: baseline;
 
-    gap: 7px;
+    gap: 18px;
+
+    margin-bottom: 40px;
 }
 
 
-.percentage-card strong {
+.big-stat strong {
 
-    font-size: 26px;
+    font-family: "DM Serif Display", serif;
+
+    font-size: 80px;
+
+    color: #b9a7ff;
+
+    line-height: 0.8;
 }
 
 
-.percentage-card span {
+.big-stat span {
 
-    color: #666;
-}
-
-
-.featured-card {
-
-    background: #fff0e8;
-
-    border-width: 3px;
-}
-
-
-.data-note-small {
-
-    margin-top: 25px;
-
-    padding: 15px;
-
-    background: #f4eee4;
-
-    border-radius: 10px;
+    color: #aeb7c9;
 
     font-size: 15px;
 }
 
 
 /* =====================================================
-   IMPULSE DATA
+   HORIZONTAL GRAPH
    ===================================================== */
 
-.impulse-display {
-
-    display: flex;
-
-    gap: 15px;
-
-    align-items: stretch;
-}
-
-
-.impulse-main {
-
-    flex: 1;
-
-    padding: 30px;
-
-    border: 3px solid #222;
-
-    border-radius: 16px;
+.graph {
 
     display: flex;
 
     flex-direction: column;
 
-    justify-content: center;
+    gap: 18px;
 }
 
 
-.impulse-main strong {
-
-    font-size: 48px;
-}
-
-
-.impulse-main span {
-
-    font-size: 21px;
-
-    margin-top: 5px;
-}
-
-
-.impulse-main small {
-
-    margin-top: 10px;
-
-    color: #ff7657;
-
-    font-weight: bold;
-}
-
-
-.impulse-small {
-
-    flex: 1;
+.graph-row {
 
     display: grid;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 180px 1fr 40px;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+.graph-label {
+
+    color: #c8cdd8;
+
+    font-size: 12px;
+}
+
+
+.graph-track {
+
+    height: 18px;
+
+    background: #14274d;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.graph-fill {
+
+    height: 100%;
+
+    background: #b9a7ff;
+}
+
+
+.graph-value {
+
+    color: #f6f1e8;
+
+    font-family: "DM Serif Display", serif;
+
+    font-size: 20px;
+}
+
+
+.graph-caption {
+
+    color: #687793;
+
+    font-size: 10px;
+
+    margin-top: 20px;
+}
+
+
+/* =====================================================
+   VERTICAL GRAPH
+   ===================================================== */
+
+.vertical-chart {
+
+    height: 330px;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: center;
+
+    gap: 45px;
+
+    border-bottom: 1px solid rgba(246, 241, 232, 0.2);
+
+    margin: 40px 0 30px;
+
+    padding: 0 30px;
+}
+
+
+.vertical-column {
+
+    width: 85px;
+
+    height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    align-items: center;
 
     gap: 10px;
 }
 
 
-.impulse-small div {
+.column-number {
 
-    padding: 15px;
+    font-family: "DM Serif Display", serif;
 
-    border: 2px solid #222;
+    font-size: 27px;
 
-    border-radius: 12px;
+    color: #9da7ba;
+}
+
+
+.column {
+
+    height: 220px;
+
+    width: 48px;
 
     display: flex;
 
-    flex-direction: column;
+    align-items: flex-end;
+
+    background: #14274d;
 }
 
 
-.impulse-small strong {
+.column-fill {
 
-    font-size: 20px;
+    width: 100%;
 
-    margin-bottom: 4px;
+    background: #6f80a2;
 }
 
 
-.impulse-small span {
+.column-fill.short {
+    height: 14%;
+}
 
-    color: #666;
+
+.column-fill.small {
+    height: 28%;
+}
+
+
+.column-fill.large {
+
+    height: 100%;
+
+    background: #b9a7ff;
+}
+
+
+.vertical-column span {
+
+    font-size: 10px;
+
+    color: #8490a7;
+
+    white-space: nowrap;
+}
+
+
+.vertical-column.featured span {
+
+    color: #b9a7ff;
+
+    font-weight: 800;
 }
 
 
 /* =====================================================
-   ₹1000 DATA
+   DATA CALLOUT
    ===================================================== */
 
-.thousand-result {
+.data-callout {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    border-left: 2px solid #b9a7ff;
+
+    padding: 20px 25px;
+
+    background: rgba(185, 167, 255, 0.05);
+}
+
+
+.data-callout strong {
+
+    font-family: "DM Serif Display", serif;
+
+    font-size: 38px;
+
+    color: #b9a7ff;
+
+    white-space: nowrap;
+}
+
+
+.data-callout span {
+
+    color: #aeb7c9;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   IMPULSE GRAPH
+   ===================================================== */
+
+.impulse-chart {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+
+.impulse-row {
+
+    display: grid;
+
+    grid-template-columns: 110px 1fr 70px;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+.impulse-row > span {
+
+    color: #b8bfce;
+
+    font-size: 12px;
+}
+
+
+.impulse-row strong {
+
+    color: #b8bfce;
+
+    font-size: 12px;
+
+    text-align: right;
+}
+
+
+.impulse-track {
+
+    height: 15px;
+
+    background: #14274d;
+}
+
+
+.impulse-track div {
+
+    height: 100%;
+
+    background: #6f80a2;
+}
+
+
+.impulse-row.highlighted span,
+.impulse-row.highlighted strong {
+
+    color: #b9a7ff;
+
+    font-weight: 800;
+}
+
+
+.impulse-row.highlighted .impulse-track div {
+
+    background: #b9a7ff;
+}
+
+
+/* =====================================================
+   ₹1000
+   ===================================================== */
+
+.thousand-chart {
 
     display: flex;
 
@@ -738,23 +1133,23 @@ tr:nth-child(even) {
 
     justify-content: center;
 
-    gap: 20px;
+    gap: 35px;
+
+    margin: 50px 0 35px;
 }
 
 
-.thousand-option {
+.money-result {
 
     flex: 1;
 
-    padding: 28px;
-
-    border: 3px solid #222;
-
-    border-radius: 16px;
-
     text-align: center;
 
-    background: #fff;
+    border: 1px solid rgba(185, 167, 255, 0.4);
+
+    padding: 35px 20px;
+
+    background: rgba(185, 167, 255, 0.05);
 }
 
 
@@ -762,77 +1157,125 @@ tr:nth-child(even) {
 
     font-size: 38px;
 
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 
-.thousand-option > strong {
+.money-result strong {
 
     display: block;
 
-    font-size: 38px;
+    font-family: "DM Serif Display", serif;
 
-    margin-bottom: 8px;
+    color: #b9a7ff;
+
+    font-size: 58px;
+
+    line-height: 0.9;
+
+    margin-bottom: 15px;
 }
 
 
-.thousand-option span {
+.money-result span {
 
-    line-height: 1.5;
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    color: #aeb7c9;
+
+    line-height: 1.6;
 }
 
 
-.tie {
+.versus {
 
-    font-weight: 900;
+    font-family: "DM Serif Display", serif;
 
-    font-size: 18px;
+    color: #697792;
+
+    font-size: 20px;
+}
+
+
+.other-results {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 30px;
+
+    flex-wrap: wrap;
+
+    color: #75829d;
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+    font-weight: 800;
 }
 
 
 /* =====================================================
-   FINAL DATA MESSAGE
+   FINAL
    ===================================================== */
 
 .data-final {
 
-    margin-top: 60px;
+    border-top: 1px solid rgba(246, 241, 232, 0.2);
 
-    padding: 50px 25px;
-
-    border-top: 3px solid #222;
+    padding-top: 70px;
 
     text-align: center;
+
+    max-width: 750px;
+
+    margin: 30px auto 0;
 }
 
 
 .data-final h2 {
 
-    font-size: 34px;
+    font-size: 48px;
 
-    line-height: 1.1;
-
-    color: #222;
+    margin-bottom: 30px;
 }
 
 
 .data-final p {
 
-    max-width: 650px;
+    color: #aeb7c9;
+
+    font-size: 14px;
+
+    max-width: 600px;
 
     margin: 15px auto;
-
-    color: #555;
 }
 
 
-.data-final strong {
+.final-stat {
 
-    display: block;
+    margin-top: 45px;
 
-    margin-top: 25px;
+    font-family: "DM Serif Display", serif;
 
-    font-size: 17px;
+    font-size: 32px;
+
+    line-height: 1.3;
+
+    color: #b9a7ff;
+}
+
+
+.final-stat em {
+
+    color: #f6f1e8;
 }
 
 
@@ -840,65 +1283,169 @@ tr:nth-child(even) {
    MOBILE
    ===================================================== */
 
-@media (max-width: 650px) {
+@media (max-width: 700px) {
+
+    body {
+
+        padding: 0;
+    }
+
 
     main {
 
-        width: 85%;
+        min-height: 100vh;
 
-        padding: 40px 25px;
+        padding: 50px 25px 70px;
 
-        margin: 20px 0;
+        border: none;
     }
 
 
     h1 {
 
-        font-size: 34px;
+        font-size: 48px;
+
+        letter-spacing: -1px;
     }
 
 
-    #question {
+    .intro-number {
 
-        font-size: 25px;
+        font-size: 100px;
     }
 
 
-    .bar-row {
-
-        grid-template-columns: 100px 1fr 25px;
-
-        font-size: 12px;
-    }
-
-
-    .percentage-cards {
+    #answers {
 
         grid-template-columns: 1fr;
     }
 
 
-    .impulse-display {
+    #question {
+
+        font-size: 39px;
+    }
+
+
+    .quiz-top {
+
+        margin-bottom: 50px;
+    }
+
+
+    #match-percent {
+
+        font-size: 85px;
+    }
+
+
+    .archetype-box {
+
+        padding: 30px 25px;
+    }
+
+
+    .archetype-box h1 {
+
+        font-size: 40px;
+    }
+
+
+    .data-section h2 {
+
+        font-size: 34px;
+    }
+
+
+    .graph-row {
+
+        grid-template-columns: 120px 1fr 30px;
+
+        gap: 8px;
+    }
+
+
+    .graph-label {
+
+        font-size: 10px;
+    }
+
+
+    .vertical-chart {
+
+        gap: 12px;
+
+        padding: 0;
+
+        height: 280px;
+    }
+
+
+    .vertical-column {
+
+        width: 65px;
+    }
+
+
+    .column {
+
+        width: 38px;
+
+        height: 180px;
+    }
+
+
+    .data-callout {
+
+        align-items: flex-start;
 
         flex-direction: column;
+
+        gap: 5px;
     }
 
 
-    .thousand-result {
+    .impulse-row {
 
-        flex-direction: column;
+        grid-template-columns: 80px 1fr 55px;
+
+        gap: 8px;
     }
 
 
-    .tie {
+    .thousand-chart {
 
-        transform: rotate(90deg);
+        gap: 10px;
     }
 
 
-    .data-big-number {
+    .money-result {
 
-        font-size: 50px;
+        padding: 25px 10px;
+    }
+
+
+    .money-result strong {
+
+        font-size: 42px;
+    }
+
+
+    .money-result span {
+
+        font-size: 9px;
+    }
+
+
+    .versus {
+
+        font-size: 14px;
+    }
+
+
+    .data-final h2 {
+
+        font-size: 38px;
     }
 
 }
