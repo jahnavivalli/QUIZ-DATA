@@ -1,797 +1,865 @@
-// =====================================================
-// QUIZ QUESTIONS
-// =====================================================
+/* =========================================
+   QUIZ DATA
+========================================= */
 
 const questions = [
 
-    // 0 — ARCHETYPE
+  /* -----------------------------------------
+     SURVEY QUESTION 1
+  ----------------------------------------- */
 
-    {
-        question:
-            "You see something you really want, but you weren't planning to buy it. What do you do?",
-
-        options: [
-            "Buy it 🤩.",
-            "Add it to my cart and think about it later.",
-            "Wait a few days and decide.",
-            "Check my balance first.",
-            "Forget about it."
-        ],
-
-        type: "archetype",
-
-        scores: [
-            { spender: 2, impulse: 2 },
-            { impulse: 1 },
-            { budgeter: 2 },
-            { saver: 2, budgeter: 1 },
-            { saver: 1 }
-        ]
-    },
+  {
+    type: "survey",
+    question: "What do you spend most of your money on?",
+    options: [
+      "Food",
+      "Entertainment",
+      "Personal care",
+      "Shopping",
+      "Transport",
+      "Academics"
+    ]
+  },
 
 
-    // 1 — SURVEY Q1
+  /* -----------------------------------------
+     ARCHETYPE QUESTION 1
+  ----------------------------------------- */
 
-    {
-        question:
-            "What do you spend most of your money on?",
-
-        options: [
-            "Food",
-            "Shopping",
-            "Entertainment",
-            "Transport",
-            "Personal care",
-            "Academics"
-        ],
-
-        type: "data"
-    },
+  {
+    type: "archetype",
+    question: "You see something you really want, but you weren't planning to buy it. What do you do?",
+    options: [
+      "Buy it",
+      "Add it to my cart",
+      "Wait and think about it",
+      "Check my balance first",
+      "Forget about it"
+    ]
+  },
 
 
-    // 2 — SURVEY Q2
+  /* -----------------------------------------
+     SURVEY QUESTION 2
+  ----------------------------------------- */
 
-    {
-        question:
-            "Roughly what percentage of your spending goes toward your main expense?",
-
-        options: [
-            "Less than 20%",
-            "20–40%",
-            "40–60%",
-            "More than 60%"
-        ],
-
-        type: "data"
-    },
-
-
-    // 3 — ARCHETYPE
-
-    {
-        question:
-            "When you get your monthly or weekly money, what do you usually do?",
-
-        options: [
-            "Spend in the moment and figure it out later 🤙.",
-            "Have a rough idea of where it'll go.",
-            "Immediately set some aside.",
-            "Spend but track all purchases.",
-            "It disappears and I don't know how 🤩."
-        ],
-
-        type: "archetype",
-
-        scores: [
-            { spender: 2, impulse: 1 },
-            { budgeter: 2 },
-            { saver: 2 },
-            { budgeter: 3 },
-            { mystery: 3 }
-        ]
-    },
+  {
+    type: "survey",
+    question: "Approximately what percentage of your spending goes toward your main expense?",
+    options: [
+      "Less than 20%",
+      "20–40%",
+      "40–60%",
+      "More than 60%"
+    ]
+  },
 
 
-    // 4 — SURVEY Q3
+  /* -----------------------------------------
+     ARCHETYPE QUESTION 2
+  ----------------------------------------- */
 
-    {
-        question:
-            "How often do you make impulse purchases?",
-
-        options: [
-            "Never",
-            "Rarely",
-            "Sometimes",
-            "Often",
-            "Very often"
-        ],
-
-        type: "data"
-    },
-
-
-    // 5 — SURVEY Q4
-
-    {
-        question:
-            "If you suddenly received ₹1,000, what would you most likely spend it on?",
-
-        options: [
-            "Food / eating out",
-            "Save it",
-            "Shopping",
-            "Entertainment",
-            "Other"
-        ],
-
-        type: "data"
-    },
+  {
+    type: "archetype",
+    question: "When you get your monthly or weekly money, what do you usually do?",
+    options: [
+      "Spend it as I go",
+      "Have a rough idea of what I'll spend",
+      "Set some aside first",
+      "Track all my purchases",
+      "Somehow the money just disappears"
+    ]
+  },
 
 
-    // 6 — ARCHETYPE
+  /* -----------------------------------------
+     SURVEY QUESTION 3
+  ----------------------------------------- */
 
-    {
-        question:
-            "You and your friends are going out, but the plan is getting expensive. You...",
-
-        options: [
-            "Still go. It's worth it.",
-            "Suggest somewhere cheaper.",
-            "Go but spend as little as possible.",
-            "Drop out of the plan.",
-            "Somehow convince everyone to do something else."
-        ],
-
-        type: "archetype",
-
-        scores: [
-            { social: 3, spender: 1 },
-            { budgeter: 2 },
-            { saver: 2 },
-            { saver: 2 },
-            { budgeter: 1, social: 1 }
-        ]
-    },
+  {
+    type: "survey",
+    question: "How often do you make impulse purchases?",
+    options: [
+      "Never",
+      "Rarely",
+      "Sometimes",
+      "Often",
+      "Very often"
+    ]
+  },
 
 
-    // 7 — ARCHETYPE
+  /* -----------------------------------------
+     ARCHETYPE QUESTION 3
+  ----------------------------------------- */
 
-    {
-        question:
-            "Which sentence sounds most like you?",
+  {
+    type: "archetype",
+    question: "You and your friends are going out, but the plan is getting expensive. You...",
+    options: [
+      "Still go",
+      "Suggest somewhere cheaper",
+      "Go but spend very little",
+      "Drop out",
+      "Convince everyone to do something else"
+    ]
+  },
 
-        options: [
-            "Money is meant to be spent.",
-            "I deserve a little treat.",
-            "I'll save what's left.",
-            "I should probably stop spending.",
-            "I have no idea where my money went."
-        ],
 
-        type: "archetype",
+  /* -----------------------------------------
+     SURVEY QUESTION 4
+  ----------------------------------------- */
 
-        scores: [
-            { spender: 3 },
-            { impulse: 3 },
-            { saver: 3 },
-            { impulse: 1, spender: 1 },
-            { mystery: 3 }
-        ]
-    }
+  {
+    type: "survey",
+    question: "If you suddenly received ₹1,000, what would you most likely spend it on?",
+    options: [
+      "Food / eating out",
+      "Save it",
+      "Shopping",
+      "Entertainment",
+      "Other"
+    ]
+  },
+
+
+  /* -----------------------------------------
+     ARCHETYPE QUESTION 4
+  ----------------------------------------- */
+
+  {
+    type: "archetype",
+    question: "Which sentence sounds most like you?",
+    options: [
+      "Money is meant to be spent.",
+      "I deserve a little treat.",
+      "I'll save what's left.",
+      "I should probably stop spending.",
+      "I have no idea where my money went."
+    ]
+  }
 
 ];
 
 
-// =====================================================
-// VARIABLES
-// =====================================================
+/* =========================================
+   STATE
+========================================= */
 
 let currentQuestion = 0;
 
-let answers = [];
+let userAnswers = [];
 
 let archetypeScores = {
+  saver: 0,
+  impulse: 0,
+  budgeter: 0,
+  social: 0,
+  spender: 0,
+  mystery: 0
+};
+
+
+/* =========================================
+   RESULT PHRASES
+========================================= */
+
+const archetypes = {
+
+  saver: {
+    title: "THE SAVER",
+
+    quote: "“A penny saved is a penny earned.”",
+
+    source: "— Benjamin Franklin"
+  },
+
+  budgeter: {
+    title: "THE BUDGETER",
+
+    quote: "“Failing to plan is planning to fail.”",
+
+    source: ""
+  },
+
+  social: {
+    title: "THE SOCIAL SPENDER",
+
+    quote: "“The more, the merrier.”",
+
+    source: ""
+  },
+
+  mystery: {
+    title: "THE MONEY MYSTERY",
+
+    quote: "“Where Is My Mind?”",
+
+    source: "— Pixies"
+  },
+
+  impulse: {
+    title: "THE IMPULSE SPENDER",
+
+    quote: "“Oops!... I did it again.”",
+
+    source: "— Britney Spears"
+  },
+
+  spender: {
+    title: "THE SPENDER",
+
+    quote: "“Money, money, money, must be funny, in a rich man's world.”",
+
+    source: "— ABBA"
+  }
+
+};
+
+
+/* =========================================
+   START QUIZ
+========================================= */
+
+function startQuiz() {
+
+  currentQuestion = 0;
+
+  userAnswers = [];
+
+  archetypeScores = {
     saver: 0,
     impulse: 0,
     budgeter: 0,
     social: 0,
     spender: 0,
     mystery: 0
-};
+  };
 
+  document.getElementById("intro").classList.add("hidden");
 
-// =====================================================
-// START
-// =====================================================
+  document.getElementById("quiz").classList.remove("hidden");
 
-function startQuiz() {
-
-    currentQuestion = 0;
-
-    answers = [];
-
-    archetypeScores = {
-        saver: 0,
-        impulse: 0,
-        budgeter: 0,
-        social: 0,
-        spender: 0,
-        mystery: 0
-    };
-
-
-    document.getElementById("intro-screen").style.display = "none";
-
-    document.getElementById("result-screen").style.display = "none";
-
-    document.getElementById("data-screen").style.display = "none";
-
-    document.getElementById("quiz-screen").style.display = "block";
-
-
-    window.scrollTo(0, 0);
-
-
-    showQuestion();
+  showQuestion();
 
 }
 
 
-// =====================================================
-// SHOW QUESTION
-// =====================================================
+/* =========================================
+   SHOW QUESTION
+========================================= */
 
 function showQuestion() {
 
-    const questionData =
-        questions[currentQuestion];
+  const question = questions[currentQuestion];
+
+  const questionText =
+    document.getElementById("question-text");
+
+  const optionsContainer =
+    document.getElementById("answer-options");
+
+  const progressBar =
+    document.getElementById("progress-bar");
 
 
-    document.getElementById("progress").textContent =
-        `${currentQuestion + 1} / ${questions.length}`;
+  questionText.textContent = question.question;
+
+  optionsContainer.innerHTML = "";
 
 
-    document.getElementById("question-number").textContent =
-        String(currentQuestion + 1);
+  question.options.forEach((option, index) => {
+
+    const button =
+      document.createElement("button");
+
+    button.className = "answer-button";
+
+    button.innerHTML = `
+      <span class="answer-number">
+        ${String(index + 1).padStart(2, "0")}
+      </span>
+
+      <span class="answer-text">
+        ${option}
+      </span>
+    `;
+
+    button.onclick = () => {
+      selectAnswer(index);
+    };
+
+    optionsContainer.appendChild(button);
+
+  });
 
 
-    document.getElementById("question").textContent =
-        questionData.question;
+  const progress =
+    ((currentQuestion + 1) / questions.length) * 100;
 
-
-    const answersContainer =
-        document.getElementById("answers");
-
-
-    answersContainer.innerHTML = "";
-
-
-    questionData.options.forEach(
-        function(option, index) {
-
-            const button =
-                document.createElement("button");
-
-
-            button.textContent = option;
-
-
-            button.onclick =
-                function() {
-
-                    selectAnswer(index);
-
-                };
-
-
-            answersContainer.appendChild(button);
-
-        }
-    );
+  progressBar.style.width = `${progress}%`;
 
 }
 
 
-// =====================================================
-// SELECT ANSWER
-// =====================================================
+/* =========================================
+   SELECT ANSWER
+========================================= */
 
 function selectAnswer(index) {
 
-    const questionData =
-        questions[currentQuestion];
+  const question = questions[currentQuestion];
+
+  userAnswers[currentQuestion] = {
+    questionType: question.type,
+    answerIndex: index,
+    answerText: question.options[index]
+  };
 
 
-    answers.push({
+  if (question.type === "archetype") {
 
-        question: currentQuestion,
+    scoreArchetype(currentQuestion, index);
 
-        answer: index
-
-    });
+  }
 
 
-    if (
-        questionData.type === "archetype"
-    ) {
-
-        const selectedScores =
-            questionData.scores[index];
+  currentQuestion++;
 
 
-        for (
-            const archetype in selectedScores
-        ) {
+  if (currentQuestion < questions.length) {
 
-            archetypeScores[archetype] +=
-                selectedScores[archetype];
+    showQuestion();
 
-        }
+  } else {
 
-    }
+    finishQuiz();
 
-
-    currentQuestion++;
-
-
-    if (
-        currentQuestion <
-        questions.length
-    ) {
-
-        showQuestion();
-
-    } else {
-
-        finishQuiz();
-
-    }
+  }
 
 }
 
 
-// =====================================================
-// FINISH
-// =====================================================
+/* =========================================
+   ARCHETYPE SCORING
+========================================= */
+
+function scoreArchetype(questionIndex, answerIndex) {
+
+  /*
+    Archetype questions are at positions:
+    1, 3, 5, 7
+  */
+
+
+  if (questionIndex === 1) {
+
+    switch (answerIndex) {
+
+      case 0:
+        archetypeScores.spender += 2;
+        archetypeScores.impulse += 2;
+        break;
+
+      case 1:
+        archetypeScores.impulse += 1;
+        break;
+
+      case 2:
+        archetypeScores.budgeter += 2;
+        break;
+
+      case 3:
+        archetypeScores.saver += 2;
+        archetypeScores.budgeter += 1;
+        break;
+
+      case 4:
+        archetypeScores.saver += 1;
+        break;
+
+    }
+
+  }
+
+
+  if (questionIndex === 3) {
+
+    switch (answerIndex) {
+
+      case 0:
+        archetypeScores.spender += 2;
+        archetypeScores.impulse += 1;
+        break;
+
+      case 1:
+        archetypeScores.budgeter += 2;
+        break;
+
+      case 2:
+        archetypeScores.saver += 2;
+        break;
+
+      case 3:
+        archetypeScores.budgeter += 3;
+        break;
+
+      case 4:
+        archetypeScores.mystery += 3;
+        break;
+
+    }
+
+  }
+
+
+  if (questionIndex === 5) {
+
+    switch (answerIndex) {
+
+      case 0:
+        archetypeScores.social += 3;
+        archetypeScores.spender += 1;
+        break;
+
+      case 1:
+        archetypeScores.budgeter += 2;
+        break;
+
+      case 2:
+        archetypeScores.saver += 2;
+        break;
+
+      case 3:
+        archetypeScores.saver += 2;
+        break;
+
+      case 4:
+        archetypeScores.budgeter += 1;
+        archetypeScores.social += 1;
+        break;
+
+    }
+
+  }
+
+
+  if (questionIndex === 7) {
+
+    switch (answerIndex) {
+
+      case 0:
+        archetypeScores.spender += 3;
+        break;
+
+      case 1:
+        archetypeScores.impulse += 3;
+        break;
+
+      case 2:
+        archetypeScores.saver += 3;
+        break;
+
+      case 3:
+        archetypeScores.impulse += 1;
+        archetypeScores.spender += 1;
+        break;
+
+      case 4:
+        archetypeScores.mystery += 3;
+        break;
+
+    }
+
+  }
+
+}
+
+
+/* =========================================
+   FINISH QUIZ
+========================================= */
 
 function finishQuiz() {
 
-    document.getElementById("quiz-screen").style.display = "none";
-
-    document.getElementById("result-screen").style.display = "block";
-
-
+  const matchData =
     calculateMatch();
 
+  const archetype =
     calculateArchetype();
 
 
-    window.scrollTo(0, 0);
+  document.getElementById("quiz")
+    .classList.add("hidden");
+
+  document.getElementById("results")
+    .classList.remove("hidden");
+
+
+  displayArchetype(archetype);
+
+  displayMatch(matchData);
+
+  createComparisonTable(matchData);
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
 
 }
 
 
-// =====================================================
-// GET ANSWER
-// =====================================================
-
-function getUserAnswer(questionIndex) {
-
-    const answer =
-        answers.find(
-            a => a.question === questionIndex
-        );
-
-
-    return questions[questionIndex]
-        .options[answer.answer];
-
-}
-
-
-// =====================================================
-// CALCULATE MATCH
-// =====================================================
+/* =========================================
+   CALCULATE MU MATCH
+========================================= */
 
 function calculateMatch() {
 
-    let matched = 0;
+  let matched = 0;
 
-    const surveyResults = [];
 
+  /*
+    Q1:
+    Food / eating out = 16 / 17
+  */
 
-    // Q1
+  const q1 = userAnswers[0];
 
-    const q1Answer =
-        getUserAnswer(1);
+  if (
+    q1 &&
+    q1.answerText === "Food"
+  ) {
 
+    matched++;
 
-    const q1Match =
-        q1Answer === "Food";
+  }
 
 
-    if (q1Match) {
+  /*
+    Q2:
+    40–60% and More than 60% are tied
+    at 7 / 17 each.
+  */
 
-        matched++;
+  const q2 = userAnswers[2];
 
-    }
+  if (
+    q2 &&
+    (
+      q2.answerText === "40–60%" ||
+      q2.answerText === "More than 60%"
+    )
+  ) {
 
+    matched++;
 
-    surveyResults.push({
+  }
 
-        question:
-            "What do you spend most of your money on?",
 
-        user:
-            q1Answer,
+  /*
+    Q3:
+    Rarely = 35.3%
+  */
 
-        majority:
-            "Food / eating out — 16 / 17",
+  const q3 = userAnswers[4];
 
-        match:
-            q1Match
+  if (
+    q3 &&
+    q3.answerText === "Rarely"
+  ) {
 
-    });
+    matched++;
 
+  }
 
-    // Q2
 
-    const q2Answer =
-        getUserAnswer(2);
+  /*
+    Q4:
+    Food / eating out AND Save it
+    are tied at 35.3%.
+  */
 
+  const q4 = userAnswers[6];
 
-    const q2Match =
-        q2Answer === "40–60%" ||
-        q2Answer === "More than 60%";
+  if (
+    q4 &&
+    (
+      q4.answerText === "Food / eating out" ||
+      q4.answerText === "Save it"
+    )
+  ) {
 
+    matched++;
 
-    if (q2Match) {
+  }
 
-        matched++;
 
-    }
+  const percentage =
+    Math.round((matched / 4) * 100);
 
 
-    surveyResults.push({
-
-        question:
-            "What percentage goes toward your main expense?",
-
-        user:
-            q2Answer,
-
-        majority:
-            "40–60% OR more than 60% — 7 / 17 each",
-
-        match:
-            q2Match
-
-    });
-
-
-    // Q3
-
-    const q3Answer =
-        getUserAnswer(4);
-
-
-    const q3Match =
-        q3Answer === "Rarely";
-
-
-    if (q3Match) {
-
-        matched++;
-
-    }
-
-
-    surveyResults.push({
-
-        question:
-            "How often do you make impulse purchases?",
-
-        user:
-            q3Answer,
-
-        majority:
-            "Rarely — 35.3%",
-
-        match:
-            q3Match
-
-    });
-
-
-    // Q4
-
-    const q4Answer =
-        getUserAnswer(5);
-
-
-    const q4Match =
-        q4Answer === "Food / eating out" ||
-        q4Answer === "Save it";
-
-
-    if (q4Match) {
-
-        matched++;
-
-    }
-
-
-    surveyResults.push({
-
-        question:
-            "What would you do with ₹1,000?",
-
-        user:
-            q4Answer,
-
-        majority:
-            "Food OR save it — 35.3% each",
-
-        match:
-            q4Match
-
-    });
-
-
-    // SCORE
-
-    const percentage =
-        Math.round(
-            (matched / 4) * 100
-        );
-
-
-    document.getElementById("match-percent")
-        .textContent =
-        percentage + "%";
-
-
-    document.getElementById("match-count")
-        .textContent =
-        `${matched} out of 4 survey questions matched the most common response.`;
-
-
-    createComparisonTable(
-        surveyResults
-    );
+  return {
+    matched,
+    total: 4,
+    percentage
+  };
 
 }
 
 
-// =====================================================
-// COMPARISON TABLE
-// =====================================================
-
-function createComparisonTable(results) {
-
-    const container =
-        document.getElementById(
-            "comparison-table"
-        );
-
-
-    let html = `
-
-        <div class="table-wrapper">
-
-            <table>
-
-                <thead>
-
-                    <tr>
-
-                        <th>
-                            Survey question
-                        </th>
-
-                        <th>
-                            Your answer
-                        </th>
-
-                        <th>
-                            Most common response
-                        </th>
-
-                        <th>
-                            Match
-                        </th>
-
-                    </tr>
-
-                </thead>
-
-                <tbody>
-
-    `;
-
-
-    results.forEach(
-        function(result) {
-
-            html += `
-
-                <tr>
-
-                    <td>
-                        ${result.question}
-                    </td>
-
-                    <td>
-                        ${result.user}
-                    </td>
-
-                    <td>
-                        ${result.majority}
-                    </td>
-
-                    <td class="${
-                        result.match
-                            ? "match-yes"
-                            : "match-no"
-                    }">
-
-                        ${
-                            result.match
-                                ? "✓"
-                                : "—"
-                        }
-
-                    </td>
-
-                </tr>
-
-            `;
-
-        }
-    );
-
-
-    html += `
-
-                </tbody>
-
-            </table>
-
-        </div>
-
-    `;
-
-
-    container.innerHTML = html;
-
-}
-
-
-// =====================================================
-// ARCHETYPE
-// =====================================================
+/* =========================================
+   CALCULATE ARCHETYPE
+========================================= */
 
 function calculateArchetype() {
 
-    let highest = -1;
+  let highestScore = -1;
 
-    let result = "spender";
+  let winningType = "mystery";
 
 
-    for (
-        const archetype in archetypeScores
-    ) {
+  Object.entries(archetypeScores).forEach(
+    ([type, score]) => {
 
-        if (
-            archetypeScores[archetype] >
-            highest
-        ) {
+      if (score > highestScore) {
 
-            highest =
-                archetypeScores[archetype];
+        highestScore = score;
 
-            result =
-                archetype;
+        winningType = type;
 
-        }
+      }
 
     }
+  );
 
 
-    const archetypes = {
-
-        saver: {
-
-            title: "🏦 THE SAVER",
-
-            description:
-                "You'd rather keep your money than spend it immediately. Future-you is apparently your favourite person."
-
-        },
-
-
-        impulse: {
-
-            title: "🛍️ THE IMPULSE SPENDER",
-
-            description:
-                "You see it. You want it. Suddenly your bank balance is somebody else's problem."
-
-        },
-
-
-        budgeter: {
-
-            title: "📋 THE BUDGETER",
-
-            description:
-                "You actually think about where your money is going. Responsible behaviour detected."
-
-        },
-
-
-        social: {
-
-            title: "👯 THE SOCIAL SPENDER",
-
-            description:
-                "A lot of your spending seems to happen when friends are involved. Experiences > bank balance."
-
-        },
-
-
-        spender: {
-
-            title: "💸 THE SPENDER",
-
-            description:
-                "Money comes in. Money goes out. You deal with the consequences later."
-
-        },
-
-
-        mystery: {
-
-            title: "🕵️ THE MONEY MYSTERY",
-
-            description:
-                "You had money. Then you didn't. Nobody knows what happened. Not even you."
-
-        }
-
-    };
-
-
-    document.getElementById(
-        "archetype-title"
-    ).textContent =
-        archetypes[result].title;
-
-
-    document.getElementById(
-        "archetype-description"
-    ).textContent =
-        archetypes[result].description;
+  return winningType;
 
 }
 
 
-// =====================================================
-// SHOW DATA
-// =====================================================
+/* =========================================
+   DISPLAY ARCHETYPE
+========================================= */
+
+function displayArchetype(type) {
+
+  const result =
+    archetypes[type];
+
+
+  document.getElementById("result-archetype")
+    .textContent = result.title;
+
+
+  document.getElementById("result-quote")
+    .textContent = result.quote;
+
+
+  document.getElementById("result-source")
+    .textContent = result.source;
+
+}
+
+
+/* =========================================
+   DISPLAY MATCH
+========================================= */
+
+function displayMatch(matchData) {
+
+  document.getElementById("match-percentage")
+    .textContent = `${matchData.percentage}%`;
+
+
+  document.getElementById("match-description")
+    .textContent =
+      `${matchData.matched} out of ${matchData.total} survey questions matched the most common response.`;
+
+}
+
+
+/* =========================================
+   GET USER ANSWER
+========================================= */
+
+function getUserAnswer(index) {
+
+  if (!userAnswers[index]) {
+    return "—";
+  }
+
+  return userAnswers[index].answerText;
+
+}
+
+
+/* =========================================
+   COMPARISON TABLE
+========================================= */
+
+function createComparisonTable(matchData) {
+
+  const container =
+    document.getElementById(
+      "comparison-table-container"
+    );
+
+
+  const rows = [
+
+    {
+      question:
+        "What do you spend most of your money on?",
+
+      answer:
+        getUserAnswer(0),
+
+      common:
+        "Food / eating out — 16 / 17",
+
+      match:
+        getUserAnswer(0) === "Food"
+    },
+
+
+    {
+      question:
+        "What percentage goes toward your main expense?",
+
+      answer:
+        getUserAnswer(2),
+
+      common:
+        "40–60% OR more than 60% — 7 / 17 each",
+
+      match:
+        (
+          getUserAnswer(2) === "40–60%" ||
+          getUserAnswer(2) === "More than 60%"
+        )
+    },
+
+
+    {
+      question:
+        "How often do you make impulse purchases?",
+
+      answer:
+        getUserAnswer(4),
+
+      common:
+        "Rarely — 35.3%",
+
+      match:
+        getUserAnswer(4) === "Rarely"
+    },
+
+
+    {
+      question:
+        "What would you do with ₹1,000?",
+
+      answer:
+        getUserAnswer(6),
+
+      common:
+        "Food / eating out OR save it — 35.3% each",
+
+      match:
+        (
+          getUserAnswer(6) === "Food / eating out" ||
+          getUserAnswer(6) === "Save it"
+        )
+    }
+
+  ];
+
+
+  let tableHTML = `
+
+    <table class="comparison-table">
+
+      <thead>
+
+        <tr>
+
+          <th>SURVEY QUESTION</th>
+
+          <th>YOUR ANSWER</th>
+
+          <th>MOST COMMON RESPONSE</th>
+
+          <th>MATCH</th>
+
+        </tr>
+
+      </thead>
+
+      <tbody>
+  `;
+
+
+  rows.forEach(row => {
+
+    tableHTML += `
+
+      <tr>
+
+        <td>
+          ${row.question}
+        </td>
+
+        <td>
+          ${row.answer}
+        </td>
+
+        <td>
+          ${row.common}
+        </td>
+
+        <td class="${row.match ? "match-cell" : ""}">
+          ${row.match ? "✓" : "—"}
+        </td>
+
+      </tr>
+
+    `;
+
+  });
+
+
+  tableHTML += `
+
+      </tbody>
+
+    </table>
+
+  `;
+
+
+  container.innerHTML = tableHTML;
+
+}
+
+
+/* =========================================
+   SHOW DATA
+========================================= */
 
 function showData() {
 
-    document.getElementById(
-        "result-screen"
-    ).style.display = "none";
+  document.getElementById("results")
+    .classList.add("hidden");
+
+  document.getElementById("data")
+    .classList.remove("hidden");
 
 
-    document.getElementById(
-        "data-screen"
-    ).style.display = "block";
-
-
-    window.scrollTo(0, 0);
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
 
 }
