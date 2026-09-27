@@ -181,6 +181,65 @@ function startQuiz() {
         mystery: 0
     };
 
-    console.log("Quiz started!");
+    document.getElementById("intro-screen").style.display = "none";
+
+    document.getElementById("quiz-screen").style.display = "block";
+
+    showQuestion();
+}
+
+
+// ---------- SHOW QUESTION ----------
+
+function showQuestion() {
+
+    const questionData = questions[currentQuestion];
+
+    document.getElementById("progress").textContent =
+        `Question ${currentQuestion + 1} of ${questions.length}`;
+
+    document.getElementById("question").textContent =
+        questionData.question;
+
+    const answersContainer = document.getElementById("answers");
+
+    answersContainer.innerHTML = "";
+
+
+    questionData.options.forEach(function(option, index) {
+
+        const button = document.createElement("button");
+
+        button.textContent = option;
+
+        button.onclick = function() {
+            selectAnswer(index);
+        };
+
+        answersContainer.appendChild(button);
+
+    });
+
+}
+
+
+// ---------- SELECT ANSWER ----------
+
+function selectAnswer(index) {
+
+    answers.push(index);
+
+    currentQuestion++;
+
+
+    if (currentQuestion < questions.length) {
+
+        showQuestion();
+
+    } else {
+
+        console.log("Quiz finished!");
+
+    }
 
 }
