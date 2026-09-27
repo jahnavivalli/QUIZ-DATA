@@ -1,6 +1,6 @@
-/* =========================================
+/* =========================================================
    RESET
-========================================= */
+========================================================= */
 
 * {
   margin: 0;
@@ -16,476 +16,718 @@ body {
   background: #081735;
   color: #f7f1e7;
   font-family: "Manrope", sans-serif;
+  overflow-x: hidden;
 }
 
 button {
-  font-family: inherit;
-}
-
-.hidden {
-  display: none !important;
+  font-family: "Manrope", sans-serif;
 }
 
 
-/* =========================================
-   GLOBAL
-========================================= */
+/* =========================================================
+   COLOURS
+========================================================= */
+
+:root {
+  --navy: #081735;
+  --cream: #f7f1e7;
+  --lavender: #b9a4ff;
+  --muted: #9eabc5;
+  --line: rgba(247, 241, 231, 0.22);
+  --dark-line: rgba(247, 241, 231, 0.14);
+}
+
+
+/* =========================================================
+   SCREEN SYSTEM
+   THIS IS IMPORTANT — ONLY .active IS DISPLAYED
+========================================================= */
 
 .site {
+  width: 100%;
   min-height: 100vh;
-  background: #081735;
 }
 
 .screen {
-  min-height: 100vh;
+  display: none;
   width: 100%;
+  min-height: 100vh;
 }
 
-.primary-button {
-  padding: 20px 30px;
-  border: 1px solid #b9a4ff;
-  background: #b9a4ff;
-  color: #081735;
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.13em;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-.primary-button span {
-  margin-left: 22px;
-  font-size: 1.15rem;
-}
-
-.primary-button:hover {
-  background: transparent;
-  color: #b9a4ff;
+.screen.active {
+  display: block;
 }
 
 
-/* =========================================
-   INTRO
-========================================= */
+/* =========================================================
+   GENERAL
+========================================================= */
+
+.intro-screen,
+.quiz-screen,
+.results-screen,
+.data-screen {
+  position: relative;
+  background: var(--navy);
+}
+
+.intro-screen::after,
+.quiz-screen::after,
+.results-screen::after,
+.data-screen::after {
+  content: "";
+  position: fixed;
+  width: 150px;
+  height: 150px;
+  top: -60px;
+  right: -30px;
+  border-radius: 0 0 0 100%;
+  background: rgba(185, 164, 255, 0.055);
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   PAGE 1 — INTRO
+========================================================= */
 
 .intro-screen {
-  padding: 70px 7vw 80px;
-  display: flex;
+  min-height: 100vh;
+  display: none;
   align-items: center;
   justify-content: center;
+  padding: 80px 7vw;
+}
+
+.intro-screen.active {
+  display: flex;
 }
 
 .intro-content {
   width: 100%;
-  max-width: 1300px;
+  max-width: 1150px;
   text-align: center;
+  margin: 0 auto;
 }
 
-.intro-content h1 {
+
+/* Main title */
+
+.intro-title {
   font-family: "DM Serif Display", serif;
   font-weight: 400;
-  font-size: clamp(5rem, 9vw, 10rem);
-  line-height: 0.88;
+  font-size: clamp(4.2rem, 7.3vw, 8.5rem);
+  line-height: 0.92;
   letter-spacing: -0.045em;
+  color: var(--cream);
+  margin-bottom: 42px;
 }
+
+
+/* Small divider */
 
 .intro-divider {
-  width: 58px;
-  height: 2px;
-  background: #b9a4ff;
-  margin: 45px auto 32px;
+  width: 72px;
+  height: 1px;
+  background: var(--lavender);
+  margin: 0 auto 32px;
 }
 
+
+/* Methodology */
+
 .methodology {
-  max-width: 900px;
+  max-width: 780px;
   margin: 0 auto;
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   line-height: 1.7;
-  color: rgba(247, 241, 231, 0.84);
+  color: var(--cream);
 }
 
 .methodology strong {
-  color: #f7f1e7;
+  font-weight: 800;
+  color: var(--cream);
 }
+
+
+/* Instruction */
 
 .intro-instruction {
   margin-top: 25px;
   font-size: 1.08rem;
-  color: #f7f1e7;
+  line-height: 1.6;
+  color: var(--cream);
 }
 
-.intro-content .primary-button {
+
+/* Main button */
+
+.primary-button {
   margin-top: 38px;
+  border: none;
+  background: var(--lavender);
+  color: var(--navy);
+  padding: 21px 31px;
+  min-width: 205px;
+
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
 }
+
+.primary-button span {
+  font-size: 1.3rem;
+  line-height: 0;
+}
+
+.primary-button:hover {
+  transform: translateY(-3px);
+  background: #c7b5ff;
+}
+
+
+/* Footnote */
 
 .intro-note {
-  margin-top: 22px;
-  font-size: 0.72rem;
-  color: rgba(247, 241, 231, 0.4);
+  margin-top: 25px;
+  color: #8190ad;
+  font-size: 0.78rem;
+  line-height: 1.5;
 }
 
 
-/* =========================================
-   QUIZ
-========================================= */
+/* =========================================================
+   PAGE 2 — QUIZ
+========================================================= */
 
 .quiz-screen {
-  padding: 45px 7vw 90px;
+  min-height: 100vh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 70px 7vw;
 }
 
-.quiz-header {
-  width: 100%;
-}
-
-.progress-track {
-  height: 2px;
-  width: 100%;
-  background: rgba(247, 241, 231, 0.12);
-}
-
-#progress-bar {
-  height: 100%;
-  width: 12.5%;
-  background: #b9a4ff;
-  transition: width 0.3s ease;
+.quiz-screen.active {
+  display: flex;
 }
 
 .quiz-content {
-  max-width: 1250px;
-  margin: 100px auto 0;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
+
+
+/* Big instruction */
 
 .quiz-instruction {
-  font-family: "Manrope", sans-serif;
-  font-size: 1.2rem;
+  color: var(--lavender);
+  font-size: 1.1rem;
   font-weight: 800;
-  letter-spacing: 0.12em;
-  color: #b9a4ff;
-  margin-bottom: 55px;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  margin-bottom: 42px;
 }
 
-#question-text {
+
+/* Question */
+
+.question-text {
   font-family: "DM Serif Display", serif;
-  font-size: clamp(4rem, 7vw, 8rem);
-  line-height: 0.96;
   font-weight: 400;
+  font-size: clamp(3rem, 5.4vw, 6.4rem);
+  line-height: 0.98;
   letter-spacing: -0.035em;
-  max-width: 1200px;
+  max-width: 1050px;
+  margin-bottom: 58px;
+  color: var(--cream);
 }
+
+
+/* Answer grid */
 
 .answer-options {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 18px;
-  margin-top: 70px;
+  width: 100%;
 }
 
-.answer-button {
-  min-height: 125px;
-  padding: 30px 35px;
-  background: transparent;
-  color: #f7f1e7;
-  border: 1px solid rgba(247, 241, 231, 0.2);
+
+/* Answer cards */
+
+.answer-option {
+  min-height: 100px;
+  padding: 25px 30px;
+
+  border: 1px solid var(--line);
+  background: rgba(247, 241, 231, 0.025);
+
+  color: var(--cream);
+
+  font-family: "Manrope", sans-serif;
+  font-size: 1.08rem;
+  font-weight: 600;
+  line-height: 1.45;
+
   text-align: left;
   cursor: pointer;
-  transition: all 0.22s ease;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
 }
 
-.answer-button:hover {
-  border-color: #b9a4ff;
-  background: rgba(185, 164, 255, 0.08);
-  transform: translateY(-3px);
+.answer-option:hover {
+  background: rgba(185, 164, 255, 0.12);
+  border-color: var(--lavender);
+  transform: translateY(-2px);
 }
 
-.answer-number {
-  display: block;
-  color: #b9a4ff;
-  font-family: "Manrope", sans-serif;
-  font-size: 0.7rem;
-  font-weight: 800;
-  letter-spacing: 0.15em;
-  margin-bottom: 12px;
-}
-
-.answer-text {
-  font-family: "DM Serif Display", serif;
-  font-size: 1.55rem;
-  line-height: 1.2;
+.answer-option:active {
+  transform: translateY(0);
 }
 
 
-/* =========================================
-   RESULTS
-========================================= */
+/* =========================================================
+   PAGE 3 — RESULTS
+========================================================= */
 
 .results-screen {
-  padding: 70px 7vw 110px;
+  min-height: 100vh;
+  display: none;
+  padding: 80px 7vw 110px;
+}
+
+.results-screen.active {
+  display: block;
 }
 
 .results-content {
-  max-width: 1200px;
+  width: 100%;
+  max-width: 1150px;
   margin: 0 auto;
 }
+
+
+/* HUGE heading */
 
 .results-heading {
   font-family: "DM Serif Display", serif;
   font-weight: 400;
-  font-size: clamp(5rem, 10vw, 10rem);
-  line-height: 0.85;
-  letter-spacing: -0.045em;
+  font-size: clamp(5rem, 9vw, 10rem);
+  line-height: 0.88;
+  letter-spacing: -0.05em;
+
+  color: var(--cream);
+
+  margin-bottom: 75px;
 }
 
-.result-type {
-  margin-top: 75px;
+
+/* Sections */
+
+.result-section {
+  border-top: 1px solid var(--line);
+  padding-top: 30px;
+  padding-bottom: 50px;
 }
 
-.result-type-label {
+
+/* Labels */
+
+.result-label {
   font-size: 0.8rem;
   font-weight: 800;
-  letter-spacing: 0.17em;
-  color: #b9a4ff;
+  letter-spacing: 0.13em;
+  color: var(--lavender);
+  margin-bottom: 25px;
 }
 
-.result-type-box {
-  margin-top: 22px;
-  padding: 32px 36px;
-  border: 1px solid rgba(247, 241, 231, 0.2);
-  max-width: 1000px;
+
+/* Spending type box */
+
+.result-box {
+  border: 1px solid var(--line);
+  padding: 36px 40px;
+  background: rgba(247, 241, 231, 0.025);
 }
+
+
+/* IMPORTANT:
+   Smaller than YOUR RESULT */
 
 .result-archetype {
   font-family: "DM Serif Display", serif;
-  font-size: clamp(2rem, 4vw, 4rem);
+  font-weight: 400;
+
+  font-size: clamp(2.5rem, 4vw, 4.8rem);
   line-height: 1;
-  letter-spacing: -0.025em;
+
+  letter-spacing: -0.035em;
+
+  color: var(--cream);
+  margin-bottom: 25px;
 }
+
+
+/* Song quote */
 
 .result-quote {
-  margin-top: 28px;
   font-family: "DM Serif Display", serif;
-  font-size: clamp(1.7rem, 3vw, 3.2rem);
-  line-height: 1.1;
-  max-width: 900px;
+  font-size: clamp(1.25rem, 1.8vw, 1.75rem);
+  line-height: 1.35;
+  color: var(--cream);
+  max-width: 800px;
 }
+
+
+/* Artist */
 
 .result-source {
-  margin-top: 14px;
-  font-family: "Manrope", sans-serif;
-  font-size: 0.85rem;
-  color: rgba(247, 241, 231, 0.5);
+  margin-top: 9px;
+  font-size: 0.95rem;
+  color: var(--lavender);
+  font-weight: 600;
 }
+
+
+/* =========================================================
+   MU MATCH
+========================================================= */
 
 .match-section {
-  margin-top: 75px;
+  padding-top: 38px;
+  padding-bottom: 60px;
 }
 
-.match-heading {
-  font-size: 0.8rem;
-  font-weight: 800;
-  letter-spacing: 0.17em;
-  color: #b9a4ff;
-}
+
+/* Do NOT make this enormous */
 
 .match-number {
   font-family: "DM Serif Display", serif;
-  font-size: clamp(4rem, 7vw, 7rem);
+  font-size: clamp(4rem, 6vw, 6.5rem);
   line-height: 0.9;
-  margin-top: 18px;
-  color: #b9a4ff;
+  color: var(--lavender);
+  margin-bottom: 18px;
 }
 
 .match-description {
-  margin-top: 25px;
-  color: rgba(247, 241, 231, 0.72);
-  font-size: 1.05rem;
-  line-height: 1.5;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--cream);
 }
 
+
+/* =========================================================
+   COMPARISON TABLE
+========================================================= */
+
 .comparison-section {
-  margin-top: 75px;
+  margin-top: 10px;
 }
 
 .comparison-section h2 {
   font-family: "DM Serif Display", serif;
-  font-size: clamp(2.4rem, 4vw, 4.5rem);
   font-weight: 400;
+  font-size: clamp(2.4rem, 4vw, 4rem);
   line-height: 1;
-  margin-bottom: 35px;
+  letter-spacing: -0.035em;
+
+  color: var(--cream);
+
+  margin-bottom: 30px;
 }
+
+
+/* Table */
 
 .comparison-table {
   width: 100%;
   border-collapse: collapse;
+  table-layout: fixed;
 }
 
-.comparison-table th,
-.comparison-table td {
-  padding: 22px 16px;
+
+/* Header */
+
+.comparison-table thead th {
   text-align: left;
-  border-bottom: 1px solid rgba(247, 241, 231, 0.15);
-}
 
-.comparison-table th {
-  color: rgba(247, 241, 231, 0.45);
   font-family: "Manrope", sans-serif;
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
+  font-size: 0.82rem;
   font-weight: 800;
+
+  letter-spacing: 0.09em;
+  color: var(--lavender);
+
+  padding: 20px 14px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
-.comparison-table td {
+
+/* Cells */
+
+.comparison-table tbody td {
+  padding: 27px 14px;
+
+  border-bottom: 1px solid var(--dark-line);
+
   font-family: "DM Serif Display", serif;
-  font-size: 1.18rem;
+  font-size: 1.22rem;
   line-height: 1.25;
+
+  color: var(--cream);
+
+  vertical-align: middle;
 }
 
-.comparison-table td:first-child {
-  width: 32%;
+
+/* First column */
+
+.comparison-table tbody td:first-child {
+  font-size: 1.3rem;
 }
 
-.comparison-table td:nth-child(2) {
-  width: 20%;
-}
 
-.comparison-table td:nth-child(3) {
-  width: 38%;
-}
+/* Match tick */
 
 .match-cell {
-  color: #b9a4ff;
+  color: var(--lavender);
   font-family: "Manrope", sans-serif !important;
-  font-size: 1.25rem !important;
-  font-weight: 800;
-  text-align: center !important;
+  font-size: 1.7rem !important;
+  font-weight: 700;
 }
+
+
+/* Reveal button */
 
 .reveal-button {
-  margin-top: 55px;
+  margin-top: 50px;
 }
 
 
-/* =========================================
-   DATA
-========================================= */
+/* =========================================================
+   PAGE 4 — DATA
+========================================================= */
 
 .data-screen {
-  padding: 75px 7vw 120px;
+  min-height: 100vh;
+  display: none;
+  padding: 85px 7vw 120px;
+}
+
+.data-screen.active {
+  display: block;
 }
 
 .data-content {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
 }
 
+
+/* Main DATA heading */
+
 .data-heading {
   font-family: "DM Serif Display", serif;
   font-weight: 400;
-  font-size: clamp(5rem, 11vw, 11rem);
+
+  font-size: clamp(5rem, 9vw, 10rem);
   line-height: 0.85;
-  letter-spacing: -0.045em;
+
+  letter-spacing: -0.05em;
+
+  color: var(--cream);
+
+  margin-bottom: 28px;
 }
+
+
+/* Intro */
 
 .data-intro {
-  margin-top: 35px;
   font-size: 1.25rem;
   line-height: 1.6;
-  color: rgba(247, 241, 231, 0.8);
-  max-width: 900px;
+  color: var(--cream);
+
+  max-width: 760px;
+
+  margin-bottom: 95px;
 }
+
+
+/* =========================================================
+   DATA SECTIONS
+========================================================= */
+
+/*
+   NO horizontal separator lines between sections.
+*/
 
 .data-question {
-  margin-top: 115px;
+  padding: 0 0 105px;
+  margin-bottom: 105px;
 }
+
+
+/* Question headings */
 
 .data-question-title {
-  max-width: 1050px;
   font-family: "DM Serif Display", serif;
-  font-size: clamp(2.3rem, 4.5vw, 5rem);
-  line-height: 1;
-  letter-spacing: -0.025em;
+  font-weight: 400;
+
+  font-size: clamp(2.3rem, 3.8vw, 4.2rem);
+  line-height: 1.03;
+
+  letter-spacing: -0.035em;
+
+  color: var(--cream);
+
+  max-width: 1000px;
+
+  margin-bottom: 28px;
 }
 
+
+/* Subtext */
+
 .data-note {
-  margin-top: 28px;
-  font-size: 1rem;
-  color: rgba(247, 241, 231, 0.65);
+  font-size: 1.05rem;
+  line-height: 1.6;
+
+  color: var(--muted);
+
+  margin-bottom: 45px;
 }
+
+
+/* =========================================================
+   Q1 HIGHLIGHT
+========================================================= */
 
 .q1-highlight {
   display: flex;
   align-items: baseline;
   gap: 25px;
-  margin-top: 48px;
+
+  margin-bottom: 50px;
 }
 
 .highlight-number {
   font-family: "DM Serif Display", serif;
-  font-size: clamp(4rem, 7vw, 7rem);
+
+  font-size: clamp(4.5rem, 7vw, 7.5rem);
+
   line-height: 0.9;
+
+  color: var(--lavender);
+
+  letter-spacing: -0.04em;
 }
 
 .highlight-text {
-  font-size: 1.1rem;
-  line-height: 1.4;
-  color: rgba(247, 241, 231, 0.65);
+  font-family: "DM Serif Display", serif;
+
+  font-size: clamp(1.35rem, 2vw, 2rem);
+
+  line-height: 1.1;
+
+  color: var(--cream);
 }
 
+
+/* =========================================================
+   HORIZONTAL BAR CHART
+========================================================= */
+
 .bar-chart {
-  margin-top: 55px;
   width: 100%;
 }
 
 .bar-row {
   display: grid;
-  grid-template-columns: 220px 1fr 80px;
+  grid-template-columns: 220px 1fr 90px;
   align-items: center;
-  gap: 22px;
-  margin-bottom: 25px;
+
+  gap: 25px;
+
+  margin-bottom: 24px;
 }
 
 .bar-label {
   font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+
+  color: var(--cream);
 }
 
 .bar-track {
-  height: 17px;
+  width: 100%;
+  height: 23px;
+
   background: rgba(247, 241, 231, 0.1);
+
   overflow: hidden;
 }
 
 .bar-fill {
   height: 100%;
-  background: #b9a4ff;
+  background: var(--lavender);
 }
 
 .bar-value {
   font-family: "DM Serif Display", serif;
-  font-size: 1.6rem;
+
+  font-size: 1.65rem;
+
+  color: var(--cream);
+
   text-align: right;
 }
 
 
-/* =========================================
-   Q2 VERTICAL GRAPH
-========================================= */
+/* =========================================================
+   VERTICAL BAR CHART — Q2
+========================================================= */
 
 .vertical-chart {
-  height: 430px;
-  margin-top: 65px;
+  width: 100%;
+
   display: flex;
   align-items: flex-end;
-  justify-content: space-around;
+  justify-content: space-between;
+
   gap: 45px;
-  border-bottom: 1px solid rgba(247, 241, 231, 0.2);
-  padding: 0 30px;
+
+  min-height: 430px;
+
+  padding: 40px 5% 0;
+
+  border-bottom: 1px solid var(--line);
 }
 
 .vertical-column {
-  height: 100%;
+  height: 390px;
+
   flex: 1;
-  max-width: 170px;
+
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -494,93 +736,112 @@ button {
 
 .column-value {
   font-family: "DM Serif Display", serif;
+
   font-size: 2rem;
+
+  color: var(--cream);
+
   margin-bottom: 12px;
 }
 
 .column {
-  width: 100%;
-  height: 290px;
-  background: rgba(247, 241, 231, 0.08);
+  width: min(150px, 75%);
+
+  height: 270px;
+
   display: flex;
   align-items: flex-end;
+
+  background: rgba(247, 241, 231, 0.08);
 }
 
 .column-fill {
   width: 100%;
-  background: #b9a4ff;
+  background: var(--lavender);
 }
 
 .column-label {
-  margin-top: 18px;
+  margin-top: 20px;
+
+  font-family: "Manrope", sans-serif;
+
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 800;
+
+  color: var(--cream);
+
   text-align: center;
 }
 
 
-/* =========================================
-   Q4
-========================================= */
-
-.q4-chart {
-  margin-top: 60px;
-}
-
-
-/* =========================================
+/* =========================================================
    CONCLUSION
-========================================= */
+========================================================= */
 
 .conclusion {
-  margin-top: 140px;
-  padding-bottom: 40px;
+  padding-top: 25px;
+  max-width: 1000px;
 }
 
 .conclusion h2 {
   font-family: "DM Serif Display", serif;
   font-weight: 400;
-  font-size: clamp(4rem, 8vw, 8rem);
+
+  font-size: clamp(4rem, 7vw, 7rem);
   line-height: 0.9;
-  letter-spacing: -0.04em;
+
+  letter-spacing: -0.045em;
+
+  color: var(--cream);
+
+  margin-bottom: 55px;
 }
 
 .conclusion-text {
-  max-width: 1000px;
-  margin-top: 45px;
   font-family: "DM Serif Display", serif;
-  font-size: clamp(1.8rem, 3vw, 3.2rem);
-  line-height: 1.15;
-  color: rgba(247, 241, 231, 0.9);
+
+  font-size: clamp(1.7rem, 2.8vw, 3rem);
+
+  line-height: 1.18;
+
+  color: var(--cream);
+
+  margin-bottom: 25px;
 }
 
-.hive-mind {
-  font-weight: 400;
+.conclusion-text strong {
+  color: var(--lavender);
 }
 
 .food-word {
-  display: block;
-  margin-top: 25px;
-  font-family: "Manrope", sans-serif;
-  font-size: 0.9rem;
-  font-weight: 800;
+  font-family: "DM Serif Display", serif;
+
+  font-size: 1.1rem;
+
   letter-spacing: 0.2em;
-  color: #b9a4ff;
+
+  color: var(--lavender);
+
+  margin-top: 45px;
+  margin-bottom: 55px;
 }
 
 .conclusion-final {
-  margin-top: 75px;
   font-family: "DM Serif Display", serif;
-  font-size: clamp(2rem, 3.5vw, 3.8rem);
+
+  font-size: clamp(2rem, 3.2vw, 3.5rem);
+
   line-height: 1.1;
+
+  color: var(--cream);
 }
 
 
-/* =========================================
-   RESPONSIVE
-========================================= */
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
 
   .intro-screen,
   .quiz-screen,
@@ -590,147 +851,185 @@ button {
     padding-right: 6vw;
   }
 
-  .intro-content h1 {
-    font-size: clamp(3.5rem, 12vw, 6rem);
+  .intro-title {
+    font-size: clamp(3.5rem, 8vw, 6rem);
+  }
+
+  .question-text {
+    font-size: clamp(2.8rem, 6vw, 5rem);
+  }
+
+  .results-heading,
+  .data-heading {
+    font-size: clamp(4.5rem, 10vw, 7rem);
+  }
+
+  .bar-row {
+    grid-template-columns: 180px 1fr 75px;
+  }
+
+  .comparison-table {
+    min-width: 850px;
+  }
+
+  .comparison-section {
+    overflow-x: auto;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+  .intro-screen,
+  .quiz-screen,
+  .results-screen,
+  .data-screen {
+    padding: 55px 6vw 80px;
+  }
+
+
+  /* INTRO */
+
+  .intro-screen {
+    min-height: 100vh;
+  }
+
+  .intro-title {
+    font-size: clamp(3rem, 12vw, 4.7rem);
+    line-height: 0.94;
   }
 
   .methodology {
-    font-size: 1rem;
-  }
-
-  .quiz-content {
-    margin-top: 70px;
-  }
-
-  .quiz-instruction {
     font-size: 0.95rem;
   }
 
-  #question-text {
-    font-size: clamp(3rem, 11vw, 5rem);
+  .intro-instruction {
+    font-size: 0.95rem;
+  }
+
+
+  /* QUIZ */
+
+  .quiz-instruction {
+    font-size: 0.85rem;
+    margin-bottom: 30px;
+  }
+
+  .question-text {
+    font-size: clamp(2.4rem, 10vw, 4rem);
+    margin-bottom: 35px;
   }
 
   .answer-options {
     grid-template-columns: 1fr;
   }
 
-  .answer-button {
-    min-height: 105px;
+  .answer-option {
+    min-height: 85px;
+    padding: 20px;
+    font-size: 1rem;
   }
 
-  .result-type-box {
-    padding: 25px;
-  }
 
-  .comparison-table {
-    display: block;
-    overflow-x: auto;
-  }
-
-  .comparison-table th,
-  .comparison-table td {
-    min-width: 180px;
-  }
-
-  .bar-row {
-    grid-template-columns: 130px 1fr 60px;
-    gap: 12px;
-  }
-
-  .bar-label {
-    font-size: 0.75rem;
-  }
-
-  .vertical-chart {
-    gap: 12px;
-    padding: 0 5px;
-  }
-
-  .column-label {
-    font-size: 0.75rem;
-  }
-
-  .q1-highlight {
-    gap: 15px;
-  }
-
-  .highlight-text {
-    font-size: 0.9rem;
-  }
-
-}
-
-
-@media (max-width: 520px) {
-
-  .intro-screen {
-    padding-top: 45px;
-  }
-
-  .intro-content h1 {
-    font-size: 3.4rem;
-  }
-
-  .intro-divider {
-    margin-top: 35px;
-  }
-
-  .primary-button {
-    width: 100%;
-  }
-
-  .quiz-instruction {
-    line-height: 1.4;
-  }
-
-  .answer-text {
-    font-size: 1.35rem;
-  }
+  /* RESULTS */
 
   .results-heading {
-    font-size: 4.5rem;
+    font-size: clamp(4rem, 16vw, 6rem);
+    margin-bottom: 55px;
+  }
+
+  .result-box {
+    padding: 27px;
   }
 
   .result-archetype {
-    font-size: 2.3rem;
+    font-size: 2.8rem;
   }
 
   .result-quote {
-    font-size: 1.65rem;
+    font-size: 1.25rem;
   }
 
-  .data-heading {
+  .match-number {
     font-size: 5rem;
   }
 
+  .comparison-table {
+    min-width: 850px;
+  }
+
+
+  /* DATA */
+
+  .data-heading {
+    font-size: clamp(4rem, 16vw, 6rem);
+  }
+
+  .data-intro {
+    font-size: 1rem;
+    margin-bottom: 70px;
+  }
+
   .data-question-title {
-    font-size: 2.5rem;
+    font-size: 2.4rem;
+  }
+
+  .data-note {
+    font-size: 0.95rem;
+  }
+
+  .q1-highlight {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .highlight-number {
+    font-size: 5rem;
   }
 
   .bar-row {
-    grid-template-columns: 1fr;
-    gap: 7px;
+    grid-template-columns: 1fr 65px;
+    gap: 10px;
+  }
+
+  .bar-label {
+    font-size: 0.85rem;
+    grid-column: 1 / -1;
+  }
+
+  .bar-track {
+    grid-column: 1;
   }
 
   .bar-value {
-    text-align: left;
+    grid-column: 2;
     font-size: 1.25rem;
   }
 
   .vertical-chart {
-    height: 320px;
+    gap: 12px;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .column {
-    height: 220px;
+    width: 80%;
   }
 
-  .column-value {
-    font-size: 1.4rem;
+  .column-label {
+    font-size: 0.8rem;
   }
 
   .conclusion h2 {
     font-size: 4rem;
   }
 
+  .conclusion-text {
+    font-size: 1.65rem;
+  }
 }
