@@ -1,1035 +1,2300 @@
-/* =========================================================
+/* =====================================================
    RESET
-========================================================= */
+===================================================== */
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
+
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
+
 
 body {
-  background: #081735;
-  color: #f7f1e7;
-  font-family: "Manrope", sans-serif;
-  overflow-x: hidden;
-}
 
-button {
-  font-family: "Manrope", sans-serif;
-}
+    margin: 0;
 
+    min-height: 100vh;
 
-/* =========================================================
-   COLOURS
-========================================================= */
+    background: #081735;
 
-:root {
-  --navy: #081735;
-  --cream: #f7f1e7;
-  --lavender: #b9a4ff;
-  --muted: #9eabc5;
-  --line: rgba(247, 241, 231, 0.22);
-  --dark-line: rgba(247, 241, 231, 0.14);
+    color: #f7f1e7;
+
+    font-family: "Manrope", sans-serif;
+
+    padding: 0;
+
 }
 
 
-/* =========================================================
-   SCREEN SYSTEM
-   THIS IS IMPORTANT — ONLY .active IS DISPLAYED
-========================================================= */
+/* =====================================================
+   MAIN
+===================================================== */
 
-.site {
-  width: 100%;
-  min-height: 100vh;
-}
+main {
 
-.screen {
-  display: none;
-  width: 100%;
-  min-height: 100vh;
-}
+    width: 100%;
 
-.screen.active {
-  display: block;
-}
+    max-width: 1180px;
 
+    min-height: 100vh;
 
-/* =========================================================
-   GENERAL
-========================================================= */
+    margin: 0 auto;
 
-.intro-screen,
-.quiz-screen,
-.results-screen,
-.data-screen {
-  position: relative;
-  background: var(--navy);
-}
+    padding: 80px 75px 100px;
 
-.intro-screen::after,
-.quiz-screen::after,
-.results-screen::after,
-.data-screen::after {
-  content: "";
-  position: fixed;
-  width: 150px;
-  height: 150px;
-  top: -60px;
-  right: -30px;
-  border-radius: 0 0 0 100%;
-  background: rgba(185, 164, 255, 0.055);
-  pointer-events: none;
+    position: relative;
+
+    overflow: hidden;
+
 }
 
 
-/* =========================================================
-   PAGE 1 — INTRO
-========================================================= */
+/* decorative circle */
 
-.intro-screen {
-  min-height: 100vh;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 80px 7vw;
-}
+main::after {
 
-.intro-screen.active {
-  display: flex;
-}
+    content: "";
 
-.intro-content {
-  width: 100%;
-  max-width: 1150px;
-  text-align: center;
-  margin: 0 auto;
-}
+    position: absolute;
 
+    width: 270px;
 
-/* Main title */
+    height: 270px;
 
-.intro-title {
-  font-family: "DM Serif Display", serif;
-  font-weight: 400;
-  font-size: clamp(4.2rem, 7.3vw, 8.5rem);
-  line-height: 0.92;
-  letter-spacing: -0.045em;
-  color: var(--cream);
-  margin-bottom: 42px;
+    border-radius: 50%;
+
+    background: rgba(177, 155, 255, 0.06);
+
+    top: -125px;
+
+    right: -100px;
+
+    pointer-events: none;
+
 }
 
 
-/* Small divider */
+/* =====================================================
+   TYPOGRAPHY
+===================================================== */
 
-.intro-divider {
-  width: 72px;
-  height: 1px;
-  background: var(--lavender);
-  margin: 0 auto 32px;
+h1,
+h2 {
+
+    font-family: "DM Serif Display", serif;
+
+    font-weight: 400;
+
 }
 
 
-/* Methodology */
+h1 {
 
-.methodology {
-  max-width: 780px;
-  margin: 0 auto;
-  font-size: 1.15rem;
-  line-height: 1.7;
-  color: var(--cream);
-}
+    margin: 0;
 
-.methodology strong {
-  font-weight: 800;
-  color: var(--cream);
 }
 
 
-/* Instruction */
+h2 {
+
+    margin: 0;
+
+}
+
+
+p {
+
+    line-height: 1.65;
+
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+#intro-screen {
+
+    min-height: calc(100vh - 180px);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 1;
+
+}
+
+
+.intro-label {
+
+    color: #b9a4ff;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 2.5px;
+
+    margin-bottom: 35px;
+}
+
+
+#intro-screen h1 {
+
+    font-size: clamp(55px, 7vw, 91px);
+
+    line-height: 0.94;
+
+    letter-spacing: -2px;
+
+    max-width: 1000px;
+
+}
+
+
+.intro-line {
+
+    width: 70px;
+
+    height: 1px;
+
+    background: #b9a4ff;
+
+    margin: 38px 0 30px;
+}
+
+
+.intro-method {
+
+    max-width: 720px;
+
+    margin: 0 auto;
+
+    color: #b8c3d9;
+
+    font-size: 17px;
+
+    line-height: 1.75;
+}
+
+
+.intro-method strong {
+
+    color: #f7f1e7;
+}
+
 
 .intro-instruction {
-  margin-top: 25px;
-  font-size: 1.08rem;
-  line-height: 1.6;
-  color: var(--cream);
+
+    margin: 24px 0 0;
+
+    color: #f7f1e7;
+
+    font-size: 18px;
 }
 
-
-/* Main button */
 
 .primary-button {
-  margin-top: 38px;
-  border: none;
-  background: var(--lavender);
-  color: var(--navy);
-  padding: 21px 31px;
-  min-width: 205px;
 
-  font-size: 0.82rem;
-  font-weight: 800;
-  letter-spacing: 0.13em;
+    margin-top: 38px;
 
-  cursor: pointer;
+    padding: 18px 30px;
 
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 28px;
+    border: 1px solid #b9a4ff;
 
-  transition:
-    transform 0.2s ease,
-    background 0.2s ease;
+    background: #b9a4ff;
+
+    color: #081735;
+
+    font-family: "Manrope", sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
 }
+
 
 .primary-button span {
-  font-size: 1.3rem;
-  line-height: 0;
+
+    margin-left: 22px;
+
+    font-size: 17px;
 }
+
 
 .primary-button:hover {
-  transform: translateY(-3px);
-  background: #c7b5ff;
+
+    background: #d0c3ff;
+
+    transform: translateY(-3px);
 }
 
 
-/* Footnote */
+.intro-footnote {
 
-.intro-note {
-  margin-top: 25px;
-  color: #8190ad;
-  font-size: 0.78rem;
-  line-height: 1.5;
+    color: #667796;
+
+    font-size: 11px;
+
+    margin-top: 27px;
 }
 
 
-/* =========================================================
-   PAGE 2 — QUIZ
-========================================================= */
+/* =====================================================
+   QUIZ
+===================================================== */
 
-.quiz-screen {
-  min-height: 100vh;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 70px 7vw;
-}
+#quiz-screen {
 
-.quiz-screen.active {
-  display: flex;
-}
+    position: relative;
 
-.quiz-content {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+    z-index: 1;
+
+    padding-top: 10px;
 }
 
 
-/* Big instruction */
+.quiz-header {
+
+    border-bottom: 1px solid rgba(247, 241, 231, 0.18);
+
+    padding-bottom: 22px;
+
+    margin-bottom: 65px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+
+.quiz-progress {
+
+    color: #7384a7;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
 
 .quiz-instruction {
-  color: var(--lavender);
-  font-size: 1.1rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  line-height: 1.4;
-  margin-bottom: 42px;
+
+    color: #b9a4ff;
+
+    font-size: 16px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.2px;
+
+    text-transform: uppercase;
 }
 
 
-/* Question */
+.question-number {
 
-.question-text {
-  font-family: "DM Serif Display", serif;
-  font-weight: 400;
-  font-size: clamp(3rem, 5.4vw, 6.4rem);
-  line-height: 0.98;
-  letter-spacing: -0.035em;
-  max-width: 1050px;
-  margin-bottom: 58px;
-  color: var(--cream);
+    font-family: "DM Serif Display", serif;
+
+    color: #b9a4ff;
+
+    font-size: 26px;
+
+    margin-bottom: 15px;
 }
 
 
-/* Answer grid */
+#question {
 
-.answer-options {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
-  width: 100%;
+    font-family: "DM Serif Display", serif;
+
+    font-size: clamp(48px, 6vw, 75px);
+
+    line-height: 1;
+
+    letter-spacing: -1px;
+
+    max-width: 1000px;
+
+    margin-bottom: 55px;
 }
 
 
-/* Answer cards */
+#answers {
 
-.answer-option {
-  min-height: 100px;
-  padding: 25px 30px;
+    display: grid;
 
-  border: 1px solid var(--line);
-  background: rgba(247, 241, 231, 0.025);
+    grid-template-columns: 1fr 1fr;
 
-  color: var(--cream);
+    gap: 14px;
 
-  font-family: "Manrope", sans-serif;
-  font-size: 1.08rem;
-  font-weight: 600;
-  line-height: 1.45;
-
-  text-align: left;
-  cursor: pointer;
-
-  transition:
-    background 0.2s ease,
-    border-color 0.2s ease,
-    transform 0.2s ease;
-}
-
-.answer-option:hover {
-  background: rgba(185, 164, 255, 0.12);
-  border-color: var(--lavender);
-  transform: translateY(-2px);
-}
-
-.answer-option:active {
-  transform: translateY(0);
+    max-width: 1000px;
 }
 
 
-/* =========================================================
-   PAGE 3 — RESULTS
-========================================================= */
+#answers button {
 
-.results-screen {
-  min-height: 100vh;
-  display: none;
-  padding: 80px 7vw 110px;
-}
+    min-height: 88px;
 
-.results-screen.active {
-  display: block;
-}
+    padding: 20px 25px;
 
-.results-content {
-  width: 100%;
-  max-width: 1150px;
-  margin: 0 auto;
-}
+    text-align: left;
 
+    background: #10244a;
 
-/* HUGE heading */
+    border: 1px solid #33466d;
 
-.results-heading {
-  font-family: "DM Serif Display", serif;
-  font-weight: 400;
-  font-size: clamp(5rem, 9vw, 10rem);
-  line-height: 0.88;
-  letter-spacing: -0.05em;
+    color: #f7f1e7;
 
-  color: var(--cream);
+    font-family: "Manrope", sans-serif;
 
-  margin-bottom: 75px;
+    font-size: 17px;
+
+    font-weight: 500;
+
+    line-height: 1.45;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
 }
 
 
-/* Sections */
+#answers button:hover {
 
-.result-section {
-  border-top: 1px solid var(--line);
-  padding-top: 30px;
-  padding-bottom: 50px;
+    border-color: #b9a4ff;
+
+    background: #162e5b;
+
+    transform: translateX(5px);
 }
 
 
-/* Labels */
+/* =====================================================
+   RESULTS
+===================================================== */
+
+#result-screen {
+
+    position: relative;
+
+    z-index: 1;
+}
+
+
+.result-main-title {
+
+    font-family: "Manrope", sans-serif;
+
+    font-size: clamp(60px, 9vw, 115px);
+
+    line-height: 0.9;
+
+    font-weight: 800;
+
+    letter-spacing: -5px;
+
+    margin-bottom: 75px;
+
+    color: #f7f1e7;
+}
+
+
+/* result type */
+
+.result-type {
+
+    border-top: 1px solid rgba(247, 241, 231, 0.2);
+
+    border-bottom: 1px solid rgba(247, 241, 231, 0.2);
+
+    padding: 38px 0 42px;
+
+    margin-bottom: 55px;
+}
+
 
 .result-label {
-  font-size: 0.8rem;
-  font-weight: 800;
-  letter-spacing: 0.13em;
-  color: var(--lavender);
-  margin-bottom: 25px;
+
+    color: #b9a4ff;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    margin: 0 0 18px;
 }
 
 
-/* Spending type box */
+#archetype-title {
 
-.result-box {
-  border: 1px solid var(--line);
-  padding: 36px 40px;
-  background: rgba(247, 241, 231, 0.025);
+    font-family: "DM Serif Display", serif;
+
+    font-size: clamp(48px, 6vw, 76px);
+
+    line-height: 1;
+
+    margin: 0 0 18px;
+
+    color: #f7f1e7;
 }
 
 
-/* IMPORTANT:
-   Smaller than YOUR RESULT */
+#archetype-description {
 
-.result-archetype {
-  font-family: "DM Serif Display", serif;
-  font-weight: 400;
+    color: #9eabc3;
 
-  font-size: clamp(2.5rem, 4vw, 4.8rem);
-  line-height: 1;
+    font-size: 16px;
 
-  letter-spacing: -0.035em;
+    max-width: 650px;
 
-  color: var(--cream);
-  margin-bottom: 25px;
+    margin: 0;
 }
 
 
-/* Song quote */
+/* MU match */
 
-.result-quote {
-  font-family: "DM Serif Display", serif;
-  font-size: clamp(1.25rem, 1.8vw, 1.75rem);
-  line-height: 1.35;
-  color: var(--cream);
-  max-width: 800px;
+.result-match {
+
+    margin-bottom: 75px;
 }
 
 
-/* Artist */
+#match-percent {
 
-.result-source {
-  margin-top: 9px;
-  font-size: 0.95rem;
-  color: var(--lavender);
-  font-weight: 600;
+    font-family: "DM Serif Display", serif;
+
+    font-size: clamp(90px, 12vw, 145px);
+
+    line-height: 0.8;
+
+    color: #b9a4ff;
+
+    margin: 15px 0 25px;
 }
 
 
-/* =========================================================
-   MU MATCH
-========================================================= */
+#match-count {
 
-.match-section {
-  padding-top: 38px;
-  padding-bottom: 60px;
+    color: #9eabc3;
+
+    font-size: 15px;
+
+    margin: 0;
 }
 
 
-/* Do NOT make this enormous */
+/* comparison */
 
-.match-number {
-  font-family: "DM Serif Display", serif;
-  font-size: clamp(4rem, 6vw, 6.5rem);
-  line-height: 0.9;
-  color: var(--lavender);
-  margin-bottom: 18px;
-}
+.comparison-heading {
 
-.match-description {
-  font-size: 1.15rem;
-  line-height: 1.6;
-  color: var(--cream);
+    border-bottom: 1px solid rgba(247, 241, 231, 0.2);
+
+    padding-bottom: 18px;
+
+    margin-bottom: 25px;
 }
 
 
-/* =========================================================
-   COMPARISON TABLE
-========================================================= */
+.comparison-heading h2 {
 
-.comparison-section {
-  margin-top: 10px;
-}
+    font-size: 39px;
 
-.comparison-section h2 {
-  font-family: "DM Serif Display", serif;
-  font-weight: 400;
-  font-size: clamp(2.4rem, 4vw, 4rem);
-  line-height: 1;
-  letter-spacing: -0.035em;
-
-  color: var(--cream);
-
-  margin-bottom: 30px;
+    color: #f7f1e7;
 }
 
 
-/* Table */
+/* =====================================================
+   TABLE
+===================================================== */
 
-.comparison-table {
-  width: 100%;
-  border-collapse: collapse;
-  table-layout: fixed;
+.table-wrapper {
+
+    overflow-x: auto;
+
+    width: 100%;
+
+    margin-bottom: 55px;
 }
 
 
-/* Header */
+table {
 
-.comparison-table thead th {
-  text-align: left;
+    width: 100%;
 
-  font-family: "Manrope", sans-serif;
-  font-size: 0.82rem;
-  font-weight: 800;
+    min-width: 800px;
 
-  letter-spacing: 0.09em;
-  color: var(--lavender);
+    border-collapse: collapse;
 
-  padding: 20px 14px;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+    font-family: "Manrope", sans-serif;
+
+    font-size: 14px;
 }
 
 
-/* Cells */
+th {
 
-.comparison-table tbody td {
-  padding: 27px 14px;
+    padding: 17px 14px;
 
-  border-bottom: 1px solid var(--dark-line);
+    text-align: left;
 
-  font-family: "DM Serif Display", serif;
-  font-size: 1.22rem;
-  line-height: 1.25;
+    color: #7183a6;
 
-  color: var(--cream);
+    border-bottom: 1px solid #3a4d73;
 
-  vertical-align: middle;
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
 }
 
 
-/* First column */
+td {
 
-.comparison-table tbody td:first-child {
-  font-size: 1.3rem;
+    padding: 21px 14px;
+
+    color: #d2d7e1;
+
+    border-bottom: 1px solid rgba(247, 241, 231, 0.1);
+
+    line-height: 1.5;
+
+    vertical-align: top;
 }
 
 
-/* Match tick */
+td:first-child {
 
-.match-cell {
-  color: var(--lavender);
-  font-family: "Manrope", sans-serif !important;
-  font-size: 1.7rem !important;
-  font-weight: 700;
+    color: #f7f1e7;
+
+    font-weight: 600;
+
+    width: 34%;
 }
 
 
-/* Reveal button */
+.match-yes {
 
-.reveal-button {
-  margin-top: 50px;
+    color: #b9a4ff;
+
+    font-size: 24px;
+
+    font-weight: 800;
+
+    text-align: center;
 }
 
 
-/* =========================================================
-   PAGE 4 — DATA
-========================================================= */
+.match-no {
 
-.data-screen {
-  min-height: 100vh;
-  display: none;
-  padding: 85px 7vw 120px;
-}
+    color: #6e7d9c;
 
-.data-screen.active {
-  display: block;
-}
+    font-size: 24px;
 
-.data-content {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+    font-weight: 800;
+
+    text-align: center;
 }
 
 
-/* Main DATA heading */
+.secondary-button {
 
-.data-heading {
-  font-family: "DM Serif Display", serif;
-  font-weight: 400;
+    padding: 18px 30px;
 
-  font-size: clamp(5rem, 9vw, 10rem);
-  line-height: 0.85;
+    background: transparent;
 
-  letter-spacing: -0.05em;
+    border: 1px solid #b9a4ff;
 
-  color: var(--cream);
+    color: #f7f1e7;
 
-  margin-bottom: 28px;
+    font-family: "Manrope", sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
 }
 
 
-/* Intro */
+.secondary-button span {
 
-.data-intro {
-  font-size: 1.25rem;
-  line-height: 1.6;
-  color: var(--cream);
+    margin-left: 22px;
 
-  max-width: 760px;
-
-  margin-bottom: 95px;
+    font-size: 17px;
 }
 
 
-/* =========================================================
-   DATA SECTIONS
-========================================================= */
+.secondary-button:hover {
 
-/*
-   NO horizontal separator lines between sections.
-*/
+    background: #b9a4ff;
 
-.data-question {
-  padding: 0 0 105px;
-  margin-bottom: 105px;
+    color: #081735;
 }
 
 
-/* Question headings */
+/* =====================================================
+   DATA TITLE
+===================================================== */
 
-.data-question-title {
-  font-family: "DM Serif Display", serif;
-  font-weight: 400;
+.data-title-label {
 
-  font-size: clamp(2.3rem, 3.8vw, 4.2rem);
-  line-height: 1.03;
+    color: #b9a4ff;
 
-  letter-spacing: -0.035em;
+    font-size: 11px;
 
-  color: var(--cream);
+    font-weight: 800;
 
-  max-width: 1000px;
+    letter-spacing: 2px;
 
-  margin-bottom: 28px;
+    margin-bottom: 18px;
 }
 
 
-/* Subtext */
+.data-main-title {
 
-.data-note {
-  font-size: 1.05rem;
-  line-height: 1.6;
+    font-family: "Manrope", sans-serif;
 
-  color: var(--muted);
+    font-weight: 800;
 
-  margin-bottom: 45px;
+    font-size: clamp(70px, 11vw, 145px);
+
+    line-height: 0.8;
+
+    letter-spacing: -6px;
+
+    margin-bottom: 35px;
 }
 
 
-/* =========================================================
-   Q1 HIGHLIGHT
-========================================================= */
+.data-main-intro {
 
-.q1-highlight {
-  display: flex;
-  align-items: baseline;
-  gap: 25px;
+    color: #a9b5cc;
 
-  margin-bottom: 50px;
-}
+    font-size: 18px;
 
-.highlight-number {
-  font-family: "DM Serif Display", serif;
+    max-width: 700px;
 
-  font-size: clamp(4.5rem, 7vw, 7.5rem);
-
-  line-height: 0.9;
-
-  color: var(--lavender);
-
-  letter-spacing: -0.04em;
-}
-
-.highlight-text {
-  font-family: "DM Serif Display", serif;
-
-  font-size: clamp(1.35rem, 2vw, 2rem);
-
-  line-height: 1.1;
-
-  color: var(--cream);
+    margin-bottom: 85px;
 }
 
 
-/* =========================================================
-   HORIZONTAL BAR CHART
-========================================================= */
+/* =====================================================
+   DATA SECTION
+===================================================== */
 
-.bar-chart {
-  width: 100%;
-}
+.data-section {
 
-.bar-row {
-  display: grid;
-  grid-template-columns: 220px 1fr 90px;
-  align-items: center;
+    border-top: 1px solid rgba(247, 241, 231, 0.2);
 
-  gap: 25px;
-
-  margin-bottom: 24px;
-}
-
-.bar-label {
-  font-size: 1rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-
-  color: var(--cream);
-}
-
-.bar-track {
-  width: 100%;
-  height: 23px;
-
-  background: rgba(247, 241, 231, 0.1);
-
-  overflow: hidden;
-}
-
-.bar-fill {
-  height: 100%;
-  background: var(--lavender);
-}
-
-.bar-value {
-  font-family: "DM Serif Display", serif;
-
-  font-size: 1.65rem;
-
-  color: var(--cream);
-
-  text-align: right;
+    padding: 48px 0 80px;
 }
 
 
-/* =========================================================
-   VERTICAL BAR CHART — Q2
-========================================================= */
+.data-section-number {
+
+    color: #b9a4ff;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 18px;
+}
+
+
+.data-section h2 {
+
+    font-size: clamp(38px, 5vw, 60px);
+
+    line-height: 1;
+
+    margin-bottom: 16px;
+}
+
+
+.data-description {
+
+    color: #aab5ca;
+
+    font-size: 16px;
+
+    margin: 0 0 45px;
+
+    max-width: 700px;
+}
+
+
+/* =====================================================
+   Q1
+===================================================== */
+
+.q1-stat {
+
+    display: flex;
+
+    align-items: baseline;
+
+    gap: 18px;
+
+    margin-bottom: 40px;
+}
+
+
+.q1-stat strong {
+
+    font-family: "DM Serif Display", serif;
+
+    color: #b9a4ff;
+
+    font-size: 67px;
+
+    line-height: 1;
+}
+
+
+.q1-stat span {
+
+    color: #c0c9d9;
+
+    font-size: 18px;
+}
+
+
+.q1-stat span b {
+
+    color: #f7f1e7;
+}
+
+
+/* graph */
+
+.graph {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+
+.graph-row {
+
+    display: grid;
+
+    grid-template-columns: 190px 1fr 45px;
+
+    align-items: center;
+
+    gap: 18px;
+}
+
+
+.graph-label {
+
+    color: #d4dae4;
+
+    font-size: 14px;
+}
+
+
+.graph-track {
+
+    height: 18px;
+
+    background: #142950;
+
+    overflow: hidden;
+}
+
+
+.graph-fill {
+
+    height: 100%;
+
+    background: #b9a4ff;
+}
+
+
+.graph-number {
+
+    font-family: "DM Serif Display", serif;
+
+    font-size: 22px;
+
+    color: #f7f1e7;
+}
+
+
+/* =====================================================
+   Q2
+===================================================== */
 
 .vertical-chart {
-  width: 100%;
 
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
+    height: 370px;
 
-  gap: 45px;
+    border-bottom: 1px solid rgba(247, 241, 231, 0.2);
 
-  min-height: 430px;
+    display: flex;
 
-  padding: 40px 5% 0;
+    align-items: flex-end;
 
-  border-bottom: 1px solid var(--line);
+    justify-content: center;
+
+    gap: 70px;
+
+    padding: 0 20px;
+
+    margin: 25px 0 35px;
 }
+
 
 .vertical-column {
-  height: 390px;
 
-  flex: 1;
+    width: 100px;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
+    height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 10px;
 }
 
-.column-value {
-  font-family: "DM Serif Display", serif;
 
-  font-size: 2rem;
+.column-number {
 
-  color: var(--cream);
+    font-family: "DM Serif Display", serif;
 
-  margin-bottom: 12px;
+    font-size: 31px;
+
+    color: #a5b0c3;
 }
+
 
 .column {
-  width: min(150px, 75%);
 
-  height: 270px;
+    height: 245px;
 
-  display: flex;
-  align-items: flex-end;
+    width: 65px;
 
-  background: rgba(247, 241, 231, 0.08);
+    background: #142950;
+
+    display: flex;
+
+    align-items: flex-end;
 }
+
 
 .column-fill {
-  width: 100%;
-  background: var(--lavender);
+
+    width: 100%;
+
+    background: #657799;
 }
+
+
+.column-fill.short {
+    height: 14%;
+}
+
+
+.column-fill.small {
+    height: 28%;
+}
+
+
+.column-fill.large {
+
+    height: 100%;
+
+    background: #b9a4ff;
+}
+
 
 .column-label {
-  margin-top: 20px;
 
-  font-family: "Manrope", sans-serif;
+    font-size: 12px;
 
-  font-size: 1rem;
-  font-weight: 800;
+    color: #9daac1;
 
-  color: var(--cream);
+    text-align: center;
 
-  text-align: center;
+    white-space: nowrap;
 }
 
 
-/* =========================================================
+.vertical-column.featured .column-label {
+
+    color: #b9a4ff;
+
+    font-weight: 800;
+}
+
+
+.graph-note {
+
+    color: #b7c1d2;
+
+    font-size: 16px;
+
+    border-left: 2px solid #b9a4ff;
+
+    padding-left: 20px;
+
+    margin: 0;
+}
+
+
+.graph-note strong {
+
+    color: #f7f1e7;
+}
+
+
+/* =====================================================
+   Q3
+===================================================== */
+
+.impulse-chart {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+
+.impulse-row {
+
+    display: grid;
+
+    grid-template-columns: 120px 1fr 75px;
+
+    align-items: center;
+
+    gap: 18px;
+}
+
+
+.impulse-row span {
+
+    font-size: 15px;
+
+    color: #c5ccda;
+}
+
+
+.impulse-row strong {
+
+    font-size: 14px;
+
+    color: #b5bfd1;
+
+    text-align: right;
+}
+
+
+.impulse-track {
+
+    height: 20px;
+
+    background: #142950;
+}
+
+
+.impulse-track div {
+
+    height: 100%;
+
+    background: #667899;
+}
+
+
+.impulse-row.highlighted span,
+.impulse-row.highlighted strong {
+
+    color: #b9a4ff;
+
+    font-weight: 800;
+}
+
+
+.impulse-row.highlighted .impulse-track div {
+
+    background: #b9a4ff;
+}
+
+
+/* =====================================================
+   Q4
+===================================================== */
+
+.q4-chart {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 21px;
+
+    margin-top: 10px;
+}
+
+
+.q4-row {
+
+    display: grid;
+
+    grid-template-columns: 190px 1fr 75px;
+
+    align-items: center;
+
+    gap: 18px;
+}
+
+
+.q4-label {
+
+    color: #d4dae4;
+
+    font-size: 14px;
+}
+
+
+.q4-track {
+
+    height: 20px;
+
+    background: #142950;
+
+    overflow: hidden;
+}
+
+
+.q4-fill {
+
+    height: 100%;
+
+    background: #b9a4ff;
+}
+
+
+.q4-fill.secondary {
+
+    background: #667899;
+}
+
+
+.q4-number {
+
+    color: #f7f1e7;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    text-align: right;
+}
+
+
+/* =====================================================
    CONCLUSION
-========================================================= */
+===================================================== */
 
 .conclusion {
-  padding-top: 25px;
-  max-width: 1000px;
+
+    border-top: 1px solid rgba(247, 241, 231, 0.2);
+
+    padding: 75px 0 20px;
+
+    max-width: 850px;
+
+    margin: 0 auto;
+
+    text-align: center;
 }
+
 
 .conclusion h2 {
-  font-family: "DM Serif Display", serif;
-  font-weight: 400;
 
-  font-size: clamp(4rem, 7vw, 7rem);
-  line-height: 0.9;
+    font-size: clamp(43px, 6vw, 68px);
 
-  letter-spacing: -0.045em;
+    line-height: 1;
 
-  color: var(--cream);
-
-  margin-bottom: 55px;
-}
-
-.conclusion-text {
-  font-family: "DM Serif Display", serif;
-
-  font-size: clamp(1.7rem, 2.8vw, 3rem);
-
-  line-height: 1.18;
-
-  color: var(--cream);
-
-  margin-bottom: 25px;
-}
-
-.conclusion-text strong {
-  color: var(--lavender);
-}
-
-.food-word {
-  font-family: "DM Serif Display", serif;
-
-  font-size: 1.1rem;
-
-  letter-spacing: 0.2em;
-
-  color: var(--lavender);
-
-  margin-top: 45px;
-  margin-bottom: 55px;
-}
-
-.conclusion-final {
-  font-family: "DM Serif Display", serif;
-
-  font-size: clamp(2rem, 3.2vw, 3.5rem);
-
-  line-height: 1.1;
-
-  color: var(--cream);
-}
-
-
-/* =========================================================
-   RESPONSIVE — TABLET
-========================================================= */
-
-@media (max-width: 900px) {
-
-  .intro-screen,
-  .quiz-screen,
-  .results-screen,
-  .data-screen {
-    padding-left: 6vw;
-    padding-right: 6vw;
-  }
-
-  .intro-title {
-    font-size: clamp(3.5rem, 8vw, 6rem);
-  }
-
-  .question-text {
-    font-size: clamp(2.8rem, 6vw, 5rem);
-  }
-
-  .results-heading,
-  .data-heading {
-    font-size: clamp(4.5rem, 10vw, 7rem);
-  }
-
-  .bar-row {
-    grid-template-columns: 180px 1fr 75px;
-  }
-
-  .comparison-table {
-    min-width: 850px;
-  }
-
-  .comparison-section {
-    overflow-x: auto;
-  }
-}
-
-
-/* =========================================================
-   RESPONSIVE — MOBILE
-========================================================= */
-
-@media (max-width: 650px) {
-
-  .intro-screen,
-  .quiz-screen,
-  .results-screen,
-  .data-screen {
-    padding: 55px 6vw 80px;
-  }
-
-
-  /* INTRO */
-
-  .intro-screen {
-    min-height: 100vh;
-  }
-
-  .intro-title {
-    font-size: clamp(3rem, 12vw, 4.7rem);
-    line-height: 0.94;
-  }
-
-  .methodology {
-    font-size: 0.95rem;
-  }
-
-  .intro-instruction {
-    font-size: 0.95rem;
-  }
-
-
-  /* QUIZ */
-
-  .quiz-instruction {
-    font-size: 0.85rem;
-    margin-bottom: 30px;
-  }
-
-  .question-text {
-    font-size: clamp(2.4rem, 10vw, 4rem);
     margin-bottom: 35px;
-  }
-
-  .answer-options {
-    grid-template-columns: 1fr;
-  }
-
-  .answer-option {
-    min-height: 85px;
-    padding: 20px;
-    font-size: 1rem;
-  }
+}
 
 
-  /* RESULTS */
+.conclusion p {
 
-  .results-heading {
-    font-size: clamp(4rem, 16vw, 6rem);
+    color: #aab5ca;
+
+    font-size: 17px;
+
+    max-width: 680px;
+
+    margin: 18px auto;
+}
+
+
+.conclusion p strong {
+
+    color: #f7f1e7;
+}
+
+
+.conclusion-punchline {
+
+    font-family: "DM Serif Display", serif;
+
+    font-size: clamp(80px, 13vw, 155px);
+
+    line-height: 0.85;
+
+    color: #b9a4ff;
+
+    margin: 45px 0 25px;
+
+    letter-spacing: -4px;
+}
+
+
+.conclusion-last {
+
+    font-family: "DM Serif Display", serif;
+
+    font-size: 25px !important;
+
+    color: #f7f1e7 !important;
+}
+
+
+.final-dataset {
+
+    margin-top: 55px;
+
+    color: #657795;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+
+    main {
+
+        padding: 55px 24px 75px;
+
+    }
+
+
+    #intro-screen {
+
+        min-height: calc(100vh - 120px);
+
+    }
+
+
+    #intro-screen h1 {
+
+        font-size: 48px;
+
+        letter-spacing: -1px;
+
+    }
+
+
+    .intro-method {
+
+        font-size: 15px;
+
+    }
+
+
+    .intro-instruction {
+
+        font-size: 16px;
+
+    }
+
+
+    .quiz-header {
+
+        margin-bottom: 45px;
+
+    }
+
+
+    .quiz-instruction {
+
+        font-size: 13px;
+
+        line-height: 1.4;
+
+    }
+
+
+    #question {
+
+        font-size: 43px;
+
+        margin-bottom: 40px;
+
+    }
+
+
+    #answers {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    #answers button {
+
+        min-height: 78px;
+
+        font-size: 16px;
+
+    }
+
+
+    .result-main-title {
+
+        font-size: 65px;
+
+        letter-spacing: -3px;
+
+        margin-bottom: 55px;
+
+    }
+
+
+    #archetype-title {
+
+        font-size: 48px;
+
+    }
+
+
+    #match-percent {
+
+        font-size: 95px;
+
+    }
+
+
+    .comparison-heading h2 {
+
+        font-size: 34px;
+
+    }
+
+
+    .data-main-title {
+
+        font-size: 85px;
+
+        letter-spacing: -4px;
+
+    }
+
+
+    .data-main-intro {
+
+        font-size: 16px;
+
+        margin-bottom: 60px;
+
+    }
+
+
+    .data-section h2 {
+
+        font-size: 38px;
+
+    }
+
+
+    .q1-stat strong {
+
+        font-size: 53px;
+
+    }
+
+
+    .q1-stat span {
+
+        font-size: 15px;
+
+    }
+
+
+    .graph-row {
+
+        grid-template-columns: 125px 1fr 30px;
+
+        gap: 9px;
+
+    }
+
+
+    .graph-label {
+
+        font-size: 11px;
+
+    }
+
+
+    .graph-number {
+
+        font-size: 19px;
+
+    }
+
+
+    .vertical-chart {
+
+        gap: 15px;
+
+        height: 320px;
+
+    }
+
+
+    .vertical-column {
+
+        width: 62px;
+
+    }
+
+
+    .column {
+
+        width: 42px;
+
+        height: 210px;
+
+    }
+
+
+    .column-label {
+
+        font-size: 9px;
+
+        white-space: normal;
+
+    }
+
+
+    .impulse-row {
+
+        grid-template-columns: 75px 1fr 55px;
+
+        gap: 9px;
+
+    }
+
+
+    .impulse-row span {
+
+        font-size: 12px;
+
+    }
+
+
+    .q4-row {
+
+        grid-template-columns: 125px 1fr 55px;
+
+        gap: 9px;
+
+    }
+
+
+    .q4-label {
+
+        font-size: 11px;
+
+    }
+
+
+    .q4-number {
+
+        font-size: 11px;
+
+    }
+
+
+    .conclusion-punchline {
+
+        font-size: 90px;
+
+    }
+
+}
+
+
+/* =====================================================
+   REQUESTED VISUAL UPDATES
+===================================================== */
+
+/* INTRO / PAGE 1 */
+
+#intro-screen h1 {
+
+    font-size: clamp(68px, 8vw, 108px);
+
+}
+
+
+.intro-method {
+
+    max-width: 850px;
+
+    font-size: 20px;
+
+}
+
+
+.intro-instruction {
+
+    font-size: 21px;
+
+}
+
+
+.primary-button {
+
+    font-size: 13px;
+
+    padding: 20px 34px;
+
+}
+
+
+/* QUIZ */
+
+.quiz-header {
+
+    border-bottom: none;
+
     margin-bottom: 55px;
-  }
 
-  .result-box {
-    padding: 27px;
-  }
+    padding-bottom: 0;
 
-  .result-archetype {
-    font-size: 2.8rem;
-  }
-
-  .result-quote {
-    font-size: 1.25rem;
-  }
-
-  .match-number {
-    font-size: 5rem;
-  }
-
-  .comparison-table {
-    min-width: 850px;
-  }
+}
 
 
-  /* DATA */
+.quiz-instruction {
 
-  .data-heading {
-    font-size: clamp(4rem, 16vw, 6rem);
-  }
+    font-family: "DM Serif Display", serif;
 
-  .data-intro {
-    font-size: 1rem;
-    margin-bottom: 70px;
-  }
+    font-size: clamp(25px, 3vw, 36px);
 
-  .data-question-title {
-    font-size: 2.4rem;
-  }
+    font-weight: 400;
 
-  .data-note {
-    font-size: 0.95rem;
-  }
+    letter-spacing: 0;
 
-  .q1-highlight {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 12px;
-  }
+    line-height: 1.15;
 
-  .highlight-number {
-    font-size: 5rem;
-  }
+    text-transform: none;
 
-  .bar-row {
-    grid-template-columns: 1fr 65px;
-    gap: 10px;
-  }
+    color: #f7f1e7;
 
-  .bar-label {
-    font-size: 0.85rem;
-    grid-column: 1 / -1;
-  }
+}
 
-  .bar-track {
-    grid-column: 1;
-  }
 
-  .bar-value {
-    grid-column: 2;
-    font-size: 1.25rem;
-  }
+#answers button {
 
-  .vertical-chart {
-    gap: 12px;
-    padding-left: 0;
-    padding-right: 0;
-  }
+    font-family: "DM Serif Display", serif;
 
-  .column {
-    width: 80%;
-  }
+    font-size: 22px;
 
-  .column-label {
-    font-size: 0.8rem;
-  }
+    font-weight: 400;
 
-  .conclusion h2 {
-    font-size: 4rem;
-  }
+    line-height: 1.35;
 
-  .conclusion-text {
-    font-size: 1.65rem;
-  }
+}
+
+
+/* RESULTS */
+
+.result-main-title {
+
+    font-family: "DM Serif Display", serif;
+
+    font-size: clamp(72px, 9vw, 112px);
+
+    font-weight: 400;
+
+    letter-spacing: -2px;
+
+    margin-bottom: 55px;
+
+}
+
+
+.result-type {
+
+    padding: 28px 32px 32px;
+
+    margin-bottom: 55px;
+
+    border: 1px solid rgba(247, 241, 231, 0.2);
+
+}
+
+
+.result-label {
+
+    font-size: 14px;
+
+    margin-bottom: 14px;
+
+}
+
+
+#archetype-title {
+
+    font-size: clamp(40px, 5vw, 62px);
+
+    margin-bottom: 14px;
+
+}
+
+
+#archetype-description {
+
+    font-size: 18px;
+
+    max-width: 760px;
+
+}
+
+
+.result-match {
+
+    margin-bottom: 65px;
+
+}
+
+
+#match-percent {
+
+    font-size: clamp(65px, 8vw, 92px);
+
+    line-height: 0.9;
+
+    margin: 14px 0 20px;
+
+}
+
+
+#match-count {
+
+    font-size: 21px;
+
+}
+
+
+.comparison-heading {
+
+    border-bottom: none;
+
+    margin-bottom: 25px;
+
+}
+
+
+.comparison-heading h2 {
+
+    font-size: clamp(42px, 5vw, 58px);
+
+}
+
+
+.table-wrapper {
+
+    margin-bottom: 55px;
+
+}
+
+
+table {
+
+    font-family: "DM Serif Display", serif;
+
+    font-size: 18px;
+
+    min-width: 800px;
+
+}
+
+
+th {
+
+    font-family: "Manrope", sans-serif;
+
+    font-size: 12px;
+
+    padding: 19px 16px;
+
+}
+
+
+td {
+
+    padding: 24px 16px;
+
+    font-size: 18px;
+
+    line-height: 1.45;
+
+}
+
+
+td:first-child {
+
+    font-family: "DM Serif Display", serif;
+
+    font-weight: 400;
+
+}
+
+
+.match-yes,
+.match-no {
+
+    font-family: "DM Serif Display", serif;
+
+    font-size: 27px;
+
+}
+
+
+/* DATA PAGE */
+
+.data-title-label {
+
+    display: none;
+
+}
+
+
+.data-main-title {
+
+    font-size: clamp(76px, 11vw, 145px);
+
+    margin-bottom: 28px;
+
+}
+
+
+.data-main-intro {
+
+    font-size: 21px;
+
+    max-width: 850px;
+
+    margin-bottom: 80px;
+
+}
+
+
+.data-section {
+
+    border-top: none;
+
+    padding: 55px 0 85px;
+
+}
+
+
+.data-section h2 {
+
+    font-size: clamp(44px, 5.5vw, 68px);
+
+    margin-bottom: 20px;
+
+}
+
+
+.data-description {
+
+    font-size: 20px;
+
+    max-width: 850px;
+
+    margin-bottom: 48px;
+
+}
+
+
+.q1-stat strong {
+
+    font-size: 76px;
+
+}
+
+
+.q1-stat span {
+
+    font-size: 21px;
+
+}
+
+
+.graph {
+
+    gap: 23px;
+
+}
+
+
+.graph-row {
+
+    grid-template-columns: 220px 1fr 55px;
+
+    gap: 20px;
+
+}
+
+
+.graph-label {
+
+    font-size: 18px;
+
+}
+
+
+.graph-track {
+
+    height: 22px;
+
+}
+
+
+.graph-number {
+
+    font-size: 27px;
+
+}
+
+
+.vertical-chart {
+
+    height: 390px;
+
+    gap: 80px;
+
+}
+
+
+.vertical-column {
+
+    width: 115px;
+
+}
+
+
+.column-number {
+
+    font-size: 38px;
+
+}
+
+
+.column {
+
+    width: 72px;
+
+    height: 270px;
+
+}
+
+
+.column-label {
+
+    font-size: 15px;
+
+}
+
+
+.graph-note {
+
+    font-size: 19px;
+
+}
+
+
+.impulse-chart {
+
+    gap: 24px;
+
+}
+
+
+.impulse-row {
+
+    grid-template-columns: 145px 1fr 90px;
+
+    gap: 20px;
+
+}
+
+
+.impulse-row span {
+
+    font-size: 18px;
+
+}
+
+
+.impulse-row strong {
+
+    font-size: 17px;
+
+}
+
+
+.impulse-track {
+
+    height: 22px;
+
+}
+
+
+.q4-chart {
+
+    gap: 25px;
+
+}
+
+
+.q4-row {
+
+    grid-template-columns: 220px 1fr 90px;
+
+    gap: 20px;
+
+}
+
+
+.q4-label {
+
+    font-size: 18px;
+
+}
+
+
+.q4-track {
+
+    height: 22px;
+
+}
+
+
+.q4-number {
+
+    font-size: 17px;
+
+}
+
+
+/* CONCLUSION */
+
+.conclusion {
+
+    border-top: none;
+
+    padding: 85px 0 30px;
+
+}
+
+
+.conclusion h2 {
+
+    font-size: clamp(52px, 7vw, 82px);
+
+    margin-bottom: 40px;
+
+}
+
+
+.conclusion p {
+
+    font-size: 20px;
+
+    max-width: 760px;
+
+}
+
+
+.conclusion-punchline {
+
+    font-size: clamp(42px, 5vw, 62px);
+
+    line-height: 1;
+
+    margin: 42px 0 28px;
+
+    letter-spacing: -1px;
+
+}
+
+
+.conclusion-last {
+
+    font-size: 30px !important;
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    #intro-screen h1 {
+
+        font-size: 55px;
+
+    }
+
+
+    .intro-method {
+
+        font-size: 17px;
+
+    }
+
+
+    .intro-instruction {
+
+        font-size: 18px;
+
+    }
+
+
+    .quiz-instruction {
+
+        font-size: 25px;
+
+    }
+
+
+    #answers button {
+
+        font-size: 20px;
+
+    }
+
+
+    .result-main-title {
+
+        font-size: 68px;
+
+        letter-spacing: -1px;
+
+        margin-bottom: 45px;
+
+    }
+
+
+    .result-type {
+
+        padding: 24px 20px 28px;
+
+    }
+
+
+    #archetype-title {
+
+        font-size: 43px;
+
+    }
+
+
+    #archetype-description {
+
+        font-size: 17px;
+
+    }
+
+
+    #match-percent {
+
+        font-size: 72px;
+
+    }
+
+
+    #match-count {
+
+        font-size: 18px;
+
+    }
+
+
+    .comparison-heading h2 {
+
+        font-size: 39px;
+
+    }
+
+
+    table {
+
+        font-size: 17px;
+
+    }
+
+
+    td {
+
+        font-size: 17px;
+
+    }
+
+
+    .data-main-title {
+
+        font-size: 88px;
+
+    }
+
+
+    .data-main-intro {
+
+        font-size: 18px;
+
+    }
+
+
+    .data-section {
+
+        padding: 45px 0 70px;
+
+    }
+
+
+    .data-section h2 {
+
+        font-size: 42px;
+
+    }
+
+
+    .data-description {
+
+        font-size: 17px;
+
+    }
+
+
+    .q1-stat strong {
+
+        font-size: 58px;
+
+    }
+
+
+    .q1-stat span {
+
+        font-size: 17px;
+
+    }
+
+
+    .graph-row {
+
+        grid-template-columns: 135px 1fr 35px;
+
+        gap: 10px;
+
+    }
+
+
+    .graph-label {
+
+        font-size: 13px;
+
+    }
+
+
+    .graph-number {
+
+        font-size: 22px;
+
+    }
+
+
+    .vertical-chart {
+
+        gap: 18px;
+
+        height: 330px;
+
+    }
+
+
+    .vertical-column {
+
+        width: 65px;
+
+    }
+
+
+    .column {
+
+        width: 45px;
+
+        height: 220px;
+
+    }
+
+
+    .column-number {
+
+        font-size: 30px;
+
+    }
+
+
+    .column-label {
+
+        font-size: 10px;
+
+    }
+
+
+    .graph-note {
+
+        font-size: 17px;
+
+    }
+
+
+    .impulse-row {
+
+        grid-template-columns: 80px 1fr 58px;
+
+        gap: 10px;
+
+    }
+
+
+    .impulse-row span {
+
+        font-size: 13px;
+
+    }
+
+
+    .q4-row {
+
+        grid-template-columns: 135px 1fr 58px;
+
+        gap: 10px;
+
+    }
+
+
+    .q4-label {
+
+        font-size: 13px;
+
+    }
+
+
+    .q4-number {
+
+        font-size: 12px;
+
+    }
+
+
+    .conclusion {
+
+        padding-top: 65px;
+
+    }
+
+
+    .conclusion h2 {
+
+        font-size: 50px;
+
+    }
+
+
+    .conclusion p {
+
+        font-size: 18px;
+
+    }
+
+
+    .conclusion-punchline {
+
+        font-size: 46px;
+
+    }
+
+
+    .conclusion-last {
+
+        font-size: 25px !important;
+
+    }
+
 }
