@@ -1,1484 +1,736 @@
-/* =====================================================
+/* =========================================
    RESET
-===================================================== */
+========================================= */
 
 * {
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
-
 
 body {
+  background: #081735;
+  color: #f7f1e7;
+  font-family: "Manrope", sans-serif;
+}
 
-    margin: 0;
+button {
+  font-family: inherit;
+}
 
-    min-height: 100vh;
-
-    background: #081735;
-
-    color: #f7f1e7;
-
-    font-family: "Manrope", sans-serif;
-
-    padding: 0;
-
+.hidden {
+  display: none !important;
 }
 
 
-/* =====================================================
-   MAIN
-===================================================== */
+/* =========================================
+   GLOBAL
+========================================= */
 
-main {
-
-    width: 100%;
-
-    max-width: 1180px;
-
-    min-height: 100vh;
-
-    margin: 0 auto;
-
-    padding: 80px 75px 100px;
-
-    position: relative;
-
-    overflow: hidden;
-
+.site {
+  min-height: 100vh;
+  background: #081735;
 }
 
-
-/* decorative circle */
-
-main::after {
-
-    content: "";
-
-    position: absolute;
-
-    width: 270px;
-
-    height: 270px;
-
-    border-radius: 50%;
-
-    background: rgba(177, 155, 255, 0.06);
-
-    top: -125px;
-
-    right: -100px;
-
-    pointer-events: none;
-
+.screen {
+  min-height: 100vh;
+  width: 100%;
 }
-
-
-/* =====================================================
-   TYPOGRAPHY
-===================================================== */
-
-h1,
-h2 {
-
-    font-family: "DM Serif Display", serif;
-
-    font-weight: 400;
-
-}
-
-
-h1 {
-
-    margin: 0;
-
-}
-
-
-h2 {
-
-    margin: 0;
-
-}
-
-
-p {
-
-    line-height: 1.65;
-
-}
-
-
-/* =====================================================
-   INTRO
-===================================================== */
-
-#intro-screen {
-
-    min-height: calc(100vh - 180px);
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    align-items: center;
-
-    text-align: center;
-
-    position: relative;
-
-    z-index: 1;
-
-}
-
-
-.intro-label {
-
-    color: #b9a4ff;
-
-    font-size: 11px;
-
-    font-weight: 800;
-
-    letter-spacing: 2.5px;
-
-    margin-bottom: 35px;
-}
-
-
-#intro-screen h1 {
-
-    font-size: clamp(55px, 7vw, 91px);
-
-    line-height: 0.94;
-
-    letter-spacing: -2px;
-
-    max-width: 1000px;
-
-}
-
-
-.intro-line {
-
-    width: 70px;
-
-    height: 1px;
-
-    background: #b9a4ff;
-
-    margin: 38px 0 30px;
-}
-
-
-.intro-method {
-
-    max-width: 720px;
-
-    margin: 0 auto;
-
-    color: #b8c3d9;
-
-    font-size: 17px;
-
-    line-height: 1.75;
-}
-
-
-.intro-method strong {
-
-    color: #f7f1e7;
-}
-
-
-.intro-instruction {
-
-    margin: 24px 0 0;
-
-    color: #f7f1e7;
-
-    font-size: 18px;
-}
-
 
 .primary-button {
-
-    margin-top: 38px;
-
-    padding: 18px 30px;
-
-    border: 1px solid #b9a4ff;
-
-    background: #b9a4ff;
-
-    color: #081735;
-
-    font-family: "Manrope", sans-serif;
-
-    font-size: 12px;
-
-    font-weight: 800;
-
-    letter-spacing: 1.5px;
-
-    cursor: pointer;
-
-    transition: 0.2s ease;
+  padding: 20px 30px;
+  border: 1px solid #b9a4ff;
+  background: #b9a4ff;
+  color: #081735;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
-
 
 .primary-button span {
-
-    margin-left: 22px;
-
-    font-size: 17px;
+  margin-left: 22px;
+  font-size: 1.15rem;
 }
-
 
 .primary-button:hover {
-
-    background: #d0c3ff;
-
-    transform: translateY(-3px);
+  background: transparent;
+  color: #b9a4ff;
 }
 
 
-.intro-footnote {
+/* =========================================
+   INTRO
+========================================= */
 
-    color: #667796;
+.intro-screen {
+  padding: 70px 7vw 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    font-size: 11px;
+.intro-content {
+  width: 100%;
+  max-width: 1300px;
+  text-align: center;
+}
 
-    margin-top: 27px;
+.intro-content h1 {
+  font-family: "DM Serif Display", serif;
+  font-weight: 400;
+  font-size: clamp(5rem, 9vw, 10rem);
+  line-height: 0.88;
+  letter-spacing: -0.045em;
+}
+
+.intro-divider {
+  width: 58px;
+  height: 2px;
+  background: #b9a4ff;
+  margin: 45px auto 32px;
+}
+
+.methodology {
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: rgba(247, 241, 231, 0.84);
+}
+
+.methodology strong {
+  color: #f7f1e7;
+}
+
+.intro-instruction {
+  margin-top: 25px;
+  font-size: 1.08rem;
+  color: #f7f1e7;
+}
+
+.intro-content .primary-button {
+  margin-top: 38px;
+}
+
+.intro-note {
+  margin-top: 22px;
+  font-size: 0.72rem;
+  color: rgba(247, 241, 231, 0.4);
 }
 
 
-/* =====================================================
+/* =========================================
    QUIZ
-===================================================== */
+========================================= */
 
-#quiz-screen {
-
-    position: relative;
-
-    z-index: 1;
-
-    padding-top: 10px;
+.quiz-screen {
+  padding: 45px 7vw 90px;
 }
-
 
 .quiz-header {
-
-    border-bottom: 1px solid rgba(247, 241, 231, 0.18);
-
-    padding-bottom: 22px;
-
-    margin-bottom: 65px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 18px;
+  width: 100%;
 }
 
-
-.quiz-progress {
-
-    color: #7384a7;
-
-    font-size: 11px;
-
-    font-weight: 800;
-
-    letter-spacing: 2px;
+.progress-track {
+  height: 2px;
+  width: 100%;
+  background: rgba(247, 241, 231, 0.12);
 }
 
+#progress-bar {
+  height: 100%;
+  width: 12.5%;
+  background: #b9a4ff;
+  transition: width 0.3s ease;
+}
+
+.quiz-content {
+  max-width: 1250px;
+  margin: 100px auto 0;
+}
 
 .quiz-instruction {
+  font-family: "Manrope", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #b9a4ff;
+  margin-bottom: 55px;
+}
 
-    color: #b9a4ff;
+#question-text {
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(4rem, 7vw, 8rem);
+  line-height: 0.96;
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  max-width: 1200px;
+}
 
-    font-size: 16px;
+.answer-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-top: 70px;
+}
 
-    font-weight: 800;
+.answer-button {
+  min-height: 125px;
+  padding: 30px 35px;
+  background: transparent;
+  color: #f7f1e7;
+  border: 1px solid rgba(247, 241, 231, 0.2);
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.22s ease;
+}
 
-    letter-spacing: 1.2px;
+.answer-button:hover {
+  border-color: #b9a4ff;
+  background: rgba(185, 164, 255, 0.08);
+  transform: translateY(-3px);
+}
 
-    text-transform: uppercase;
+.answer-number {
+  display: block;
+  color: #b9a4ff;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  margin-bottom: 12px;
+}
+
+.answer-text {
+  font-family: "DM Serif Display", serif;
+  font-size: 1.55rem;
+  line-height: 1.2;
 }
 
 
-.question-number {
-
-    font-family: "DM Serif Display", serif;
-
-    color: #b9a4ff;
-
-    font-size: 26px;
-
-    margin-bottom: 15px;
-}
-
-
-#question {
-
-    font-family: "DM Serif Display", serif;
-
-    font-size: clamp(48px, 6vw, 75px);
-
-    line-height: 1;
-
-    letter-spacing: -1px;
-
-    max-width: 1000px;
-
-    margin-bottom: 55px;
-}
-
-
-#answers {
-
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 14px;
-
-    max-width: 1000px;
-}
-
-
-#answers button {
-
-    min-height: 88px;
-
-    padding: 20px 25px;
-
-    text-align: left;
-
-    background: #10244a;
-
-    border: 1px solid #33466d;
-
-    color: #f7f1e7;
-
-    font-family: "Manrope", sans-serif;
-
-    font-size: 17px;
-
-    font-weight: 500;
-
-    line-height: 1.45;
-
-    cursor: pointer;
-
-    transition: 0.2s ease;
-}
-
-
-#answers button:hover {
-
-    border-color: #b9a4ff;
-
-    background: #162e5b;
-
-    transform: translateX(5px);
-}
-
-
-/* =====================================================
+/* =========================================
    RESULTS
-===================================================== */
+========================================= */
 
-#result-screen {
-
-    position: relative;
-
-    z-index: 1;
+.results-screen {
+  padding: 70px 7vw 110px;
 }
 
-
-.result-main-title {
-
-    font-family: "Manrope", sans-serif;
-
-    font-size: clamp(60px, 9vw, 115px);
-
-    line-height: 0.9;
-
-    font-weight: 800;
-
-    letter-spacing: -5px;
-
-    margin-bottom: 75px;
-
-    color: #f7f1e7;
+.results-content {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-
-/* result type */
+.results-heading {
+  font-family: "DM Serif Display", serif;
+  font-weight: 400;
+  font-size: clamp(5rem, 10vw, 10rem);
+  line-height: 0.85;
+  letter-spacing: -0.045em;
+}
 
 .result-type {
+  margin-top: 75px;
+}
 
-    border-top: 1px solid rgba(247, 241, 231, 0.2);
+.result-type-label {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.17em;
+  color: #b9a4ff;
+}
 
-    border-bottom: 1px solid rgba(247, 241, 231, 0.2);
+.result-type-box {
+  margin-top: 22px;
+  padding: 32px 36px;
+  border: 1px solid rgba(247, 241, 231, 0.2);
+  max-width: 1000px;
+}
 
-    padding: 38px 0 42px;
+.result-archetype {
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 1;
+  letter-spacing: -0.025em;
+}
 
-    margin-bottom: 55px;
+.result-quote {
+  margin-top: 28px;
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(1.7rem, 3vw, 3.2rem);
+  line-height: 1.1;
+  max-width: 900px;
+}
+
+.result-source {
+  margin-top: 14px;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.85rem;
+  color: rgba(247, 241, 231, 0.5);
+}
+
+.match-section {
+  margin-top: 75px;
+}
+
+.match-heading {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.17em;
+  color: #b9a4ff;
+}
+
+.match-number {
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(4rem, 7vw, 7rem);
+  line-height: 0.9;
+  margin-top: 18px;
+  color: #b9a4ff;
+}
+
+.match-description {
+  margin-top: 25px;
+  color: rgba(247, 241, 231, 0.72);
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.comparison-section {
+  margin-top: 75px;
+}
+
+.comparison-section h2 {
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(2.4rem, 4vw, 4.5rem);
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 35px;
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 22px 16px;
+  text-align: left;
+  border-bottom: 1px solid rgba(247, 241, 231, 0.15);
+}
+
+.comparison-table th {
+  color: rgba(247, 241, 231, 0.45);
+  font-family: "Manrope", sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  font-weight: 800;
+}
+
+.comparison-table td {
+  font-family: "DM Serif Display", serif;
+  font-size: 1.18rem;
+  line-height: 1.25;
+}
+
+.comparison-table td:first-child {
+  width: 32%;
+}
+
+.comparison-table td:nth-child(2) {
+  width: 20%;
+}
+
+.comparison-table td:nth-child(3) {
+  width: 38%;
+}
+
+.match-cell {
+  color: #b9a4ff;
+  font-family: "Manrope", sans-serif !important;
+  font-size: 1.25rem !important;
+  font-weight: 800;
+  text-align: center !important;
+}
+
+.reveal-button {
+  margin-top: 55px;
 }
 
 
-.result-label {
+/* =========================================
+   DATA
+========================================= */
 
-    color: #b9a4ff;
+.data-screen {
+  padding: 75px 7vw 120px;
+}
 
-    font-size: 11px;
+.data-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-    font-weight: 800;
+.data-heading {
+  font-family: "DM Serif Display", serif;
+  font-weight: 400;
+  font-size: clamp(5rem, 11vw, 11rem);
+  line-height: 0.85;
+  letter-spacing: -0.045em;
+}
 
-    letter-spacing: 2px;
+.data-intro {
+  margin-top: 35px;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: rgba(247, 241, 231, 0.8);
+  max-width: 900px;
+}
 
-    margin: 0 0 18px;
+.data-question {
+  margin-top: 115px;
+}
+
+.data-question-title {
+  max-width: 1050px;
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(2.3rem, 4.5vw, 5rem);
+  line-height: 1;
+  letter-spacing: -0.025em;
+}
+
+.data-note {
+  margin-top: 28px;
+  font-size: 1rem;
+  color: rgba(247, 241, 231, 0.65);
+}
+
+.q1-highlight {
+  display: flex;
+  align-items: baseline;
+  gap: 25px;
+  margin-top: 48px;
+}
+
+.highlight-number {
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(4rem, 7vw, 7rem);
+  line-height: 0.9;
+}
+
+.highlight-text {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  color: rgba(247, 241, 231, 0.65);
+}
+
+.bar-chart {
+  margin-top: 55px;
+  width: 100%;
+}
+
+.bar-row {
+  display: grid;
+  grid-template-columns: 220px 1fr 80px;
+  align-items: center;
+  gap: 22px;
+  margin-bottom: 25px;
+}
+
+.bar-label {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.bar-track {
+  height: 17px;
+  background: rgba(247, 241, 231, 0.1);
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background: #b9a4ff;
+}
+
+.bar-value {
+  font-family: "DM Serif Display", serif;
+  font-size: 1.6rem;
+  text-align: right;
 }
 
 
-#archetype-title {
-
-    font-family: "DM Serif Display", serif;
-
-    font-size: clamp(48px, 6vw, 76px);
-
-    line-height: 1;
-
-    margin: 0 0 18px;
-
-    color: #f7f1e7;
-}
-
-
-#archetype-description {
-
-    color: #9eabc3;
-
-    font-size: 16px;
-
-    max-width: 650px;
-
-    margin: 0;
-}
-
-
-/* MU match */
-
-.result-match {
-
-    margin-bottom: 75px;
-}
-
-
-#match-percent {
-
-    font-family: "DM Serif Display", serif;
-
-    font-size: clamp(90px, 12vw, 145px);
-
-    line-height: 0.8;
-
-    color: #b9a4ff;
-
-    margin: 15px 0 25px;
-}
-
-
-#match-count {
-
-    color: #9eabc3;
-
-    font-size: 15px;
-
-    margin: 0;
-}
-
-
-/* comparison */
-
-.comparison-heading {
-
-    border-bottom: 1px solid rgba(247, 241, 231, 0.2);
-
-    padding-bottom: 18px;
-
-    margin-bottom: 25px;
-}
-
-
-.comparison-heading h2 {
-
-    font-size: 39px;
-
-    color: #f7f1e7;
-}
-
-
-/* =====================================================
-   TABLE
-===================================================== */
-
-.table-wrapper {
-
-    overflow-x: auto;
-
-    width: 100%;
-
-    margin-bottom: 55px;
-}
-
-
-table {
-
-    width: 100%;
-
-    min-width: 800px;
-
-    border-collapse: collapse;
-
-    font-family: "Manrope", sans-serif;
-
-    font-size: 14px;
-}
-
-
-th {
-
-    padding: 17px 14px;
-
-    text-align: left;
-
-    color: #7183a6;
-
-    border-bottom: 1px solid #3a4d73;
-
-    font-size: 10px;
-
-    letter-spacing: 1.5px;
-
-    text-transform: uppercase;
-}
-
-
-td {
-
-    padding: 21px 14px;
-
-    color: #d2d7e1;
-
-    border-bottom: 1px solid rgba(247, 241, 231, 0.1);
-
-    line-height: 1.5;
-
-    vertical-align: top;
-}
-
-
-td:first-child {
-
-    color: #f7f1e7;
-
-    font-weight: 600;
-
-    width: 34%;
-}
-
-
-.match-yes {
-
-    color: #b9a4ff;
-
-    font-size: 24px;
-
-    font-weight: 800;
-
-    text-align: center;
-}
-
-
-.match-no {
-
-    color: #6e7d9c;
-
-    font-size: 24px;
-
-    font-weight: 800;
-
-    text-align: center;
-}
-
-
-.secondary-button {
-
-    padding: 18px 30px;
-
-    background: transparent;
-
-    border: 1px solid #b9a4ff;
-
-    color: #f7f1e7;
-
-    font-family: "Manrope", sans-serif;
-
-    font-size: 12px;
-
-    font-weight: 800;
-
-    letter-spacing: 1.5px;
-
-    cursor: pointer;
-
-    transition: 0.2s ease;
-}
-
-
-.secondary-button span {
-
-    margin-left: 22px;
-
-    font-size: 17px;
-}
-
-
-.secondary-button:hover {
-
-    background: #b9a4ff;
-
-    color: #081735;
-}
-
-
-/* =====================================================
-   DATA TITLE
-===================================================== */
-
-.data-title-label {
-
-    color: #b9a4ff;
-
-    font-size: 11px;
-
-    font-weight: 800;
-
-    letter-spacing: 2px;
-
-    margin-bottom: 18px;
-}
-
-
-.data-main-title {
-
-    font-family: "Manrope", sans-serif;
-
-    font-weight: 800;
-
-    font-size: clamp(70px, 11vw, 145px);
-
-    line-height: 0.8;
-
-    letter-spacing: -6px;
-
-    margin-bottom: 35px;
-}
-
-
-.data-main-intro {
-
-    color: #a9b5cc;
-
-    font-size: 18px;
-
-    max-width: 700px;
-
-    margin-bottom: 85px;
-}
-
-
-/* =====================================================
-   DATA SECTION
-===================================================== */
-
-.data-section {
-
-    border-top: 1px solid rgba(247, 241, 231, 0.2);
-
-    padding: 48px 0 80px;
-}
-
-
-.data-section-number {
-
-    color: #b9a4ff;
-
-    font-size: 11px;
-
-    font-weight: 800;
-
-    letter-spacing: 2px;
-
-    margin-bottom: 18px;
-}
-
-
-.data-section h2 {
-
-    font-size: clamp(38px, 5vw, 60px);
-
-    line-height: 1;
-
-    margin-bottom: 16px;
-}
-
-
-.data-description {
-
-    color: #aab5ca;
-
-    font-size: 16px;
-
-    margin: 0 0 45px;
-
-    max-width: 700px;
-}
-
-
-/* =====================================================
-   Q1
-===================================================== */
-
-.q1-stat {
-
-    display: flex;
-
-    align-items: baseline;
-
-    gap: 18px;
-
-    margin-bottom: 40px;
-}
-
-
-.q1-stat strong {
-
-    font-family: "DM Serif Display", serif;
-
-    color: #b9a4ff;
-
-    font-size: 67px;
-
-    line-height: 1;
-}
-
-
-.q1-stat span {
-
-    color: #c0c9d9;
-
-    font-size: 18px;
-}
-
-
-.q1-stat span b {
-
-    color: #f7f1e7;
-}
-
-
-/* graph */
-
-.graph {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 18px;
-}
-
-
-.graph-row {
-
-    display: grid;
-
-    grid-template-columns: 190px 1fr 45px;
-
-    align-items: center;
-
-    gap: 18px;
-}
-
-
-.graph-label {
-
-    color: #d4dae4;
-
-    font-size: 14px;
-}
-
-
-.graph-track {
-
-    height: 18px;
-
-    background: #142950;
-
-    overflow: hidden;
-}
-
-
-.graph-fill {
-
-    height: 100%;
-
-    background: #b9a4ff;
-}
-
-
-.graph-number {
-
-    font-family: "DM Serif Display", serif;
-
-    font-size: 22px;
-
-    color: #f7f1e7;
-}
-
-
-/* =====================================================
-   Q2
-===================================================== */
+/* =========================================
+   Q2 VERTICAL GRAPH
+========================================= */
 
 .vertical-chart {
-
-    height: 370px;
-
-    border-bottom: 1px solid rgba(247, 241, 231, 0.2);
-
-    display: flex;
-
-    align-items: flex-end;
-
-    justify-content: center;
-
-    gap: 70px;
-
-    padding: 0 20px;
-
-    margin: 25px 0 35px;
+  height: 430px;
+  margin-top: 65px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  gap: 45px;
+  border-bottom: 1px solid rgba(247, 241, 231, 0.2);
+  padding: 0 30px;
 }
-
 
 .vertical-column {
-
-    width: 100px;
-
-    height: 100%;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: flex-end;
-
-    gap: 10px;
+  height: 100%;
+  flex: 1;
+  max-width: 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
 }
 
-
-.column-number {
-
-    font-family: "DM Serif Display", serif;
-
-    font-size: 31px;
-
-    color: #a5b0c3;
+.column-value {
+  font-family: "DM Serif Display", serif;
+  font-size: 2rem;
+  margin-bottom: 12px;
 }
-
 
 .column {
-
-    height: 245px;
-
-    width: 65px;
-
-    background: #142950;
-
-    display: flex;
-
-    align-items: flex-end;
+  width: 100%;
+  height: 290px;
+  background: rgba(247, 241, 231, 0.08);
+  display: flex;
+  align-items: flex-end;
 }
-
 
 .column-fill {
-
-    width: 100%;
-
-    background: #657799;
+  width: 100%;
+  background: #b9a4ff;
 }
-
-
-.column-fill.short {
-    height: 14%;
-}
-
-
-.column-fill.small {
-    height: 28%;
-}
-
-
-.column-fill.large {
-
-    height: 100%;
-
-    background: #b9a4ff;
-}
-
 
 .column-label {
-
-    font-size: 12px;
-
-    color: #9daac1;
-
-    text-align: center;
-
-    white-space: nowrap;
+  margin-top: 18px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
 }
 
 
-.vertical-column.featured .column-label {
-
-    color: #b9a4ff;
-
-    font-weight: 800;
-}
-
-
-.graph-note {
-
-    color: #b7c1d2;
-
-    font-size: 16px;
-
-    border-left: 2px solid #b9a4ff;
-
-    padding-left: 20px;
-
-    margin: 0;
-}
-
-
-.graph-note strong {
-
-    color: #f7f1e7;
-}
-
-
-/* =====================================================
-   Q3
-===================================================== */
-
-.impulse-chart {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 20px;
-}
-
-
-.impulse-row {
-
-    display: grid;
-
-    grid-template-columns: 120px 1fr 75px;
-
-    align-items: center;
-
-    gap: 18px;
-}
-
-
-.impulse-row span {
-
-    font-size: 15px;
-
-    color: #c5ccda;
-}
-
-
-.impulse-row strong {
-
-    font-size: 14px;
-
-    color: #b5bfd1;
-
-    text-align: right;
-}
-
-
-.impulse-track {
-
-    height: 20px;
-
-    background: #142950;
-}
-
-
-.impulse-track div {
-
-    height: 100%;
-
-    background: #667899;
-}
-
-
-.impulse-row.highlighted span,
-.impulse-row.highlighted strong {
-
-    color: #b9a4ff;
-
-    font-weight: 800;
-}
-
-
-.impulse-row.highlighted .impulse-track div {
-
-    background: #b9a4ff;
-}
-
-
-/* =====================================================
+/* =========================================
    Q4
-===================================================== */
+========================================= */
 
 .q4-chart {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 21px;
-
-    margin-top: 10px;
+  margin-top: 60px;
 }
 
 
-.q4-row {
-
-    display: grid;
-
-    grid-template-columns: 190px 1fr 75px;
-
-    align-items: center;
-
-    gap: 18px;
-}
-
-
-.q4-label {
-
-    color: #d4dae4;
-
-    font-size: 14px;
-}
-
-
-.q4-track {
-
-    height: 20px;
-
-    background: #142950;
-
-    overflow: hidden;
-}
-
-
-.q4-fill {
-
-    height: 100%;
-
-    background: #b9a4ff;
-}
-
-
-.q4-fill.secondary {
-
-    background: #667899;
-}
-
-
-.q4-number {
-
-    color: #f7f1e7;
-
-    font-size: 14px;
-
-    font-weight: 700;
-
-    text-align: right;
-}
-
-
-/* =====================================================
+/* =========================================
    CONCLUSION
-===================================================== */
+========================================= */
 
 .conclusion {
-
-    border-top: 1px solid rgba(247, 241, 231, 0.2);
-
-    padding: 75px 0 20px;
-
-    max-width: 850px;
-
-    margin: 0 auto;
-
-    text-align: center;
+  margin-top: 140px;
+  padding-bottom: 40px;
 }
-
 
 .conclusion h2 {
+  font-family: "DM Serif Display", serif;
+  font-weight: 400;
+  font-size: clamp(4rem, 8vw, 8rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+}
 
-    font-size: clamp(43px, 6vw, 68px);
+.conclusion-text {
+  max-width: 1000px;
+  margin-top: 45px;
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(1.8rem, 3vw, 3.2rem);
+  line-height: 1.15;
+  color: rgba(247, 241, 231, 0.9);
+}
 
-    line-height: 1;
+.hive-mind {
+  font-weight: 400;
+}
 
-    margin-bottom: 35px;
+.food-word {
+  display: block;
+  margin-top: 25px;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: #b9a4ff;
+}
+
+.conclusion-final {
+  margin-top: 75px;
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(2rem, 3.5vw, 3.8rem);
+  line-height: 1.1;
 }
 
 
-.conclusion p {
+/* =========================================
+   RESPONSIVE
+========================================= */
 
-    color: #aab5ca;
+@media (max-width: 800px) {
 
-    font-size: 17px;
+  .intro-screen,
+  .quiz-screen,
+  .results-screen,
+  .data-screen {
+    padding-left: 6vw;
+    padding-right: 6vw;
+  }
 
-    max-width: 680px;
+  .intro-content h1 {
+    font-size: clamp(3.5rem, 12vw, 6rem);
+  }
 
-    margin: 18px auto;
+  .methodology {
+    font-size: 1rem;
+  }
+
+  .quiz-content {
+    margin-top: 70px;
+  }
+
+  .quiz-instruction {
+    font-size: 0.95rem;
+  }
+
+  #question-text {
+    font-size: clamp(3rem, 11vw, 5rem);
+  }
+
+  .answer-options {
+    grid-template-columns: 1fr;
+  }
+
+  .answer-button {
+    min-height: 105px;
+  }
+
+  .result-type-box {
+    padding: 25px;
+  }
+
+  .comparison-table {
+    display: block;
+    overflow-x: auto;
+  }
+
+  .comparison-table th,
+  .comparison-table td {
+    min-width: 180px;
+  }
+
+  .bar-row {
+    grid-template-columns: 130px 1fr 60px;
+    gap: 12px;
+  }
+
+  .bar-label {
+    font-size: 0.75rem;
+  }
+
+  .vertical-chart {
+    gap: 12px;
+    padding: 0 5px;
+  }
+
+  .column-label {
+    font-size: 0.75rem;
+  }
+
+  .q1-highlight {
+    gap: 15px;
+  }
+
+  .highlight-text {
+    font-size: 0.9rem;
+  }
+
 }
 
 
-.conclusion p strong {
-
-    color: #f7f1e7;
-}
-
-
-.conclusion-punchline {
-
-    font-family: "DM Serif Display", serif;
-
-    font-size: clamp(80px, 13vw, 155px);
-
-    line-height: 0.85;
-
-    color: #b9a4ff;
-
-    margin: 45px 0 25px;
-
-    letter-spacing: -4px;
-}
-
-
-.conclusion-last {
-
-    font-family: "DM Serif Display", serif;
-
-    font-size: 25px !important;
-
-    color: #f7f1e7 !important;
-}
-
-
-.final-dataset {
-
-    margin-top: 55px;
-
-    color: #657795;
-
-    font-size: 10px;
-
-    font-weight: 800;
-
-    letter-spacing: 2px;
-}
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media (max-width: 700px) {
-
-
-    main {
-
-        padding: 55px 24px 75px;
-
-    }
-
-
-    #intro-screen {
-
-        min-height: calc(100vh - 120px);
-
-    }
-
-
-    #intro-screen h1 {
-
-        font-size: 48px;
-
-        letter-spacing: -1px;
-
-    }
-
-
-    .intro-method {
-
-        font-size: 15px;
-
-    }
-
-
-    .intro-instruction {
-
-        font-size: 16px;
-
-    }
-
-
-    .quiz-header {
-
-        margin-bottom: 45px;
-
-    }
-
-
-    .quiz-instruction {
-
-        font-size: 13px;
-
-        line-height: 1.4;
-
-    }
-
-
-    #question {
-
-        font-size: 43px;
-
-        margin-bottom: 40px;
-
-    }
-
-
-    #answers {
-
-        grid-template-columns: 1fr;
-
-    }
-
-
-    #answers button {
-
-        min-height: 78px;
-
-        font-size: 16px;
-
-    }
-
-
-    .result-main-title {
-
-        font-size: 65px;
-
-        letter-spacing: -3px;
-
-        margin-bottom: 55px;
-
-    }
-
-
-    #archetype-title {
-
-        font-size: 48px;
-
-    }
-
-
-    #match-percent {
-
-        font-size: 95px;
-
-    }
-
-
-    .comparison-heading h2 {
-
-        font-size: 34px;
-
-    }
-
-
-    .data-main-title {
-
-        font-size: 85px;
-
-        letter-spacing: -4px;
-
-    }
-
-
-    .data-main-intro {
-
-        font-size: 16px;
-
-        margin-bottom: 60px;
-
-    }
-
-
-    .data-section h2 {
-
-        font-size: 38px;
-
-    }
-
-
-    .q1-stat strong {
-
-        font-size: 53px;
-
-    }
-
-
-    .q1-stat span {
-
-        font-size: 15px;
-
-    }
-
-
-    .graph-row {
-
-        grid-template-columns: 125px 1fr 30px;
-
-        gap: 9px;
-
-    }
-
-
-    .graph-label {
-
-        font-size: 11px;
-
-    }
-
-
-    .graph-number {
-
-        font-size: 19px;
-
-    }
-
-
-    .vertical-chart {
-
-        gap: 15px;
-
-        height: 320px;
-
-    }
-
-
-    .vertical-column {
-
-        width: 62px;
-
-    }
-
-
-    .column {
-
-        width: 42px;
-
-        height: 210px;
-
-    }
-
-
-    .column-label {
-
-        font-size: 9px;
-
-        white-space: normal;
-
-    }
-
-
-    .impulse-row {
-
-        grid-template-columns: 75px 1fr 55px;
-
-        gap: 9px;
-
-    }
-
-
-    .impulse-row span {
-
-        font-size: 12px;
-
-    }
-
-
-    .q4-row {
-
-        grid-template-columns: 125px 1fr 55px;
-
-        gap: 9px;
-
-    }
-
-
-    .q4-label {
-
-        font-size: 11px;
-
-    }
-
-
-    .q4-number {
-
-        font-size: 11px;
-
-    }
-
-
-    .conclusion-punchline {
-
-        font-size: 90px;
-
-    }
+@media (max-width: 520px) {
+
+  .intro-screen {
+    padding-top: 45px;
+  }
+
+  .intro-content h1 {
+    font-size: 3.4rem;
+  }
+
+  .intro-divider {
+    margin-top: 35px;
+  }
+
+  .primary-button {
+    width: 100%;
+  }
+
+  .quiz-instruction {
+    line-height: 1.4;
+  }
+
+  .answer-text {
+    font-size: 1.35rem;
+  }
+
+  .results-heading {
+    font-size: 4.5rem;
+  }
+
+  .result-archetype {
+    font-size: 2.3rem;
+  }
+
+  .result-quote {
+    font-size: 1.65rem;
+  }
+
+  .data-heading {
+    font-size: 5rem;
+  }
+
+  .data-question-title {
+    font-size: 2.5rem;
+  }
+
+  .bar-row {
+    grid-template-columns: 1fr;
+    gap: 7px;
+  }
+
+  .bar-value {
+    text-align: left;
+    font-size: 1.25rem;
+  }
+
+  .vertical-chart {
+    height: 320px;
+  }
+
+  .column {
+    height: 220px;
+  }
+
+  .column-value {
+    font-size: 1.4rem;
+  }
+
+  .conclusion h2 {
+    font-size: 4rem;
+  }
 
 }
