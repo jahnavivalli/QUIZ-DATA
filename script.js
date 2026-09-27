@@ -13,11 +13,12 @@ const questions = [
             "Forget about it."
         ],
         type: "archetype",
-        tags: [
-            ["spender", 2],
-            ["impulse", 2],
-            ["budgeter", 1],
-            ["saver", 1]
+        scores: [
+            { spender: 2, impulse: 2 },
+            { impulse: 1 },
+            { budgeter: 2 },
+            { saver: 2, budgeter: 1 },
+            { saver: 1 }
         ]
     },
 
@@ -61,11 +62,12 @@ const questions = [
             "It disappears and I don't know how 🤩."
         ],
         type: "archetype",
-        tags: [
-            ["spender", 2],
-            ["budgeter", 2],
-            ["saver", 2],
-            ["mystery", 2]
+        scores: [
+            { spender: 2, impulse: 1 },
+            { budgeter: 2 },
+            { saver: 2 },
+            { budgeter: 3 },
+            { mystery: 3 }
         ]
     },
 
@@ -95,11 +97,12 @@ const questions = [
             "Somehow convince everyone to do something else."
         ],
         type: "archetype",
-        tags: [
-            ["social", 2],
-            ["budgeter", 2],
-            ["saver", 2],
-            ["spender", 1]
+        scores: [
+            { social: 3, spender: 1 },
+            { budgeter: 2 },
+            { saver: 2 },
+            { saver: 2 },
+            { budgeter: 1, social: 1 }
         ]
     },
 
@@ -115,11 +118,12 @@ const questions = [
             "I have no idea where my money went."
         ],
         type: "archetype",
-        tags: [
-            ["spender", 2],
-            ["impulse", 2],
-            ["saver", 2],
-            ["mystery", 2]
+        scores: [
+            { spender: 3 },
+            { impulse: 3 },
+            { saver: 3 },
+            { impulse: 1, spender: 1 },
+            { mystery: 3 }
         ]
     },
 
@@ -135,11 +139,12 @@ const questions = [
             "What money?"
         ],
         type: "archetype",
-        tags: [
-            ["saver", 2],
-            ["budgeter", 1],
-            ["spender", 1],
-            ["mystery", 2]
+        scores: [
+            { saver: 3 },
+            { budgeter: 2 },
+            { spender: 1 },
+            { spender: 2, impulse: 1 },
+            { mystery: 3 }
         ]
     }
 
@@ -153,7 +158,6 @@ let currentQuestion = 0;
 let answers = [];
 
 let archetypeScores = {
-    foodie: 0,
     saver: 0,
     impulse: 0,
     budgeter: 0,
@@ -172,7 +176,6 @@ function startQuiz() {
     answers = [];
 
     archetypeScores = {
-        foodie: 0,
         saver: 0,
         impulse: 0,
         budgeter: 0,
@@ -219,7 +222,6 @@ function showQuestion() {
         answersContainer.appendChild(button);
 
     });
-
 }
 
 
@@ -227,7 +229,29 @@ function showQuestion() {
 
 function selectAnswer(index) {
 
-    answers.push(index);
+    const questionData = questions[currentQuestion];
+
+    answers.push({
+        question: currentQuestion,
+        answer: index
+    });
+
+
+    // If this is an archetype question,
+    // add the appropriate points.
+
+    if (questionData.type === "archetype") {
+
+        const selectedScores = questionData.scores[index];
+
+        for (const archetype in selectedScores) {
+
+            archetypeScores[archetype] +=
+                selectedScores[archetype];
+
+        }
+    }
+
 
     currentQuestion++;
 
@@ -238,8 +262,20 @@ function selectAnswer(index) {
 
     } else {
 
-        console.log("Quiz finished!");
+        finishQuiz();
 
     }
+}
+
+
+// ---------- FINISH QUIZ ----------
+
+function finishQuiz() {
+
+    console.log("Quiz finished!");
+
+    console.log("Answers:", answers);
+
+    console.log("Archetype scores:", archetypeScores);
 
 }
