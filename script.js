@@ -6,7 +6,7 @@ const questions = [
     {
         question: "You see something you really want, but you weren't planning to buy it. What do you do?",
         options: [
-            "Buy it. YOLO.",
+            "Buy it 🤩.",
             "Add it to my cart and think about it later.",
             "Wait a few days and decide.",
             "Check my balance first.",
@@ -21,11 +21,12 @@ const questions = [
         ]
     },
 
+
     // 2 — SURVEY
     {
         question: "What do you spend most of your money on?",
         options: [
-            "Food / eating out",
+            "Food",
             "Shopping",
             "Entertainment",
             "Transport",
@@ -35,15 +36,29 @@ const questions = [
         type: "data"
     },
 
-    // 3
+
+    // 3 — SURVEY
     {
-        question: "When you get your monthly or weekly money, you usually...",
+        question: "Roughly what percentage of your spending goes toward your main expense?",
         options: [
-            "Spend freely and figure it out later.",
+            "Less than 20%",
+            "20–40%",
+            "40–60%",
+            "More than 60%"
+        ],
+        type: "data"
+    },
+
+
+    // 4
+    {
+        question: "When you get your monthly or weekly money, what do you usually do?",
+        options: [
+            "Spend in the moment and figure it out later 🤙.",
             "Have a rough idea of where it'll go.",
             "Immediately set some aside.",
-            "Track almost everything I spend.",
-            "It disappears and I don't know how."
+            "Spend but track all purchases.",
+            "It disappears and I don't know how 🤩."
         ],
         type: "archetype",
         tags: [
@@ -54,7 +69,8 @@ const questions = [
         ]
     },
 
-    // 4 — SURVEY
+
+    // 5 — SURVEY
     {
         question: "How often do you make impulse purchases?",
         options: [
@@ -67,7 +83,8 @@ const questions = [
         type: "data"
     },
 
-    // 5
+
+    // 6
     {
         question: "You and your friends are going out, but the plan is getting expensive. You...",
         options: [
@@ -81,22 +98,11 @@ const questions = [
         tags: [
             ["social", 2],
             ["budgeter", 2],
-            ["saver", 2]
+            ["saver", 2],
+            ["spender", 1]
         ]
     },
 
-    // 6 — SURVEY
-    {
-        question: "If you suddenly received ₹1,000, what would you most likely do with it?",
-        options: [
-            "Spend it on food",
-            "Save it",
-            "Go shopping",
-            "Spend it on entertainment",
-            "Something else"
-        ],
-        type: "data"
-    },
 
     // 7
     {
@@ -117,25 +123,14 @@ const questions = [
         ]
     },
 
-    // 8 — SURVEY
-    {
-        question: "Roughly what percentage of your spending goes toward your main expense?",
-        options: [
-            "Less than 20%",
-            "20–40%",
-            "40–60%",
-            "More than 60%"
-        ],
-        type: "data"
-    },
 
-    // 9
+    // 8
     {
         question: "At the end of the month, your financial situation is usually...",
         options: [
             "I'm thriving. I still have money.",
             "I'm fine. I have enough.",
-            "I'm surviving. 😭",
+            "I'm surviving. ✌️",
             "I'm borrowing from future me.",
             "What money?"
         ],
