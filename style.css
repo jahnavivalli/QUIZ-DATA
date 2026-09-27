@@ -1,35 +1,49 @@
-/* ---------- PAGE ---------- */
+/* =====================================================
+   PAGE
+   ===================================================== */
 
 body {
+
     margin: 0;
+
     min-height: 100vh;
 
     font-family: Arial, sans-serif;
 
     display: flex;
+
     justify-content: center;
+
     align-items: center;
 
     background: #f4eee4;
+
     color: #222;
 }
 
 
-/* ---------- MAIN CARD ---------- */
+/* =====================================================
+   MAIN CARD
+   ===================================================== */
 
 main {
+
     position: relative;
 
     width: 85%;
-    max-width: 850px;
+
+    max-width: 950px;
 
     padding: 65px 60px;
+
+    margin: 40px 0;
 
     text-align: center;
 
     background: #fffdf9;
 
     border: 3px solid #222;
+
     border-radius: 28px;
 
     box-shadow: 12px 12px 0 #222;
@@ -38,78 +52,96 @@ main {
 }
 
 
-/* ---------- LITTLE TOP LABEL ---------- */
+/* =====================================================
+   TOP LABEL
+   ===================================================== */
 
 main::before {
+
     content: "MU STUDENT SPENDING STUDY";
 
     display: inline-block;
 
     margin-bottom: 25px;
+
     padding: 8px 14px;
 
     background: #ff7657;
+
     color: white;
 
     border-radius: 20px;
 
     font-size: 13px;
+
     font-weight: bold;
+
     letter-spacing: 1px;
 }
 
 
-/* ---------- TITLE ---------- */
+/* =====================================================
+   HEADINGS
+   ===================================================== */
 
 h1 {
+
     margin: 0 auto 22px;
 
-    max-width: 750px;
+    max-width: 800px;
 
     font-size: 48px;
+
     line-height: 1.02;
 
     letter-spacing: -2px;
+
     font-weight: 900;
 }
 
 
-/* ---------- SUBTITLE ---------- */
-
 h2 {
+
     margin: 0 0 35px;
 
     font-size: 21px;
+
     font-weight: normal;
 
     color: #666;
 }
 
 
-/* ---------- INTRO TEXT ---------- */
-
 p {
+
     margin: 10px 0;
 
     font-size: 18px;
+
     line-height: 1.5;
 }
 
 
-/* ---------- BUTTON ---------- */
+/* =====================================================
+   BUTTONS
+   ===================================================== */
 
 button {
+
     margin-top: 35px;
 
     padding: 17px 34px;
 
     border: 3px solid #222;
+
     border-radius: 12px;
 
     background: #ff7657;
+
     color: white;
 
     font-size: 17px;
+
     font-weight: 800;
 
     cursor: pointer;
@@ -121,34 +153,41 @@ button {
 
 
 button:hover {
+
     transform: translate(3px, 3px);
+
     box-shadow: 2px 2px 0 #222;
 }
 
 
-/* ---------- QUIZ ---------- */
+/* =====================================================
+   QUIZ
+   ===================================================== */
 
 #quiz-screen {
+
     width: 100%;
 }
 
 
-/* ---------- PROGRESS ---------- */
-
 #progress {
-    font-size: 15px;
+
+    font-size: 14px;
+
     font-weight: bold;
 
     color: #ff7657;
+
+    letter-spacing: 1px;
 
     margin-bottom: 25px;
 }
 
 
-/* ---------- QUESTION ---------- */
-
 #question {
+
     font-size: 30px;
+
     line-height: 1.2;
 
     color: #222;
@@ -157,20 +196,20 @@ button:hover {
 }
 
 
-/* ---------- ANSWER AREA ---------- */
-
 #answers {
+
     display: flex;
+
     flex-direction: column;
+
     gap: 12px;
 
     width: 100%;
 }
 
 
-/* ---------- ANSWER BUTTONS ---------- */
-
 #answers button {
+
     width: 100%;
 
     margin: 0;
@@ -178,14 +217,17 @@ button:hover {
     padding: 16px 20px;
 
     background: white;
+
     color: #222;
 
     border: 2px solid #222;
+
     border-radius: 12px;
 
     box-shadow: none;
 
     font-size: 16px;
+
     font-weight: normal;
 
     text-align: left;
@@ -197,8 +239,666 @@ button:hover {
 
 
 #answers button:hover {
+
     background: #ff7657;
+
     color: white;
 
     transform: translateX(5px);
+}
+
+
+/* =====================================================
+   RESULT
+   ===================================================== */
+
+.result-label {
+
+    color: #ff7657;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 12px;
+}
+
+
+#match-description {
+
+    max-width: 650px;
+
+    margin: 0 auto 25px;
+
+    color: #666;
+}
+
+
+.match-box {
+
+    margin: 30px auto 50px;
+
+    padding: 30px;
+
+    max-width: 450px;
+
+    border: 3px solid #222;
+
+    border-radius: 20px;
+
+    background: #f4eee4;
+}
+
+
+#match-percent {
+
+    font-size: 72px;
+
+    line-height: 1;
+
+    font-weight: 900;
+
+    color: #ff7657;
+}
+
+
+#match-count {
+
+    margin-top: 15px;
+
+    font-size: 16px;
+
+    color: #555;
+}
+
+
+/* =====================================================
+   COMPARISON TABLE
+   ===================================================== */
+
+.table-wrapper {
+
+    width: 100%;
+
+    overflow-x: auto;
+
+    margin-bottom: 50px;
+}
+
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 650px;
+
+    font-size: 14px;
+
+    text-align: left;
+}
+
+
+th {
+
+    padding: 15px;
+
+    background: #222;
+
+    color: white;
+
+    font-weight: bold;
+}
+
+
+td {
+
+    padding: 15px;
+
+    border-bottom: 2px solid #ddd;
+
+    vertical-align: top;
+}
+
+
+tr:nth-child(even) {
+
+    background: #f7f4ef;
+}
+
+
+.match-yes {
+
+    color: #159447;
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+    text-align: center;
+}
+
+
+.match-no {
+
+    color: #d94b4b;
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+    text-align: center;
+}
+
+
+/* =====================================================
+   ARCHETYPE
+   ===================================================== */
+
+.archetype-box {
+
+    margin: 30px 0;
+
+    padding: 40px 25px;
+
+    border: 3px solid #222;
+
+    border-radius: 20px;
+
+    background: #fff5ed;
+}
+
+
+.archetype-box h1 {
+
+    font-size: 38px;
+
+    margin-bottom: 15px;
+}
+
+
+.archetype-box p:last-child {
+
+    max-width: 600px;
+
+    margin: auto;
+
+    color: #555;
+}
+
+
+/* =====================================================
+   DATA REVEAL
+   ===================================================== */
+
+#data-screen {
+
+    width: 100%;
+}
+
+
+#data-screen > p:not(.result-label) {
+
+    max-width: 650px;
+
+    margin: 0 auto 30px;
+
+    color: #666;
+}
+
+
+.data-section {
+
+    margin: 50px 0;
+
+    padding: 32px;
+
+    border: 2px solid #222;
+
+    border-radius: 18px;
+
+    text-align: left;
+
+    background: #fff;
+}
+
+
+.data-number {
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    color: #ff7657;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 12px;
+}
+
+
+.data-section h2 {
+
+    color: #222;
+
+    font-size: 22px;
+
+    margin-bottom: 12px;
+}
+
+
+.data-intro {
+
+    color: #666;
+
+    margin-bottom: 25px;
+}
+
+
+.data-big-number {
+
+    font-size: 64px;
+
+    font-weight: 900;
+
+    line-height: 1;
+
+    margin: 25px 0 5px;
+}
+
+
+.data-highlight {
+
+    margin-bottom: 30px;
+}
+
+
+/* =====================================================
+   DATA BARS
+   ===================================================== */
+
+.data-bars {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+
+.bar-row {
+
+    display: grid;
+
+    grid-template-columns: 155px 1fr 35px;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 14px;
+}
+
+
+.bar {
+
+    height: 14px;
+
+    background: #eee;
+
+    border: 1px solid #222;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+
+.fill {
+
+    height: 100%;
+
+    background: #ff7657;
+}
+
+
+/* =====================================================
+   PERCENTAGE CARDS
+   ===================================================== */
+
+.percentage-cards {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 12px;
+}
+
+
+.percentage-card {
+
+    padding: 22px;
+
+    border: 2px solid #222;
+
+    border-radius: 14px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+
+.percentage-card strong {
+
+    font-size: 26px;
+}
+
+
+.percentage-card span {
+
+    color: #666;
+}
+
+
+.featured-card {
+
+    background: #fff0e8;
+
+    border-width: 3px;
+}
+
+
+.data-note-small {
+
+    margin-top: 25px;
+
+    padding: 15px;
+
+    background: #f4eee4;
+
+    border-radius: 10px;
+
+    font-size: 15px;
+}
+
+
+/* =====================================================
+   IMPULSE DATA
+   ===================================================== */
+
+.impulse-display {
+
+    display: flex;
+
+    gap: 15px;
+
+    align-items: stretch;
+}
+
+
+.impulse-main {
+
+    flex: 1;
+
+    padding: 30px;
+
+    border: 3px solid #222;
+
+    border-radius: 16px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+
+.impulse-main strong {
+
+    font-size: 48px;
+}
+
+
+.impulse-main span {
+
+    font-size: 21px;
+
+    margin-top: 5px;
+}
+
+
+.impulse-main small {
+
+    margin-top: 10px;
+
+    color: #ff7657;
+
+    font-weight: bold;
+}
+
+
+.impulse-small {
+
+    flex: 1;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+}
+
+
+.impulse-small div {
+
+    padding: 15px;
+
+    border: 2px solid #222;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.impulse-small strong {
+
+    font-size: 20px;
+
+    margin-bottom: 4px;
+}
+
+
+.impulse-small span {
+
+    color: #666;
+}
+
+
+/* =====================================================
+   ₹1000 DATA
+   ===================================================== */
+
+.thousand-result {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 20px;
+}
+
+
+.thousand-option {
+
+    flex: 1;
+
+    padding: 28px;
+
+    border: 3px solid #222;
+
+    border-radius: 16px;
+
+    text-align: center;
+
+    background: #fff;
+}
+
+
+.money-icon {
+
+    font-size: 38px;
+
+    margin-bottom: 10px;
+}
+
+
+.thousand-option > strong {
+
+    display: block;
+
+    font-size: 38px;
+
+    margin-bottom: 8px;
+}
+
+
+.thousand-option span {
+
+    line-height: 1.5;
+}
+
+
+.tie {
+
+    font-weight: 900;
+
+    font-size: 18px;
+}
+
+
+/* =====================================================
+   FINAL DATA MESSAGE
+   ===================================================== */
+
+.data-final {
+
+    margin-top: 60px;
+
+    padding: 50px 25px;
+
+    border-top: 3px solid #222;
+
+    text-align: center;
+}
+
+
+.data-final h2 {
+
+    font-size: 34px;
+
+    line-height: 1.1;
+
+    color: #222;
+}
+
+
+.data-final p {
+
+    max-width: 650px;
+
+    margin: 15px auto;
+
+    color: #555;
+}
+
+
+.data-final strong {
+
+    display: block;
+
+    margin-top: 25px;
+
+    font-size: 17px;
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 650px) {
+
+    main {
+
+        width: 85%;
+
+        padding: 40px 25px;
+
+        margin: 20px 0;
+    }
+
+
+    h1 {
+
+        font-size: 34px;
+    }
+
+
+    #question {
+
+        font-size: 25px;
+    }
+
+
+    .bar-row {
+
+        grid-template-columns: 100px 1fr 25px;
+
+        font-size: 12px;
+    }
+
+
+    .percentage-cards {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .impulse-display {
+
+        flex-direction: column;
+    }
+
+
+    .thousand-result {
+
+        flex-direction: column;
+    }
+
+
+    .tie {
+
+        transform: rotate(90deg);
+    }
+
+
+    .data-big-number {
+
+        font-size: 50px;
+    }
+
 }
