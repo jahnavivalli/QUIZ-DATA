@@ -1,8 +1,10 @@
 // =====================================================
-// QUIZ DATA
+// QUIZ QUESTIONS
 // =====================================================
 
 const questions = [
+
+    // 0 — ARCHETYPE
 
     {
         question:
@@ -28,6 +30,8 @@ const questions = [
     },
 
 
+    // 1 — SURVEY Q1
+
     {
         question:
             "What do you spend most of your money on?",
@@ -45,6 +49,8 @@ const questions = [
     },
 
 
+    // 2 — SURVEY Q2
+
     {
         question:
             "Roughly what percentage of your spending goes toward your main expense?",
@@ -59,6 +65,8 @@ const questions = [
         type: "data"
     },
 
+
+    // 3 — ARCHETYPE
 
     {
         question:
@@ -84,6 +92,8 @@ const questions = [
     },
 
 
+    // 4 — SURVEY Q3
+
     {
         question:
             "How often do you make impulse purchases?",
@@ -100,6 +110,8 @@ const questions = [
     },
 
 
+    // 5 — SURVEY Q4
+
     {
         question:
             "If you suddenly received ₹1,000, what would you most likely spend it on?",
@@ -115,6 +127,8 @@ const questions = [
         type: "data"
     },
 
+
+    // 6 — ARCHETYPE
 
     {
         question:
@@ -139,6 +153,8 @@ const questions = [
         ]
     },
 
+
+    // 7 — ARCHETYPE
 
     {
         question:
@@ -167,7 +183,7 @@ const questions = [
 
 
 // =====================================================
-// STATE
+// VARIABLES
 // =====================================================
 
 let currentQuestion = 0;
@@ -185,7 +201,7 @@ let archetypeScores = {
 
 
 // =====================================================
-// START QUIZ
+// START
 // =====================================================
 
 function startQuiz() {
@@ -203,6 +219,7 @@ function startQuiz() {
         mystery: 0
     };
 
+
     document.getElementById("intro-screen").style.display = "none";
 
     document.getElementById("result-screen").style.display = "none";
@@ -211,9 +228,12 @@ function startQuiz() {
 
     document.getElementById("quiz-screen").style.display = "block";
 
+
     window.scrollTo(0, 0);
 
+
     showQuestion();
+
 }
 
 
@@ -223,36 +243,51 @@ function startQuiz() {
 
 function showQuestion() {
 
-    const questionData = questions[currentQuestion];
+    const questionData =
+        questions[currentQuestion];
+
 
     document.getElementById("progress").textContent =
-        `QUESTION ${currentQuestion + 1} / ${questions.length}`;
+        `${currentQuestion + 1} / ${questions.length}`;
+
+
+    document.getElementById("question-number").textContent =
+        String(currentQuestion + 1);
+
 
     document.getElementById("question").textContent =
         questionData.question;
 
+
     const answersContainer =
         document.getElementById("answers");
+
 
     answersContainer.innerHTML = "";
 
 
-    questionData.options.forEach(function(option, index) {
+    questionData.options.forEach(
+        function(option, index) {
 
-        const button =
-            document.createElement("button");
+            const button =
+                document.createElement("button");
 
-        button.textContent = option;
 
-        button.onclick = function() {
+            button.textContent = option;
 
-            selectAnswer(index);
 
-        };
+            button.onclick =
+                function() {
 
-        answersContainer.appendChild(button);
+                    selectAnswer(index);
 
-    });
+                };
+
+
+            answersContainer.appendChild(button);
+
+        }
+    );
 
 }
 
@@ -263,20 +298,30 @@ function showQuestion() {
 
 function selectAnswer(index) {
 
-    const questionData = questions[currentQuestion];
+    const questionData =
+        questions[currentQuestion];
+
 
     answers.push({
+
         question: currentQuestion,
+
         answer: index
+
     });
 
 
-    if (questionData.type === "archetype") {
+    if (
+        questionData.type === "archetype"
+    ) {
 
         const selectedScores =
             questionData.scores[index];
 
-        for (const archetype in selectedScores) {
+
+        for (
+            const archetype in selectedScores
+        ) {
 
             archetypeScores[archetype] +=
                 selectedScores[archetype];
@@ -289,7 +334,10 @@ function selectAnswer(index) {
     currentQuestion++;
 
 
-    if (currentQuestion < questions.length) {
+    if (
+        currentQuestion <
+        questions.length
+    ) {
 
         showQuestion();
 
@@ -312,9 +360,11 @@ function finishQuiz() {
 
     document.getElementById("result-screen").style.display = "block";
 
+
     calculateMatch();
 
     calculateArchetype();
+
 
     window.scrollTo(0, 0);
 
@@ -322,7 +372,7 @@ function finishQuiz() {
 
 
 // =====================================================
-// GET USER ANSWER
+// GET ANSWER
 // =====================================================
 
 function getUserAnswer(questionIndex) {
@@ -332,6 +382,7 @@ function getUserAnswer(questionIndex) {
             a => a.question === questionIndex
         );
 
+
     return questions[questionIndex]
         .options[answer.answer];
 
@@ -339,7 +390,7 @@ function getUserAnswer(questionIndex) {
 
 
 // =====================================================
-// MATCH CALCULATION
+// CALCULATE MATCH
 // =====================================================
 
 function calculateMatch() {
@@ -354,11 +405,15 @@ function calculateMatch() {
     const q1Answer =
         getUserAnswer(1);
 
+
     const q1Match =
         q1Answer === "Food";
 
+
     if (q1Match) {
+
         matched++;
+
     }
 
 
@@ -384,12 +439,16 @@ function calculateMatch() {
     const q2Answer =
         getUserAnswer(2);
 
+
     const q2Match =
         q2Answer === "40–60%" ||
         q2Answer === "More than 60%";
 
+
     if (q2Match) {
+
         matched++;
+
     }
 
 
@@ -415,11 +474,15 @@ function calculateMatch() {
     const q3Answer =
         getUserAnswer(4);
 
+
     const q3Match =
         q3Answer === "Rarely";
 
+
     if (q3Match) {
+
         matched++;
+
     }
 
 
@@ -445,12 +508,16 @@ function calculateMatch() {
     const q4Answer =
         getUserAnswer(5);
 
+
     const q4Match =
         q4Answer === "Food / eating out" ||
         q4Answer === "Save it";
 
+
     if (q4Match) {
+
         matched++;
+
     }
 
 
@@ -471,8 +538,12 @@ function calculateMatch() {
     });
 
 
+    // SCORE
+
     const percentage =
-        Math.round((matched / 4) * 100);
+        Math.round(
+            (matched / 4) * 100
+        );
 
 
     document.getElementById("match-percent")
@@ -485,12 +556,9 @@ function calculateMatch() {
         `${matched} out of 4 survey questions matched the most common response.`;
 
 
-    document.getElementById("match-description")
-        .textContent =
-        "Your result compares your answers with the most common responses in our sample of 17 MU students.";
-
-
-    createComparisonTable(surveyResults);
+    createComparisonTable(
+        surveyResults
+    );
 
 }
 
@@ -502,7 +570,9 @@ function calculateMatch() {
 function createComparisonTable(results) {
 
     const container =
-        document.getElementById("comparison-table");
+        document.getElementById(
+            "comparison-table"
+        );
 
 
     let html = `
@@ -515,13 +585,21 @@ function createComparisonTable(results) {
 
                     <tr>
 
-                        <th>Survey question</th>
+                        <th>
+                            Survey question
+                        </th>
 
-                        <th>Your answer</th>
+                        <th>
+                            Your answer
+                        </th>
 
-                        <th>Most common response</th>
+                        <th>
+                            Most common response
+                        </th>
 
-                        <th>Match</th>
+                        <th>
+                            Match
+                        </th>
 
                     </tr>
 
@@ -532,37 +610,45 @@ function createComparisonTable(results) {
     `;
 
 
-    results.forEach(function(result) {
+    results.forEach(
+        function(result) {
 
-        html += `
+            html += `
 
-            <tr>
+                <tr>
 
-                <td>
-                    ${result.question}
-                </td>
+                    <td>
+                        ${result.question}
+                    </td>
 
-                <td>
-                    ${result.user}
-                </td>
+                    <td>
+                        ${result.user}
+                    </td>
 
-                <td>
-                    ${result.majority}
-                </td>
+                    <td>
+                        ${result.majority}
+                    </td>
 
-                <td class="${result.match
-                    ? "match-yes"
-                    : "match-no"}">
+                    <td class="${
+                        result.match
+                            ? "match-yes"
+                            : "match-no"
+                    }">
 
-                    ${result.match ? "✓" : "—"}
+                        ${
+                            result.match
+                                ? "✓"
+                                : "—"
+                        }
 
-                </td>
+                    </td>
 
-            </tr>
+                </tr>
 
-        `;
+            `;
 
-    });
+        }
+    );
 
 
     html += `
@@ -592,7 +678,9 @@ function calculateArchetype() {
     let result = "spender";
 
 
-    for (const archetype in archetypeScores) {
+    for (
+        const archetype in archetypeScores
+    ) {
 
         if (
             archetypeScores[archetype] >
@@ -674,13 +762,15 @@ function calculateArchetype() {
     };
 
 
-    document.getElementById("archetype-title")
-        .textContent =
+    document.getElementById(
+        "archetype-title"
+    ).textContent =
         archetypes[result].title;
 
 
-    document.getElementById("archetype-description")
-        .textContent =
+    document.getElementById(
+        "archetype-description"
+    ).textContent =
         archetypes[result].description;
 
 }
@@ -692,11 +782,15 @@ function calculateArchetype() {
 
 function showData() {
 
-    document.getElementById("result-screen")
-        .style.display = "none";
+    document.getElementById(
+        "result-screen"
+    ).style.display = "none";
 
-    document.getElementById("data-screen")
-        .style.display = "block";
+
+    document.getElementById(
+        "data-screen"
+    ).style.display = "block";
+
 
     window.scrollTo(0, 0);
 
