@@ -86,7 +86,21 @@ const questions = [
     },
 
 
-    // 6 — ARCHETYPE
+    // 6 — SURVEY
+    {
+        question: "If you suddenly received ₹1,000, what would you most likely spend it on?",
+        options: [
+            "Food / eating out",
+            "Save it",
+            "Shopping",
+            "Entertainment",
+            "Other"
+        ],
+        type: "data"
+    },
+
+
+    // 7 — ARCHETYPE
     {
         question: "You and your friends are going out, but the plan is getting expensive. You...",
         options: [
@@ -107,7 +121,7 @@ const questions = [
     },
 
 
-    // 7 — ARCHETYPE
+    // 8 — ARCHETYPE
     {
         question: "Which sentence sounds most like you?",
         options: [
@@ -125,27 +139,6 @@ const questions = [
             { impulse: 1, spender: 1 },
             { mystery: 3 }
         ]
-    },
-
-
-    // 8 — ARCHETYPE
-    {
-        question: "At the end of the month, your financial situation is usually...",
-        options: [
-            "I'm thriving. I still have money.",
-            "I'm fine. I have enough.",
-            "I'm surviving. ✌️",
-            "I'm borrowing from future me.",
-            "What money?"
-        ],
-        type: "archetype",
-        scores: [
-            { saver: 3 },
-            { budgeter: 2 },
-            { spender: 1 },
-            { spender: 2, impulse: 1 },
-            { mystery: 3 }
-        ]
     }
 
 ];
@@ -153,7 +146,6 @@ const questions = [
 
 // ---------- SURVEY DATA ----------
 
-// Q1
 const surveyData = {
 
     q1: {
@@ -171,7 +163,6 @@ const surveyData = {
     },
 
 
-    // Q2
     q2: {
         question: "Approximately what percentage of your spending goes toward your main expense?",
         majority: "40–60% OR more than 60%",
@@ -184,7 +175,6 @@ const surveyData = {
     },
 
 
-    // Q3
     q3: {
         question: "How often do you make impulse purchases?",
         majority: "Rarely",
@@ -198,7 +188,6 @@ const surveyData = {
     },
 
 
-    // Q4
     q4: {
         question: "If you suddenly received ₹1,000, what would you most likely spend it on?",
         majority: "Food OR save it",
@@ -305,7 +294,7 @@ function selectAnswer(index) {
     });
 
 
-    // Archetype scoring
+    // Add archetype points only for archetype questions
 
     if (questionData.type === "archetype") {
 
@@ -317,7 +306,6 @@ function selectAnswer(index) {
                 selectedScores[archetype];
 
         }
-
     }
 
 
@@ -345,7 +333,6 @@ function finishQuiz() {
 
     document.getElementById("result-screen").style.display = "block";
 
-
     calculateMatch();
 
     calculateArchetype();
@@ -353,28 +340,30 @@ function finishQuiz() {
 }
 
 
+// ---------- GET USER ANSWER ----------
+
+function getUserAnswer(questionIndex) {
+
+    const answer = answers.find(
+        a => a.question === questionIndex
+    );
+
+    return questions[questionIndex].options[answer.answer];
+}
+
+
 // ---------- CALCULATE MU MATCH ----------
 
 function calculateMatch() {
-
-    // Survey questions are question indexes:
-    // Q2 = index 1
-    // Q3 = index 2
-    // Q4 = index 4
-    //
-    // Q1 and Q4 of the actual survey are compared
-    // with the majority response.
-
 
     let matched = 0;
 
     const surveyResults = [];
 
 
-    // SURVEY QUESTION 1
-    const q1Answer = questions[1].options[
-        answers.find(a => a.question === 1).answer
-    ];
+    // Q1 — MAIN EXPENSE
+
+    const q1Answer = getUserAnswer(1);
 
     const q1Match = q1Answer === "Food";
 
@@ -388,10 +377,9 @@ function calculateMatch() {
     });
 
 
-    // SURVEY QUESTION 2
-    const q2Answer = questions[2].options[
-        answers.find(a => a.question === 2).answer
-    ];
+    // Q2 — PERCENTAGE
+
+    const q2Answer = getUserAnswer(2);
 
     const q2Match =
         q2Answer === "40–60%" ||
@@ -407,10 +395,9 @@ function calculateMatch() {
     });
 
 
-    // SURVEY QUESTION 3
-    const q3Answer = questions[4].options[
-        answers.find(a => a.question === 4).answer
-    ];
+    // Q3 — IMPULSE PURCHASES
+
+    const q3Answer = getUserAnswer(4);
 
     const q3Match = q3Answer === "Rarely";
 
@@ -424,15 +411,27 @@ function calculateMatch() {
     });
 
 
-    // SURVEY QUESTION 4
-    //
-    // We haven't added this question to the quiz yet.
-    // For now, use the other three questions.
-    //
-    // We'll add the ₹1,000 question in the next step.
+    // Q4 — ₹1,000
+
+    const q4Answer = getUserAnswer(5);
+
+    const q4Match =
+        q4Answer === "Food / eating out" ||
+        q4Answer === "Save it";
+
+    if (q4Match) matched++;
+
+    surveyResults.push({
+        question: surveyData.q4.question,
+        user: q4Answer,
+        majority: surveyData.q4.majority,
+        match: q4Match
+    });
 
 
-    const totalCompared = 3;
+    // FINAL SCORE
+
+    const totalCompared = 4;
 
     const percentage = Math.round(
         (matched / totalCompared) * 100
