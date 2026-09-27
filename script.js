@@ -1,10 +1,14 @@
-// ---------- QUIZ DATA ----------
+// =====================================================
+// QUIZ DATA
+// =====================================================
 
 const questions = [
 
-    // 1 — ARCHETYPE
+    // ---------- ARCHETYPE 1 ----------
+
     {
         question: "You see something you really want, but you weren't planning to buy it. What do you do?",
+
         options: [
             "Buy it 🤩.",
             "Add it to my cart and think about it later.",
@@ -12,7 +16,9 @@ const questions = [
             "Check my balance first.",
             "Forget about it."
         ],
+
         type: "archetype",
+
         scores: [
             { spender: 2, impulse: 2 },
             { impulse: 1 },
@@ -23,9 +29,11 @@ const questions = [
     },
 
 
-    // 2 — SURVEY
+    // ---------- SURVEY 1 ----------
+
     {
         question: "What do you spend most of your money on?",
+
         options: [
             "Food",
             "Shopping",
@@ -34,26 +42,32 @@ const questions = [
             "Personal care",
             "Academics"
         ],
+
         type: "data"
     },
 
 
-    // 3 — SURVEY
+    // ---------- SURVEY 2 ----------
+
     {
         question: "Roughly what percentage of your spending goes toward your main expense?",
+
         options: [
             "Less than 20%",
             "20–40%",
             "40–60%",
             "More than 60%"
         ],
+
         type: "data"
     },
 
 
-    // 4 — ARCHETYPE
+    // ---------- ARCHETYPE 2 ----------
+
     {
         question: "When you get your monthly or weekly money, what do you usually do?",
+
         options: [
             "Spend in the moment and figure it out later 🤙.",
             "Have a rough idea of where it'll go.",
@@ -61,7 +75,9 @@ const questions = [
             "Spend but track all purchases.",
             "It disappears and I don't know how 🤩."
         ],
+
         type: "archetype",
+
         scores: [
             { spender: 2, impulse: 1 },
             { budgeter: 2 },
@@ -72,9 +88,11 @@ const questions = [
     },
 
 
-    // 5 — SURVEY
+    // ---------- SURVEY 3 ----------
+
     {
         question: "How often do you make impulse purchases?",
+
         options: [
             "Never",
             "Rarely",
@@ -82,13 +100,16 @@ const questions = [
             "Often",
             "Very often"
         ],
+
         type: "data"
     },
 
 
-    // 6 — SURVEY
+    // ---------- SURVEY 4 ----------
+
     {
         question: "If you suddenly received ₹1,000, what would you most likely spend it on?",
+
         options: [
             "Food / eating out",
             "Save it",
@@ -96,13 +117,16 @@ const questions = [
             "Entertainment",
             "Other"
         ],
+
         type: "data"
     },
 
 
-    // 7 — ARCHETYPE
+    // ---------- ARCHETYPE 3 ----------
+
     {
         question: "You and your friends are going out, but the plan is getting expensive. You...",
+
         options: [
             "Still go. It's worth it.",
             "Suggest somewhere cheaper.",
@@ -110,7 +134,9 @@ const questions = [
             "Drop out of the plan.",
             "Somehow convince everyone to do something else."
         ],
+
         type: "archetype",
+
         scores: [
             { social: 3, spender: 1 },
             { budgeter: 2 },
@@ -121,9 +147,11 @@ const questions = [
     },
 
 
-    // 8 — ARCHETYPE
+    // ---------- ARCHETYPE 4 ----------
+
     {
         question: "Which sentence sounds most like you?",
+
         options: [
             "Money is meant to be spent.",
             "I deserve a little treat.",
@@ -131,7 +159,9 @@ const questions = [
             "I should probably stop spending.",
             "I have no idea where my money went."
         ],
+
         type: "archetype",
+
         scores: [
             { spender: 3 },
             { impulse: 3 },
@@ -144,40 +174,48 @@ const questions = [
 ];
 
 
-// ---------- SURVEY DATA ----------
+// =====================================================
+// ACTUAL SURVEY DATA
+// =====================================================
 
 const surveyData = {
 
     q1: {
         question: "What do you spend most of your money on?",
+
         majority: "Food",
+
         answers: {
-            "Food": "16/17",
-            "Entertainment": "6/17",
-            "Personal care": "6/17",
-            "Shopping": "5/17",
-            "Transport": "5/17",
-            "Academics": "3/17",
-            "Other": "1/17"
+            "Food / eating out": "16 / 17 — 94.1%",
+            "Entertainment": "6 / 17 — 35.3%",
+            "Personal care": "6 / 17 — 35.3%",
+            "Shopping": "5 / 17 — 29.4%",
+            "Transport": "5 / 17 — 29.4%",
+            "Academics": "3 / 17 — 17.6%",
+            "Other": "1 / 17 — 5.9%"
         }
     },
 
 
     q2: {
         question: "Approximately what percentage of your spending goes toward your main expense?",
-        majority: "40–60% OR more than 60%",
+
+        majority: "40–60% and More than 60% — tied",
+
         answers: {
-            "Less than 20%": "1/17",
-            "20–40%": "2/17",
-            "40–60%": "7/17",
-            "More than 60%": "7/17"
+            "Less than 20%": "1 / 17",
+            "20–40%": "2 / 17",
+            "40–60%": "7 / 17",
+            "More than 60%": "7 / 17"
         }
     },
 
 
     q3: {
         question: "How often do you make impulse purchases?",
+
         majority: "Rarely",
+
         answers: {
             "Never": "11.8%",
             "Rarely": "35.3%",
@@ -190,7 +228,9 @@ const surveyData = {
 
     q4: {
         question: "If you suddenly received ₹1,000, what would you most likely spend it on?",
-        majority: "Food OR save it",
+
+        majority: "Food / eating out OR Save it — tied",
+
         answers: {
             "Food / eating out": "35.3%",
             "Save it": "35.3%",
@@ -203,7 +243,9 @@ const surveyData = {
 };
 
 
-// ---------- QUIZ VARIABLES ----------
+// =====================================================
+// QUIZ VARIABLES
+// =====================================================
 
 let currentQuestion = 0;
 
@@ -219,7 +261,9 @@ let archetypeScores = {
 };
 
 
-// ---------- START QUIZ ----------
+// =====================================================
+// START
+// =====================================================
 
 function startQuiz() {
 
@@ -248,26 +292,30 @@ function startQuiz() {
 }
 
 
-// ---------- SHOW QUESTION ----------
+// =====================================================
+// SHOW QUESTION
+// =====================================================
 
 function showQuestion() {
 
     const questionData = questions[currentQuestion];
 
     document.getElementById("progress").textContent =
-        `Question ${currentQuestion + 1} of ${questions.length}`;
+        `QUESTION ${currentQuestion + 1} OF ${questions.length}`;
 
     document.getElementById("question").textContent =
         questionData.question;
 
-    const answersContainer = document.getElementById("answers");
+    const answersContainer =
+        document.getElementById("answers");
 
     answersContainer.innerHTML = "";
 
 
     questionData.options.forEach(function(option, index) {
 
-        const button = document.createElement("button");
+        const button =
+            document.createElement("button");
 
         button.textContent = option;
 
@@ -281,7 +329,9 @@ function showQuestion() {
 }
 
 
-// ---------- SELECT ANSWER ----------
+// =====================================================
+// SELECT ANSWER
+// =====================================================
 
 function selectAnswer(index) {
 
@@ -294,11 +344,11 @@ function selectAnswer(index) {
     });
 
 
-    // Add archetype points only for archetype questions
-
     if (questionData.type === "archetype") {
 
-        const selectedScores = questionData.scores[index];
+        const selectedScores =
+            questionData.scores[index];
+
 
         for (const archetype in selectedScores) {
 
@@ -321,11 +371,12 @@ function selectAnswer(index) {
         finishQuiz();
 
     }
-
 }
 
 
-// ---------- FINISH QUIZ ----------
+// =====================================================
+// FINISH QUIZ
+// =====================================================
 
 function finishQuiz() {
 
@@ -340,19 +391,25 @@ function finishQuiz() {
 }
 
 
-// ---------- GET USER ANSWER ----------
+// =====================================================
+// GET USER ANSWER
+// =====================================================
 
 function getUserAnswer(questionIndex) {
 
-    const answer = answers.find(
-        a => a.question === questionIndex
-    );
+    const answer =
+        answers.find(
+            a => a.question === questionIndex
+        );
 
-    return questions[questionIndex].options[answer.answer];
+    return questions[questionIndex]
+        .options[answer.answer];
 }
 
 
-// ---------- CALCULATE MU MATCH ----------
+// =====================================================
+// CALCULATE MU MATCH
+// =====================================================
 
 function calculateMatch() {
 
@@ -361,23 +418,31 @@ function calculateMatch() {
     const surveyResults = [];
 
 
-    // Q1 — MAIN EXPENSE
+    // -------------------------
+    // Q1
+    // -------------------------
 
     const q1Answer = getUserAnswer(1);
 
-    const q1Match = q1Answer === "Food";
+    const q1Match =
+        q1Answer === "Food";
 
-    if (q1Match) matched++;
+    if (q1Match) {
+        matched++;
+    }
+
 
     surveyResults.push({
         question: surveyData.q1.question,
         user: q1Answer,
-        majority: surveyData.q1.majority,
+        majority: "Food / eating out — 16 / 17",
         match: q1Match
     });
 
 
-    // Q2 — PERCENTAGE
+    // -------------------------
+    // Q2
+    // -------------------------
 
     const q2Answer = getUserAnswer(2);
 
@@ -385,33 +450,44 @@ function calculateMatch() {
         q2Answer === "40–60%" ||
         q2Answer === "More than 60%";
 
-    if (q2Match) matched++;
+    if (q2Match) {
+        matched++;
+    }
+
 
     surveyResults.push({
         question: surveyData.q2.question,
         user: q2Answer,
-        majority: surveyData.q2.majority,
+        majority: "40–60% OR More than 60% — 7 / 17 each",
         match: q2Match
     });
 
 
-    // Q3 — IMPULSE PURCHASES
+    // -------------------------
+    // Q3
+    // -------------------------
 
     const q3Answer = getUserAnswer(4);
 
-    const q3Match = q3Answer === "Rarely";
+    const q3Match =
+        q3Answer === "Rarely";
 
-    if (q3Match) matched++;
+    if (q3Match) {
+        matched++;
+    }
+
 
     surveyResults.push({
         question: surveyData.q3.question,
         user: q3Answer,
-        majority: surveyData.q3.majority,
+        majority: "Rarely — 35.3%",
         match: q3Match
     });
 
 
-    // Q4 — ₹1,000
+    // -------------------------
+    // Q4
+    // -------------------------
 
     const q4Answer = getUserAnswer(5);
 
@@ -419,23 +495,25 @@ function calculateMatch() {
         q4Answer === "Food / eating out" ||
         q4Answer === "Save it";
 
-    if (q4Match) matched++;
+    if (q4Match) {
+        matched++;
+    }
+
 
     surveyResults.push({
         question: surveyData.q4.question,
         user: q4Answer,
-        majority: surveyData.q4.majority,
+        majority: "Food OR Save it — 35.3% each",
         match: q4Match
     });
 
 
+    // -------------------------
     // FINAL SCORE
+    // -------------------------
 
-    const totalCompared = 4;
-
-    const percentage = Math.round(
-        (matched / totalCompared) * 100
-    );
+    const percentage =
+        Math.round((matched / 4) * 100);
 
 
     document.getElementById("match-percent").textContent =
@@ -443,7 +521,7 @@ function calculateMatch() {
 
 
     document.getElementById("match-count").textContent =
-        `${matched} out of ${totalCompared} survey questions matched the most common response.`;
+        `${matched} out of 4 survey questions matched the most common response.`;
 
 
     document.getElementById("match-title").textContent =
@@ -451,7 +529,7 @@ function calculateMatch() {
 
 
     document.getElementById("match-description").textContent =
-        "Here's how closely your answers matched the most common responses in our sample of 17 MU students.";
+        "How closely did you match the most common responses from our sample of 17 MU students?";
 
 
     createComparisonTable(surveyResults);
@@ -459,7 +537,9 @@ function calculateMatch() {
 }
 
 
-// ---------- COMPARISON TABLE ----------
+// =====================================================
+// COMPARISON TABLE
+// =====================================================
 
 function createComparisonTable(results) {
 
@@ -469,20 +549,23 @@ function createComparisonTable(results) {
 
     let html = `
 
-        <table>
+        <div class="table-wrapper">
 
-            <thead>
+            <table>
 
-                <tr>
-                    <th>Question</th>
-                    <th>Your answer</th>
-                    <th>Most common response</th>
-                    <th>Match</th>
-                </tr>
+                <thead>
 
-            </thead>
+                    <tr>
+                        <th>Survey question</th>
+                        <th>Your answer</th>
+                        <th>Most common response</th>
+                        <th>Match</th>
+                    </tr>
 
-            <tbody>
+                </thead>
+
+                <tbody>
+
     `;
 
 
@@ -498,8 +581,10 @@ function createComparisonTable(results) {
 
                 <td>${result.majority}</td>
 
-                <td>
+                <td class="${result.match ? "match-yes" : "match-no"}">
+
                     ${result.match ? "✓" : "✗"}
+
                 </td>
 
             </tr>
@@ -511,9 +596,11 @@ function createComparisonTable(results) {
 
     html += `
 
-            </tbody>
+                </tbody>
 
-        </table>
+            </table>
+
+        </div>
 
     `;
 
@@ -523,11 +610,13 @@ function createComparisonTable(results) {
 }
 
 
-// ---------- ARCHETYPE ----------
+// =====================================================
+// ARCHETYPE
+// =====================================================
 
 function calculateArchetype() {
 
-    let highest = 0;
+    let highest = -1;
 
     let result = "spender";
 
@@ -536,7 +625,8 @@ function calculateArchetype() {
 
         if (archetypeScores[archetype] > highest) {
 
-            highest = archetypeScores[archetype];
+            highest =
+                archetypeScores[archetype];
 
             result = archetype;
 
@@ -549,32 +639,49 @@ function calculateArchetype() {
 
         saver: {
             title: "🏦 THE SAVER",
-            description: "You'd rather keep your money than spend it immediately. Future-you is apparently your favourite person."
+
+            description:
+                "You'd rather keep your money than spend it immediately. Future-you is apparently your favourite person."
         },
+
 
         impulse: {
             title: "🛍️ THE IMPULSE SPENDER",
-            description: "You see it. You want it. Suddenly your bank balance is somebody else's problem."
+
+            description:
+                "You see it. You want it. Suddenly your bank balance is somebody else's problem."
         },
+
 
         budgeter: {
             title: "📋 THE BUDGETER",
-            description: "You actually think about where your money is going. Responsible behaviour detected."
+
+            description:
+                "You actually think about where your money is going. Responsible behaviour detected."
         },
+
 
         social: {
             title: "👯 THE SOCIAL SPENDER",
-            description: "A lot of your spending seems to happen when friends are involved. Experiences > bank balance."
+
+            description:
+                "A lot of your spending seems to happen when friends are involved. Experiences > bank balance."
         },
+
 
         spender: {
             title: "💸 THE SPENDER",
-            description: "Money comes in. Money goes out. You deal with the consequences later."
+
+            description:
+                "Money comes in. Money goes out. You deal with the consequences later."
         },
+
 
         mystery: {
             title: "🕵️ THE MONEY MYSTERY",
-            description: "You had money. Then you didn't. Nobody knows what happened. Not even you."
+
+            description:
+                "You had money. Then you didn't. Nobody knows what happened. Not even you."
         }
 
     };
@@ -583,13 +690,16 @@ function calculateArchetype() {
     document.getElementById("archetype-title").textContent =
         archetypes[result].title;
 
+
     document.getElementById("archetype-description").textContent =
         archetypes[result].description;
 
 }
 
 
-// ---------- SHOW DATA ----------
+// =====================================================
+// SHOW DATA
+// =====================================================
 
 function showData() {
 
@@ -604,55 +714,312 @@ function showData() {
 
     container.innerHTML = `
 
+
+        <!-- ================= Q1 ================= -->
+
         <div class="data-section">
+
+            <div class="data-number">01 / 04</div>
 
             <h2>🍔 WHAT DO MU STUDENTS SPEND ON?</h2>
 
-            <p><strong>16 / 17</strong> chose food / eating out.</p>
-            <p><strong>6 / 17</strong> chose entertainment.</p>
-            <p><strong>6 / 17</strong> chose personal care.</p>
-            <p><strong>5 / 17</strong> chose shopping.</p>
-            <p><strong>5 / 17</strong> chose transport.</p>
-            <p><strong>3 / 17</strong> chose academics.</p>
-            <p><strong>1 / 17</strong> chose other.</p>
+            <p class="data-intro">
+                Food absolutely dominates the spending categories
+                selected by our sample.
+            </p>
+
+
+            <div class="data-big-number">
+                16 / 17
+            </div>
+
+            <p class="data-highlight">
+                students selected <strong>food / eating out</strong>.
+            </p>
+
+
+            <div class="data-bars">
+
+                <div class="bar-row">
+                    <span>🍔 Food</span>
+
+                    <div class="bar">
+                        <div class="fill" style="width:94%;"></div>
+                    </div>
+
+                    <strong>16</strong>
+                </div>
+
+
+                <div class="bar-row">
+                    <span>🎬 Entertainment</span>
+
+                    <div class="bar">
+                        <div class="fill" style="width:35%;"></div>
+                    </div>
+
+                    <strong>6</strong>
+                </div>
+
+
+                <div class="bar-row">
+                    <span>🧴 Personal care</span>
+
+                    <div class="bar">
+                        <div class="fill" style="width:35%;"></div>
+                    </div>
+
+                    <strong>6</strong>
+                </div>
+
+
+                <div class="bar-row">
+                    <span>🛍️ Shopping</span>
+
+                    <div class="bar">
+                        <div class="fill" style="width:29%;"></div>
+                    </div>
+
+                    <strong>5</strong>
+                </div>
+
+
+                <div class="bar-row">
+                    <span>🚌 Transport</span>
+
+                    <div class="bar">
+                        <div class="fill" style="width:29%;"></div>
+                    </div>
+
+                    <strong>5</strong>
+                </div>
+
+
+                <div class="bar-row">
+                    <span>📚 Academics</span>
+
+                    <div class="bar">
+                        <div class="fill" style="width:18%;"></div>
+                    </div>
+
+                    <strong>3</strong>
+                </div>
+
+
+                <div class="bar-row">
+                    <span>✨ Other</span>
+
+                    <div class="bar">
+                        <div class="fill" style="width:6%;"></div>
+                    </div>
+
+                    <strong>1</strong>
+                </div>
+
+            </div>
 
         </div>
 
 
+        <!-- ================= Q2 ================= -->
+
         <div class="data-section">
+
+            <div class="data-number">02 / 04</div>
 
             <h2>📊 HOW MUCH GOES TOWARD THE MAIN EXPENSE?</h2>
 
-            <p><strong>1 / 17</strong> — Less than 20%</p>
-            <p><strong>2 / 17</strong> — 20–40%</p>
-            <p><strong>7 / 17</strong> — 40–60%</p>
-            <p><strong>7 / 17</strong> — More than 60%</p>
+            <p class="data-intro">
+                The responses were spread across different percentages,
+                with two groups tied for the highest count.
+            </p>
+
+
+            <div class="percentage-cards">
+
+                <div class="percentage-card">
+                    <strong>1 / 17</strong>
+                    <span>Less than 20%</span>
+                </div>
+
+
+                <div class="percentage-card">
+                    <strong>2 / 17</strong>
+                    <span>20–40%</span>
+                </div>
+
+
+                <div class="percentage-card featured-card">
+                    <strong>7 / 17</strong>
+                    <span>40–60%</span>
+                </div>
+
+
+                <div class="percentage-card featured-card">
+                    <strong>7 / 17</strong>
+                    <span>More than 60%</span>
+                </div>
+
+            </div>
+
+
+            <p class="data-note-small">
+
+                <strong>14 of 17 respondents</strong> reported that
+                their main expense accounted for at least 40%
+                of their spending.
+
+            </p>
 
         </div>
 
 
+        <!-- ================= Q3 ================= -->
+
         <div class="data-section">
+
+            <div class="data-number">03 / 04</div>
 
             <h2>🛒 HOW OFTEN DO STUDENTS IMPULSE BUY?</h2>
 
-            <p><strong>11.8%</strong> — Never</p>
-            <p><strong>35.3%</strong> — Rarely</p>
-            <p><strong>29.4%</strong> — Sometimes</p>
-            <p><strong>11.8%</strong> — Often</p>
-            <p><strong>11.8%</strong> — Very often</p>
+            <p class="data-intro">
+                “Rarely” was the most common individual response.
+            </p>
+
+
+            <div class="impulse-display">
+
+                <div class="impulse-main">
+
+                    <strong>35.3%</strong>
+
+                    <span>Rarely</span>
+
+                    <small>MOST COMMON RESPONSE</small>
+
+                </div>
+
+
+                <div class="impulse-small">
+
+                    <div>
+                        <strong>11.8%</strong>
+                        <span>Never</span>
+                    </div>
+
+                    <div>
+                        <strong>29.4%</strong>
+                        <span>Sometimes</span>
+                    </div>
+
+                    <div>
+                        <strong>11.8%</strong>
+                        <span>Often</span>
+                    </div>
+
+                    <div>
+                        <strong>11.8%</strong>
+                        <span>Very often</span>
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
 
 
+        <!-- ================= Q4 ================= -->
+
         <div class="data-section">
+
+            <div class="data-number">04 / 04</div>
 
             <h2>₹ WHAT WOULD THEY DO WITH ₹1,000?</h2>
 
-            <p><strong>35.3%</strong> — Food / eating out</p>
-            <p><strong>35.3%</strong> — Save it</p>
-            <p><strong>11.8%</strong> — Shopping</p>
-            <p><strong>11.8%</strong> — Entertainment</p>
-            <p><strong>5.9%</strong> — Other</p>
+            <p class="data-intro">
+                And here we get a tie.
+            </p>
+
+
+            <div class="thousand-result">
+
+                <div class="thousand-option">
+
+                    <div class="money-icon">🍔</div>
+
+                    <strong>35.3%</strong>
+
+                    <span>
+                        would choose<br>
+                        <b>food / eating out</b>
+                    </span>
+
+                </div>
+
+
+                <div class="tie">VS</div>
+
+
+                <div class="thousand-option">
+
+                    <div class="money-icon">🏦</div>
+
+                    <strong>35.3%</strong>
+
+                    <span>
+                        would<br>
+                        <b>save it</b>
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <p class="data-note-small">
+
+                Shopping: 11.8% &nbsp;•&nbsp;
+                Entertainment: 11.8% &nbsp;•&nbsp;
+                Other: 5.9%
+
+            </p>
+
+        </div>
+
+
+        <!-- ================= END ================= -->
+
+        <div class="data-final">
+
+            <div class="data-number">
+                END OF DATA
+            </div>
+
+
+            <h2>
+                THERE'S NO SINGLE<br>
+                "AVERAGE" STUDENT.
+            </h2>
+
+
+            <p>
+                Our 17 respondents showed some clear patterns —
+                especially when it came to food — but their spending
+                habits weren't identical.
+            </p>
+
+
+            <p>
+                Your quiz result simply compares your answers
+                with the most common responses in this sample.
+            </p>
+
+
+            <strong>
+                17 students. 4 survey questions.
+                And now you're part of the dataset. 👀
+            </strong>
 
         </div>
 
